@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Units and measurements  </title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url(../ns-images/units.jpg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .pamulu {
+        background-color: #0056b3;
+        width: 50%;
+        text-align: center;
+        border-radius: 6px;
+    }
+    header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #060625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  text-decoration: none;
+  /* border-left: 2px solid #ffffff; */
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  border-left: 2px solid #ffffff;
+}
+
+
+    #question-container {
+    width: 80%;
+    margin: 20px auto;
+    background: rgb(70,195,191);
+background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #000000;
+}
+
+#buttons-container {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-1 {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-1:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.subquestion {
+  border-top: 2px #444 solid;
+  margin-bottom: 5px;
+}
+
+#navigation-container {
+  position: fixed; /* Keeps the buttons at the bottom of the page */
+  bottom: 20px; /* Adds some space from the bottom */
+  left: 0;
+  width: 100%; /* Makes the container span the width of the page */
+  display: flex; /* Aligns the buttons horizontally */
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 10px; /* Adds space between the buttons */
+}
+
+#navigation-container button {
+  background-color: #4CAF50; /* Green background for buttons */
+  color: white; /* White text */
+  padding: 10px 20px; /* Adjust padding for better appearance */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Round corners */
+  cursor: pointer; /* Pointer cursor for hover effect */
+  font-size: 16px; /* Adjust text size */
+}
+
+#navigation-container button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+  </style>
+</head>
+<body>
+<div class="pamulu">
+  <a href="../Non-qota/courses.html" class="logo" style="text-decoration: underline;" > Units and measurements </a>
+
+    
+        <h2> Totoz Collection ! </h2>
+
+  <a href="../Non-qota/PH-topics.html" class="nav" style="color: #000000; font-weight: bolder;" > &Leftarrow; Back </a>
+</div>
+  
+
+  <div id="question-container">
+
+    <!-- 2024 Test 1 -->
+    <div class="question" id="question-1">
+      <h2 style="text-align: center;"> 2024 Test 1 </h2>
+      <div class="subquestion">
+        <h3>(a) How many significant figures are in the following numbers?  (i) 2.26 x 10<sup>-6</sup>  (ii) 0.0053 (iii) 4.244 x 10<sup>8</sup>           [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_1')">Video</button>
+        </div>
+        <div id="solution1_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-a.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(b) A CBU student decided to paint his room that is in form of a cube with each side having length 3 m. He ran out of paint and only managed to paint 5 sides of his room. If 45000 cm³ of paint was used, find the thickness of the paint on the wall.  [5]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_2')">Video</button>
+        </div>
+        <div id="solution1_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-b.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(c) Express the following in terms of prefixes (i) 0.000851 A (ii) 5.44 x 10<sup>-13</sup> g (iii) 73,000,000 m    [3] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_3')">Video</button>
+        </div>
+        <div id="solution1_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-c-i.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(ii) List three limitations of dimensional analysis.   [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_4')">Video</button>
+        </div>
+        <div id="solution1_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-c-ii.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(iii) The velocity of a particle is given by v at² + bt where v is in m/s, time t is in seconds and a, b are constants. Determine the unit of the quantity [ab].          [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_5')">Video</button>
+        </div>
+        <div id="solution1_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-c-iii.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(iv) The centripetal force F acting on a particle depends on the mass m of the particle, its velocity v and radius r of the circle. Derive dimensionally the formula for force F.          [8]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_6')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_6')">Video</button>
+        </div>
+        <div id="solution1_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2024-c-iv.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 Test 1 -->
+    <div class="question hidden" id="question-2">
+      <h2 style="text-align: center;"> 2023 Test 1 </h2>
+      <!-- <img id="main-question-image" src="main_question_image1.png" alt="Main Question Illustration"> -->
+      <div class="subquestion">
+        <h3>(a) When taking measurements in an experiment, the results are expected to be both accurate and precise. Distinguish between accuracy and precision. [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio2_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_1')">Video</button>
+        </div>
+        <div id="solution2_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2023-a.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(b) If the length and width of a rectangular plate are measured to be (17.30±0.05)cm and (13.30±0.05) cm, respectively, find the area of the plate and the approximate uncertainty in the calculated area.[4]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_2')">Video</button>
+        </div>
+        <div id="solution2_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2023-b.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(c) A solid cube is 350 g and each edge has length of 5.35 cm. Determine the density of the cube in Si units. [4]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_3')">Video</button>
+        </div>
+        <div id="solution2_3" class="hidden" style="text-align: center;">
+          <img src="../00.units/2023-c.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(d) The speed v of an object is given by the equation v=At<sup>3</sup>-Bt, where t refers to time. What are the dimensions of A and B? [4]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_4')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_4')">Video</button>
+        </div>
+        <div id="solution2_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2023-d.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(e) (i) Write down the dimensions of velocity, force and density [4]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_5')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_5')">Video</button>
+        </div>
+        <div id="solution2_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2023-e-i.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(ii) A Toyota Harrier moving with velocity v experiences a force F due to air resistance given by the express;
+          <br><p style="text-align: center;"> F = <sup>1</sup>&frasl;<sub>5</sub> Cp<sup>x</sup> V<sup>y</sup> A<sup>z</sup></p>
+          <br>where C is a dimensionless constant called the drag coefficient, p is the density of the air and A is the cross section area of the vehicle. Use dimensional analysis to find the values of the powers of x, y and z. [6] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_6')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_6')">Video</button>
+        </div>
+        <div id="solution2_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/2023-e-ii-a.jpg" alt="Solution for Subquestion 1">
+          <img width="100%" src="../00.units/2023-e-ii-b.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="question hidden" id="question-3">
+      <h2 style="text-align: center;"> 2022 Test 1 </h2>
+      <div class="subquestion">
+        <h3> (a) One gallon of paint, that is 3.78×10m³, covers an area of 25m². What is the thickness of paint on the wall? Give your answer in 5 significant figures.          [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_1')">Video</button>
+        </div>
+        <div id="solution3_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2022-units-a-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> (b) A plate rectangular in form has a length (21.4±0.3)cm and a width of (8.8±0.2)cm. Determine the values of the best area of the plate and its uncertainty.          [4]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_2')">Video</button>
+        </div>
+        <div id="solution3_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2022-units-b-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> (c) A mile is 1760 yards or 1609 meters or 5280 feet, and a fcr'night is 14 days. In 1991, the Zambian athlete, Samuel Matete won an Olympic gold medal, in Zurich, Switzerland, when he represented Zambia in the 400m hurdles. His average speed was 8.5 meters per second. Give his speed in: (i) kilometers per second; (ii) yards per hour; and (iii) feet per fortnight.          [6]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_3')">Video</button>
+        </div>
+        <div id="solution3_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2022-units-c-answer1.JPG" alt="Solution for Subquestion 1">
+          <img width="100%" src="../05.img-ph110-past-papers/2022-units-c-answer2.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(d) (i) What are the three limitations of dimensional analysis? [3] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_4')">Video</button>
+        </div>
+        <div id="solution3_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2022-units-d-i-anwser.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(ii) Assuming that the mass M of the big stone that can be moved by the flowing Kafue River depends on 'v' the velocity, 'p' the density of water and 'g', the acceleration due to gravity. Use dimensional analysis to find an expression for M.          [9]
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_5')">Video</button>
+        </div>
+        <div id="solution3_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="../00.units/units/png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="question hidden" id="question-2">
+      <h2 style="text-align: center;" > 2021 Test 1 </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-units-a.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_1')">Video</button>
+        </div>
+        <div id="solution4_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-a-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-units-b.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_2')">Video</button>
+        </div>
+        <div id="solution4_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-b-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-units-c.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_3')">Video</button>
+        </div>
+        <div id="solution4_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-c-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-units-d.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_4')">Video</button>
+        </div>
+        <div id="solution4_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-d-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-units-e.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_5')">Video</button>
+        </div>
+        <div id="solution4_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-e-answer1.JPG" alt="Solution for Subquestion 1">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-e-answer.JPG" alt="Solution for Subquestion 1">
+          <img width="100%" src="../05.img-ph110-past-papers/2021-units-e-answer2.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-2">
+      <h2 style="text-align: center;" > 2020 Test 1 </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-units-a.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_1')">Video</button>
+        </div>
+        <div id="solution5_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-units-a-answer.PNG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-units-b.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_2')">Video</button>
+        </div>
+        <div id="solution5_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-units-b-answer.PNG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-units-c.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_3')">Video</button>
+        </div>
+        <div id="solution5_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-units-c-answer1.PNG" alt="Solution for Subquestion 1">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-units-c-answer2.PNG" alt="Solution for Subquestion 1">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-units-c-answer3.PNG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div id="navigation-container" class="buttons">
+    <button onclick="previousQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+  
+
+  <script>
+    let currentQuestion = 0;
+
+function toggleContent(contentId) {
+    const content = document.getElementById(contentId);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+    } else {
+        content.classList.add('hidden');
+    }
+}
+
+function previousQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion > 0) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion -= 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+function nextQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion < questions.length - 1) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion += 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+// Hide all questions except the first one
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question, index) => {
+        if (index !== 0) question.style.display = 'none';
+    });
+});
+
+  </script>
+</body>
+</html>

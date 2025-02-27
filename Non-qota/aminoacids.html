@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Horizontal scroll bar container */
+        .scroll-bar-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #007bff;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-bar a {
+            display: inline-block;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-bar a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Space for the fixed scroll bar */
+        .questions-container {
+            padding-top: 50px; /* Adjust based on the height of the scroll bar */
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .question {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-bar-container">
+        <div class="scroll-bar">
+            <!-- Dynamically generate question numbers -->
+            <!-- Replace 1 to 10 with your actual range -->
+            <a href="#question-1">1</a>
+            <a href="#question-2">2</a>
+            <a href="#question-3">3</a>
+            <a href="#question-4">4</a>
+            <a href="#question-5">5</a>
+            <a href="#question-6">6</a>
+            <a href="#question-7">7</a>
+            <a href="#question-8">8</a>
+            <a href="#question-9">9</a>
+            <a href="#question-10">10</a>
+        </div>
+    </div>
+
+    <div class="questions-container">
+        <div id="question-1" class="question">
+            <h3>Question 1</h3>
+            <p>This is question 1.</p>
+        </div>
+        <div id="question-2" class="question">
+            <h3>Question 2</h3>
+            <p>This is question 2.</p>
+        </div>
+        <div id="question-3" class="question">
+            <h3>Question 3</h3>
+            <p>This is question 3.</p>
+        </div>
+        <div id="question-4" class="question">
+            <h3>Question 4</h3>
+            <p>This is question 4.</p>
+        </div>
+        <div id="question-5" class="question">
+            <h3>Question 5</h3>
+            <p>This is question 5.</p>
+        </div>
+        <div id="question-6" class="question">
+            <h3>Question 6</h3>
+            <p>This is question 6.</p>
+        </div>
+        <div id="question-7" class="question">
+            <h3>Question 7</h3>
+            <p>This is question 7.</p>
+        </div>
+        <div id="question-8" class="question">
+            <h3>Question 8</h3>
+            <p>This is question 8.</p>
+        </div>
+        <div id="question-9" class="question">
+            <h3>Question 9</h3>
+            <p>This is question 9.</p>
+        </div>
+        <div id="question-10" class="question">
+            <h3>Question 10</h3>
+            <p>This is question 10.</p>
+        </div>
+    </div>
+</body>
+</html>
