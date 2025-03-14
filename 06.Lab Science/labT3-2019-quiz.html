@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2019 Lab Science </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(quiz.webp);
+            background-position: center;
+            background-size: cover;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            /* left: 0; */
+            /* align-content: center; */
+            text-align: center;
+            /* justify-content: center; */
+            width: 80%;
+            padding: 10px 20px;
+            background: #060625;
+            display: flex;
+            border-radius: 6px;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav {
+            color: #ffffff;
+            text-align: center;
+            padding-left: 1.7rem;
+            text-decoration: none;
+            border-left: 2px solid #ffffff;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 28px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header h2 {
+            color: #ffffff;
+            text-align: center;
+            padding-left: 1.7rem;
+            border-left: 2px solid #ffffff;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left ;
+            width: 300px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .options button.correct {
+            background-color: #28a745 !important;
+        }
+        .options button.wrong {
+            background-color: #dc3545 !important;
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #next-button, #result-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button:hover, #result-button:hover {
+            background-color: #0056b3;
+        }
+        .chapwa {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        .result-box {
+            color: #ffffff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(.9);
+            width: 300px;
+            height: 400px;
+            background: transparent;
+            border: 2px solid #c40894;
+            border-radius: 6px;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 1;
+            pointer-events: auto;
+            transition: .3s ease;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .percentage-container {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0px 40px;
+        }
+        .circular-progress {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background: conic-gradient(#c40094 3.6deg, rgba(255, 255, 255, .4) 0deg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            background: seagreen;
+            border-radius: 50%;
+            background: rgb(61, 65, 61);
+        }
+        .progress-value {
+            position: relative;
+            font-size: 45px;
+            font-weight: 600;
+        }
+        .score-text {
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .result-box .buttons {
+            display: flex;
+        }
+        .buttons button{
+            width: 130px;
+            height: 47px;
+            outline: none;
+            background: #c40094;
+            border: 2px solid #c40094;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 600;
+            margin: 0 20px 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .buttons button:nth-child(1):hover {
+            background: #950170;
+            color: #fff;
+        }
+        .buttons button:nth-child(2) {
+            background: transparent;
+            color: #c40094;
+        }
+        .buttons button:nth-child(2):hover {
+            background: #c40094;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"> 2019 Test 3 </a>
+
+    
+        <h2> Lab Science </h2>
+
+        <a href="../Totoz Study Space/lab-test3.html" class="nav"> Back </a>
+
+    </header>
+    
+    <div class="quiz-container">
+        <!-- <h1>MCQ Quiz</h1> -->
+        <div id="question-container">
+            <h2 id="question">Question will appear here</h2>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(this)">Option 1</button>
+                <button class="option" onclick="checkAnswer(this)">Option 2</button>
+                <button class="option" onclick="checkAnswer(this)">Option 3</button>
+                <button class="option" onclick="checkAnswer(this)">Option 4</button>
+                <button class="option" onclick="checkAnswer(this)">Option 5</button>
+            </div>
+            <p id="feedback"></p>
+            <button id="next-button" onclick="nextQuestion()">Next Question</button>
+            <button id="result-button" onclick="showResults()">See Results</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+        
+    {
+        "question": "In the microscopic examination of stool for intestinal parasitic infections, which structure resembles a certain parasite?",
+        "options": [ 
+            "Dust particles", 
+            "Red blood cell", 
+            "Macrophage", 
+            "Leaf", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Macrophage",
+        "explanation": ""
+    },
+    {
+        "question": "Above which plasma bilirubin levels does jaundice develop?",
+        "options": [ 
+            "3 mg/dl", 
+            "5 mg/dl", 
+            "2 mg/ml", 
+            "5 mg/l", 
+            "2 mg/dl" 
+        ],
+        "correctAnswer": "2 mg/dl",
+        "explanation": "Jaundice becomes clinically apparent when plasma bilirubin levels exceed 2 mg/dl due to the yellow discoloration of tissues."
+    },
+    {
+        "question": "In liver disease, which one of the following is a CORRECT finding?",
+        "options": [ 
+            "Plasma protein levels are increased", 
+            "Immunoglobulin levels are decreased", 
+            "Immunoglobulin levels are increased", 
+            "Plasma protein levels remain unchanged", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Immunoglobulin levels are increased",
+        "explanation": "In liver disease, immunoglobulin levels are often increased due to the liver's role in immune response regulation and chronic inflammation."
+    },
+    {
+        "question": "One of the following specific gravity readings of urine is abnormal when the patient is in the resting state:",
+        "options": [ 
+            "1.018", 
+            "1.030", 
+            "1.020", 
+            "1.017", 
+            "None of the above" 
+        ],
+        "correctAnswer": "1.030",
+        "explanation": "A specific gravity of 1.030 is abnormally high for resting states, often indicating concentrated urine due to dehydration or other conditions."
+    },
+    {
+        "question": "5. Namant preservation of stool is NOT used to preserve which stage of intestinal parasites?",
+        "options": [ 
+            "Larva", 
+            "Cyst", 
+            "Trophozoite", 
+            "All of the above", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Trophozoite",
+        "explanation": "Trophozoites are fragile and require immediate fixation or examination, as they do not survive well in Namant preservation methods."
+    },
+    {
+        "question": "6. In detoxification of toxic substances in the body, which one of the following substances is NOT utilized for conjugation?",
+        "options": [ 
+            "Glucuronic acid", 
+            "Bile salts", 
+            "Glycine", 
+            "Sulfate" 
+        ],
+        "correctAnswer": "Bile salts",
+        "explanation": "Bile salts are primarily involved in digestion and absorption of lipids, not in conjugation for detoxification."
+    },
+    {
+        "question": "7. In a perforated intestinal ulcer, which one of the following is a CORRECT finding in peritoneal fluid examination?",
+        "options": [ 
+            "pH is 7.0", 
+            "pH is greater than 7.0", 
+            "pH is less than 7.0", 
+            "None of the above" 
+        ],
+        "correctAnswer": "pH is less than 7.0",
+        "explanation": "Perforated intestinal ulcers often lead to peritoneal contamination with acidic gastric contents, lowering the pH of the fluid."
+    },
+    {
+        "question": "8. A patient taking Ferrous sulphate tablets may pass:",
+        "options": [ 
+            "Bloody stool", 
+            "Pale stool", 
+            "Black stool", 
+            "All of the above", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Black stool",
+        "explanation": "Ferrous sulfate can cause black stool due to the oxidation of iron in the gastrointestinal tract, which is a harmless side effect."
+    },
+    {
+        "question": "9. Which one of the following is NOT a Non-protein Nitrogen compound?",
+        "options": [ 
+            "Urea", 
+            "Amino acid", 
+            "Uric acid", 
+            "Nucleic acid", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Nucleic acid",
+        "explanation": "Nucleic acids are macromolecules involved in genetic material composition, unlike other Non-protein Nitrogen compounds derived from protein metabolism."
+    },
+    {
+        "question": "10. The volume of urine excreted in a 24-hour period by an adult patient was 300 ml. This condition would be termed:",
+        "options": [ 
+            "Anuria", 
+            "Oliguria", 
+            "Polyuria", 
+            "Dysuria", 
+            "Pyuria" 
+        ],
+        "correctAnswer": "Oliguria",
+        "explanation": "Oliguria refers to reduced urine output, typically less than 400 ml per day in adults. Anuria is the absence of urine, and 300 ml does not meet that criterion."
+    },
+    {
+        "question": "11. What type of urine specimen is recommended for a pregnancy test?",
+        "options": [ 
+            "Random", 
+            "24-hour", 
+            "First morning", 
+            "Midstream", 
+            "Suprapubic aspiration" 
+        ],
+        "correctAnswer": "First morning",
+        "explanation": "The first-morning urine is recommended for pregnancy tests because it contains the highest concentration of hCG hormone, increasing test accuracy."
+    },
+    {
+        "question": "12. Normal urine primarily consists of:",
+        "options": [ 
+            "Water, protein, and sodium", 
+            "Water, urea, and protein", 
+            "Water, urea, and chloride", 
+            "Water, urea, and bilirubin", 
+            "Water, creatinine, and glucose" 
+        ],
+        "correctAnswer": "Water, urea, and chloride",
+        "explanation": "Normal urine primarily contains water (95%), urea (2%), and chloride, along with other electrolytes and waste products. Protein, bilirubin, and glucose are usually not present in healthy urine."
+    },
+    {
+        "question": "13. Which of the following statements on the catalase test is correct?",
+        "options": [ 
+            "It is used to detect bacteria that produce the enzyme coagulase", 
+            "In a positive reaction, hydrogen peroxide is broken down to water and oxygen", 
+            "All cocci are catalase positive", 
+            "It measures the haemolytic activity of bacteria on blood agar", 
+            "All of the above" 
+        ],
+        "correctAnswer": "In a positive reaction, hydrogen peroxide is broken down to water and oxygen",
+        "explanation": "The catalase test detects the production of catalase enzyme, which breaks down hydrogen peroxide into water and oxygen, indicating a positive reaction. Not all cocci are catalase positive, and it is unrelated to coagulase or haemolysis."
+    },
+    {
+        "question": "14. The following statements on hepatitis are correct except:",
+        "options": [ 
+            "Hepatitis is a viral infection of the liver", 
+            "Hepatitis A is spread through the fecal-oral route", 
+            "Hepatitis B is spread through blood or sexual contact", 
+            "Hepatitis C is spread through the fecal-oral route", 
+            "Hepatitis D can be spread through blood or sexual contact" 
+        ],
+        "correctAnswer": "Hepatitis C is spread through the fecal-oral route",
+        "explanation": "Hepatitis C is transmitted through blood or bodily fluids, not the fecal-oral route. Hepatitis A is the type spread via the fecal-oral route."
+    },
+    {
+        "question": "15. Which statement on the blood culture algorithm is correct?",
+        "options": [ 
+            "Aerobic bacteria are routinely cultured on selective media such as MacConkey agar", 
+            "Anaerobic bacteria are routinely cultured on selective media such as MacConkey agar", 
+            "Initial blood culture bottles are typically incubated for 48 hours at 37°C", 
+            "A gram stain is not necessary before culture", 
+            "All of the above" 
+        ],
+        "correctAnswer": "Initial blood culture bottles are typically incubated for 48 hours at 37°C",
+        "explanation": "Blood culture bottles are usually incubated for 48 hours at 37°C to allow the growth of bacteria. MacConkey agar is not used for primary blood culture, and Gram staining is an essential step."
+    },
+    {
+        "question": "16. The following are characteristics of dysentery except:",
+        "options": [ 
+            "Patient is febrile", 
+            "Large volume of diarrhoea", 
+            "Red blood cells are present", 
+            "White blood cells are present", 
+            "Infection is in the large intestines" 
+        ],
+        "correctAnswer": "Large volume of diarrhoea",
+        "explanation": "Dysentery is characterized by small-volume, frequent stools often containing blood and mucus, unlike the large-volume diarrhea seen in other conditions."
+    },
+    {
+        "question": "17. Which of the following is true regarding stool examination?",
+        "options": [ 
+            "Stool specimen should be cultured within a short time as the pH rises as stool cools", 
+            "At least 10g of the sample should be collected", 
+            "Rectal swab is only collected if stool is unobtainable", 
+            "Swab should be inserted in the anus for at least 10 seconds", 
+            "A sample contaminated with urine must be rejected" 
+        ],
+        "correctAnswer": "A sample contaminated with urine must be rejected",
+        "explanation": "Urine contamination affects the accuracy of stool culture and microscopy, hence such samples must be rejected. The other statements are also correct but incomplete or situational."
+    },
+    {
+        "question": "18. All of the statements below are correct except:",
+        "options": [ 
+            "Salmonella typhi is a non-lactose fermenter", 
+            "Selenite-F Broth is selective medium for the isolation of Shigella", 
+            "Widal test is a serological test used in diagnosing typhoid fever", 
+            "Pseudomonas aeruginosa is part of normal flora of stool", 
+            "Escherichia coli O157:H7 causes sporadic cases and outbreaks" 
+        ],
+        "correctAnswer": "Pseudomonas aeruginosa is part of normal flora of stool",
+        "explanation": "Pseudomonas aeruginosa is not a normal part of stool flora but a potential pathogen. The other statements about Salmonella, Shigella, and E. coli are correct."
+    },
+    {
+        "question": "19. Which of the following strains of E. coli is implicated in hemolytic uremic syndrome?",
+        "options": [ 
+            "EPEC", 
+            "EIEC", 
+            "EHEC", 
+            "None of the above" 
+        ],
+        "correctAnswer": "EHEC",
+        "explanation": "Enterohemorrhagic E. coli (EHEC), particularly the O157:H7 strain, is known to cause hemolytic uremic syndrome (HUS), a severe complication affecting the kidneys."
+    },
+    {
+        "question": "20. Which of the following is NOT true regarding cholera diagnosis?",
+        "options": [ 
+            "Produces yellow colonies on TCBS", 
+            "Alkaline peptone water is used for enrichment", 
+            "It is oxidase positive", 
+            "It is a lactose fermenter", 
+            "RDTs are available" 
+        ],
+        "correctAnswer": "It is a lactose fermenter",
+        "explanation": "Vibrio cholerae is not a lactose fermenter. It produces yellow colonies on TCBS due to sucrose fermentation, is oxidase positive, and can be enriched in alkaline peptone water. Rapid diagnostic tests (RDTs) are also available."
+    }
+]
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            const buttons = document.querySelectorAll(".option");
+            buttons.forEach((btn, index) => {
+                btn.textContent = currentQuestion.options[index];
+                btn.disabled = false;
+                btn.classList.remove('correct', 'wrong');
+            });
+            document.getElementById('feedback').textContent = "";
+            document.getElementById('next-button').style.display = "none";
+        }
+
+        function checkAnswer(button) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const buttons = document.querySelectorAll(".option");
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (button.textContent === currentQuestion.correctAnswer) {
+                button.classList.add('correct');
+                document.getElementById('feedback').textContent = "Correct!";
+                document.getElementById('feedback').style.color = "#28a745";
+                score++;
+            } else {
+                button.classList.add('wrong');
+                document.getElementById('feedback').textContent = currentQuestion.explanation;
+                document.getElementById('feedback').style.color = "#dc3545";
+
+                buttons.forEach(btn => {
+                    if (btn.textContent === currentQuestion.correctAnswer) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                document.getElementById('next-button').style.display = "block";
+            } else {
+                document.getElementById('result-button').style.display = "block";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showResults() {
+            const totalQuestions = questions.length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+    // Initialize the result box content
+    document.getElementById('question-container').innerHTML = `
+    <div class="result-box">
+        <h2>Quiz Result</h2>
+        <div class="percentage-container">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <span class="score-text">Your Score 0 out of ${totalQuestions}</span>
+        </div>
+        <div class="buttons">
+            <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
+            <button class="done-btn" onclick="finishQuiz()">Done</button>
+        </div>
+    </div>
+    `;
+
+    let progressValue = 0;
+    let speed = 20;  // Speed of the animation (the lower the value, the faster the animation)
+    
+    // Animate the percentage and color
+    const progressInterval = setInterval(() => {
+        progressValue++;
+        document.querySelector('.progress-value').textContent = `${progressValue}%`;
+        document.querySelector('.circular-progress').style.background = `conic-gradient(
+            #c40094 ${progressValue * 3.6}deg,
+            rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+        )`;
+        document.querySelector('.score-text').textContent = `Your Score ${Math.round((progressValue / 100) * totalQuestions)} out of ${totalQuestions}`;
+
+        if (progressValue === percentage) {
+            clearInterval(progressInterval);
+        }
+    }, speed);
+}
+
+
+        function restartQuiz() {
+            window.location.reload();
+        }
+
+        function finishQuiz() {
+            window.location.href = 'lab-test1.html';
+            // Add any additional actions you want to take when the quiz is done
+        }
+
+        // Load the first question when the page is loaded
+        loadQuestion();
+    </script>
+</body>
+</html>

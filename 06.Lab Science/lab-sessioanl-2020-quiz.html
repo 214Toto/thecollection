@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2020 Lab Science </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(quiz.webp);
+            background-position: center;
+            background-size: cover;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            /* left: 0; */
+            /* align-content: center; */
+            text-align: center;
+            /* justify-content: center; */
+            width: 80%;
+            padding: 10px 20px;
+            background: #060625;
+            display: flex;
+            border-radius: 6px;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav {
+            color: #ffffff;
+            text-align: center;
+            padding-left: 1.7rem;
+            text-decoration: none;
+            border-left: 2px solid #ffffff;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 28px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header h2 {
+            color: #ffffff;
+            text-align: center;
+            padding-left: 1.7rem;
+            border-left: 2px solid #ffffff;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left ;
+            width: 300px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .options button.correct {
+            background-color: #28a745 !important;
+        }
+        .options button.wrong {
+            background-color: #dc3545 !important;
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #next-button, #result-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-button:hover, #result-button:hover {
+            background-color: #0056b3;
+        }
+        .chapwa {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        .result-box {
+            color: #ffffff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(.9);
+            width: 300px;
+            height: 400px;
+            background: transparent;
+            border: 2px solid #c40894;
+            border-radius: 6px;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 1;
+            pointer-events: auto;
+            transition: .3s ease;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .percentage-container {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0px 40px;
+        }
+        .circular-progress {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background: conic-gradient(#c40094 3.6deg, rgba(255, 255, 255, .4) 0deg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            background: seagreen;
+            border-radius: 50%;
+            background: rgb(61, 65, 61);
+        }
+        .progress-value {
+            position: relative;
+            font-size: 45px;
+            font-weight: 600;
+        }
+        .score-text {
+            font-size: 26px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .result-box .buttons {
+            display: flex;
+        }
+        .buttons button{
+            width: 130px;
+            height: 47px;
+            outline: none;
+            background: #c40094;
+            border: 2px solid #c40094;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 600;
+            margin: 0 20px 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .buttons button:nth-child(1):hover {
+            background: #950170;
+            color: #fff;
+        }
+        .buttons button:nth-child(2) {
+            background: transparent;
+            color: #c40094;
+        }
+        .buttons button:nth-child(2):hover {
+            background: #c40094;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"> 2020 Sessional </a>
+
+    
+        <h2> Lab Science </h2>
+
+        <a href="../Totoz Study Space/lab-test1.html" class="nav"> Back </a>
+
+    </header>
+
+    <div class="quiz-container">
+        <!-- <h1>MCQ Quiz</h1> -->
+        <div id="question-container">
+            <h2 id="question">Question will appear here</h2>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(this)">Option 1</button>
+                <button class="option" onclick="checkAnswer(this)">Option 2</button>
+                <button class="option" onclick="checkAnswer(this)">Option 3</button>
+                <button class="option" onclick="checkAnswer(this)">Option 4</button>
+                <button class="option" onclick="checkAnswer(this)">Option 5</button>
+            </div>
+            <p id="feedback"></p>
+            <button id="next-button" onclick="nextQuestion()">Next Question</button>
+            <button id="result-button" onclick="showResults()">See Results</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+        {
+        "question": "1. An ordinary light microscope can be converted into a fluorescent microscope by using:",
+        "options": [ 
+            "Sunlight", 
+            "Normal light bulb light", 
+            "Ultra violet light", 
+            "Electron beam", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Ultra violet light",
+        "explanation": "Fluorescent microscopes require ultraviolet light to excite the fluorescent dyes in the sample, making the structures visible under the microscope."
+    },
+    {
+        "question": "2. What term is given to the shortest distance between two points on a specimen that can be distinguished as separate entities under the microscope?",
+        "options": [ 
+            "Contrast", 
+            "Magnification", 
+            "Shrinking", 
+            "Resolution", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Resolution",
+        "explanation": "Resolution is the ability of a microscope to distinguish two points as distinct and separate, and it is a critical parameter in microscopy."
+    },
+    {
+        "question": "3. What is the limit of resolution of the unaided eye?",
+        "options": [ 
+            "0.1 µm", 
+            "0.1 cm", 
+            "0.1 mm", 
+            "0.5 µm", 
+            "None of the above" 
+        ],
+        "correctAnswer": "0.1 mm",
+        "explanation": "The unaided human eye can resolve objects that are at least 0.1 mm apart. Smaller distances require optical aids like microscopes."
+    },
+    {
+        "question": "4. In an Electron microscope, the electron beam is focused by:",
+        "options": [ 
+            "Objective lens", 
+            "Condenser", 
+            "Ocular lens", 
+            "Electromagnetic coil", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Electromagnetic coil",
+        "explanation": "In electron microscopes, electromagnetic coils are used to focus the electron beam, as traditional glass lenses cannot manipulate electrons."
+    },
+    {
+        "question": "5. Which one of the following is TRUE about a scanning electron microscope?",
+        "options": [ 
+            "It was the first developed electron microscope", 
+            "It gives three-dimensional objects in high resolution", 
+            "It is suitable for objects with moisture", 
+            "Object is in the form of a thin slice of a sample", 
+            "None of the above" 
+        ],
+        "correctAnswer": "It gives three-dimensional objects in high resolution",
+        "explanation": "A scanning electron microscope (SEM) provides detailed three-dimensional images of the surface of samples, unlike transmission electron microscopes (TEM), which require thin slices."
+    }, 
+    {
+        "question": "6. In which symbiotic relationship is there physiological dependency of an organism without the host benefiting from the relationship?",
+        "options": [ 
+            "Phoresis", 
+            "Mutualism", 
+            "Parasitism", 
+            "Commensalism", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Parasitism",
+        "explanation": "In parasitism, one organism benefits at the expense of the host, and the host does not benefit from the relationship."
+    },
+    {
+        "question": "7. The largest overlap between symbiotic relationships is between:",
+        "options": [ 
+            "Parasitism and mutualism", 
+            "Phoresis/commensalism and Parasitism", 
+            "Mutualism and Phoresis/commensalism", 
+            "All of the above", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Phoresis/commensalism and Parasitism",
+        "explanation": "There is often an overlap between phoresis/commensalism (where one benefits without harming the host) and parasitism (where one benefits at the expense of the host), especially in cases of opportunistic interactions."
+    },
+    {
+        "question": "8. Serum is:",
+        "options": [ 
+            "Same as plasma", 
+            "Is plasma without electrolytes", 
+            "Is plasma without fibrinogen", 
+            "Is plasma without urea", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Is plasma without fibrinogen",
+        "explanation": "Serum is the liquid portion of blood that remains after clotting and is essentially plasma minus fibrinogen, the protein involved in blood clotting."
+    },
+    {
+        "question": "9. The earliest recognizable precursors of platelets are:",
+        "options": [ 
+            "Pronormoblasts", 
+            "Megakaryocytes", 
+            "Myeloblasts", 
+            "Basophils", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Megakaryocytes",
+        "explanation": "Megakaryocytes are the largest precursors of platelets, which release small fragments that mature into platelets involved in clotting."
+    },
+    {
+        "question": "10. What is the normal proportion of the solid part of blood?",
+        "options": [ 
+            "100%", 
+            "30%", 
+            "50%", 
+            "60%", 
+            "45%" 
+        ],
+        "correctAnswer": "45%",
+        "explanation": "The solid components of blood, including red blood cells, white blood cells, and platelets, make up about 45% of the total blood volume in a healthy individual."
+    },
+    {
+        "question": "11. Which degree of biochemical pathology is detectable in the resting state of a patient?",
+        "options": [ 
+            "Minor damage", 
+            "Major damage", 
+            "Hidden damage", 
+            "All of the above", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Hidden damage",
+        "explanation": "Hidden damage refers to biochemical changes that may not be detectable through clinical signs but can be identified with advanced tests in a resting state."
+    },
+    {
+        "question": "12. The main body compartment in compartment analysis is:",
+        "options": [ 
+            "Intracellular fluid", 
+            "Pleural fluid", 
+            "Interstitial fluid", 
+            "Plasma", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Intracellular fluid",
+        "explanation": "The majority of body water is found in the intracellular compartment, making it the main body compartment in compartment analysis."
+    },
+    {
+        "question": "13. Secondary antibody responses are better because:",
+        "options": [ 
+            "They provide defense against unrelated antigens", 
+            "The antibody can be made by both T and B cells", 
+            "Complement-fixing antibodies are made", 
+            "They do not require T-cell help", 
+            "They are stronger and faster" 
+        ],
+        "correctAnswer": "They are stronger and faster",
+        "explanation": "Secondary immune responses are quicker and stronger due to the presence of memory B cells, which have already encountered the antigen."
+    },
+    {
+        "question": "14. Which cell type produces antibodies?",
+        "options": [ 
+            "Macrophages", 
+            "T-lymphocytes", 
+            "Natural Killer cells", 
+            "Plasma cells", 
+            "Eosinophils" 
+        ],
+        "correctAnswer": "Plasma cells",
+        "explanation": "Plasma cells are specialized B cells that secrete large amounts of antibodies to help in the immune response."
+    },
+    {
+        "question": "15. The secondary, but not the primary, immune response is based on:",
+        "options": [ 
+            "Memory", 
+            "The bonus effect of multivalency", 
+            "Complement activation", 
+            "Mast cell degranulation", 
+            "Clonal selection" 
+        ],
+        "correctAnswer": "Memory",
+        "explanation": "The secondary immune response is faster and stronger because memory cells, generated during the first exposure, are available to respond more quickly to subsequent exposures."
+    },
+    {
+        "question": "16. Which of the following statements does not apply to the primary immune response?",
+        "options": [ 
+            "Appears quickly", 
+            "Neutralizes bacterial toxins", 
+            "Can fix complement", 
+            "Crosses the human placenta", 
+            "Opsonizes bacteria" 
+        ],
+        "correctAnswer": "Crosses the human placenta",
+        "explanation": "The primary immune response is slower, and its antibodies generally do not cross the placenta. It's the secondary response and IgG antibodies that can cross the placenta."
+    },
+    {
+        "question": "17. Which of the following is true about a facultative anaerobe?",
+        "options": [ 
+            "Strictly require O2 for their growth", 
+            "Require increased concentration of CO2", 
+            "Cannot use oxygen for growth but grows in its presence", 
+            "Capable of growing either in the presence or absence of O2", 
+            "Require increased concentration of CO2" 
+        ],
+        "correctAnswer": "Capable of growing either in the presence or absence of O2",
+        "explanation": "Facultative anaerobes can adapt to using oxygen when available but can also grow without oxygen."
+    },
+    {
+        "question": "18. During acid-fast staining, Carbol fuchsin acts as:",
+        "options": [ 
+            "Primary stain", 
+            "Mordant", 
+            "Counterstain", 
+            "Secondary stain", 
+            "Decolorizer" 
+        ],
+        "correctAnswer": "Primary stain",
+        "explanation": "Carbol fuchsin is used as the primary stain in acid-fast staining to identify bacteria such as Mycobacterium."
+    },
+    {
+        "question": "19. Which of the following antibodies is useful in the diagnosis of acute viral infection?",
+        "options": [ 
+            "Ig A", 
+            "Ig E", 
+            "Ig M", 
+            "Ig G", 
+            "None of the above" 
+        ],
+        "correctAnswer": "Ig M",
+        "explanation": "IgM antibodies are produced early in an acute viral infection and are often used to diagnose such infections."
+    },
+    {
+        "question": "20. The following are used for viral classification except:",
+        "options": [ 
+            "Morphology", 
+            "Antigenic properties", 
+            "Genome type", 
+            "Replication method", 
+            "Cultural characteristics" 
+        ],
+        "correctAnswer": "Cultural characteristics",
+        "explanation": "Viral classification is typically based on morphology, antigenic properties, genome type, and replication methods, but cultural characteristics are not typically used since viruses cannot be cultured like bacteria."
+    }
+];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            const buttons = document.querySelectorAll(".option");
+            buttons.forEach((btn, index) => {
+                btn.textContent = currentQuestion.options[index];
+                btn.disabled = false;
+                btn.classList.remove('correct', 'wrong');
+            });
+            document.getElementById('feedback').textContent = "";
+            document.getElementById('next-button').style.display = "none";
+        }
+
+        function checkAnswer(button) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const buttons = document.querySelectorAll(".option");
+            buttons.forEach(btn => btn.disabled = true);
+
+            if (button.textContent === currentQuestion.correctAnswer) {
+                button.classList.add('correct');
+                document.getElementById('feedback').textContent = "Correct!";
+                document.getElementById('feedback').style.color = "#28a745";
+                score++;
+            } else {
+                button.classList.add('wrong');
+                document.getElementById('feedback').textContent = currentQuestion.explanation;
+                document.getElementById('feedback').style.color = "#dc3545";
+
+                buttons.forEach(btn => {
+                    if (btn.textContent === currentQuestion.correctAnswer) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                document.getElementById('next-button').style.display = "block";
+            } else {
+                document.getElementById('result-button').style.display = "block";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showResults() {
+            const totalQuestions = questions.length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+
+    // Initialize the result box content
+    document.getElementById('question-container').innerHTML = `
+    <div class="result-box">
+        <h2>Quiz Result</h2>
+        <div class="percentage-container">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <span class="score-text">Your Score 0 out of ${totalQuestions}</span>
+        </div>
+        <div class="buttons">
+            <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
+            <button class="done-btn" onclick="finishQuiz()">Done</button>
+        </div>
+    </div>
+    `;
+
+    let progressValue = 0;
+    let speed = 20;  // Speed of the animation (the lower the value, the faster the animation)
+    
+    // Animate the percentage and color
+    const progressInterval = setInterval(() => {
+        progressValue++;
+        document.querySelector('.progress-value').textContent = `${progressValue}%`;
+        document.querySelector('.circular-progress').style.background = `conic-gradient(
+            #c40094 ${progressValue * 3.6}deg,
+            rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+        )`;
+        document.querySelector('.score-text').textContent = `Your Score ${Math.round((progressValue / 100) * totalQuestions)} out of ${totalQuestions}`;
+
+        if (progressValue === percentage) {
+            clearInterval(progressInterval);
+        }
+    }, speed);
+}
+
+
+        function restartQuiz() {
+            window.location.reload();
+        }
+
+        function finishQuiz() {
+            window.location.href = 'lab-test1.html';
+            // Add any additional actions you want to take when the quiz is done
+        }
+
+        // Load the first question when the page is loaded
+        loadQuestion();
+    </script>
+</body>
+</html>
