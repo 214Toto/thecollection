@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matching Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      /* background-color: #f4f4f9; */
+      background-image: url(cover4.png.webp);
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    header {
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  width: 80%;
+
+  padding: 10px 20px;
+  background: #060625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  text-decoration: none;
+  border-left: 2px solid #ffffff;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  border-left: 2px solid #ffffff;
+}
+    .game-container {
+      text-align: center;
+    }
+    .dropdown {
+      margin: 10px;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #0077cc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056a3;
+    }
+    .message, .timer {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .timer {
+      color: #34ff22;
+      background-color: #060625;
+    }
+    .congratulations {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo"> CBU SOM </a>
+  
+    
+        <!-- <h2> ! </h2> -->
+  
+        <a href="../Totoz Study Space/intro-pathology-quiz-T3.html" class="nav"> Back </a>
+  
+  
+      </header> 
+
+  <div class="game-container">
+    <h1 style="background-color: #ff5722;"> Prefixes: Size and Amount </h1>
+    <p class="timer" id="timer">Time Left: 20 seconds</p>
+    <select id="space1" class="dropdown">
+      <option value="" disabled selected>Choose an option</option>
+    </select>
+    <select id="space2" class="dropdown">
+      <option value="" disabled selected>Choose an option</option>
+    </select>
+    <button class="btn" onclick="checkMatch()">Check Match</button>
+    <div id="message" class="message"></div>
+    <div id="congratulations" class="congratulations"></div>
+  </div>
+
+  <script>
+    // Items to match
+    const pairs = [
+      { item1: "Macro", item2: "Large, Visible to the naked eye" },
+      { item1: "Micro", item2: "Small, not visible to the naked eye" },
+      { item1: "Hyper", item2: "High, above, normal, elevated" },
+      { item1: "Hypo", item2: "Low, below, decreased, deficient" },
+      { item1: "Eu/Norm", item2: "Normal" },
+      { item1: "Pan/Omni", item2: "All" },
+      { item1: "A/An", item2: "Absent" },
+      { item1: "Megalo", item2: "Large, larger than average" }
+    ];
+
+    let matchedCount = 0;
+    const totalPairs = pairs.length;
+
+    // Timer variables
+    let timeLeft = 20;
+    const timerElement = document.getElementById("timer");
+    let timer;
+
+    // Shuffled options
+    const options1 = pairs.map(pair => pair.item1).sort(() => Math.random() - 0.5);
+    const options2 = pairs.map(pair => pair.item2).sort(() => Math.random() - 0.5);
+
+    // Populate dropdowns
+    const space1 = document.getElementById("space1");
+    const space2 = document.getElementById("space2");
+
+    options1.forEach(option => {
+      const opt = document.createElement("option");
+      opt.value = option;
+      opt.textContent = option;
+      space1.appendChild(opt);
+    });
+
+    options2.forEach(option => {
+      const opt = document.createElement("option");
+      opt.value = option;
+      opt.textContent = option;
+      space2.appendChild(opt);
+    });
+
+    // Start timer
+    function startTimer() {
+      timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Time Left: ${timeLeft} seconds`;
+
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          endGame(false); // Time ran out
+        }
+      }, 1000);
+    }
+
+    // Check match
+    function checkMatch() {
+      const selected1 = space1.value;
+      const selected2 = space2.value;
+      const message = document.getElementById("message");
+
+      if (!selected1 || !selected2) {
+        message.textContent = "Please select options from both spaces!";
+        message.style.color = "red";
+        message.style.backgroundColor = "#060625";
+        return;
+      }
+
+      const isMatch = pairs.some(pair => pair.item1 === selected1 && pair.item2 === selected2);
+
+      if (isMatch) {
+        message.textContent = "Correct Match! 🎉";
+        message.style.color = "green";
+        message.style.backgroundColor = "#060625";
+        matchedCount++;
+        removeOption(selected1, space1);
+        removeOption(selected2, space2);
+
+        // Check if all pairs are matched
+        if (matchedCount === totalPairs) {
+          clearInterval(timer); // Stop the timer
+          endGame(true); // Player won
+        }
+      } else {
+        message.textContent = "Incorrect Match. Try Again!";
+        message.style.color = "red";
+        message.style.backgroundColor = "#060625";
+      }
+    }
+
+    // End the game
+    function endGame(isWin) {
+      const congratulations = document.getElementById("congratulations");
+      if (isWin) {
+        congratulations.textContent = "Congratulations! You matched all pairs! 🎉";
+      } else {
+        congratulations.textContent = "Time's up! Better luck next time. ⏳";
+        congratulations.style.color = "red";
+        message.style.backgroundColor = "#060625";
+      }
+    }
+
+    // Remove matched options from dropdowns
+    function removeOption(value, dropdown) {
+      for (let i = 0; i < dropdown.options.length; i++) {
+        if (dropdown.options[i].value === value) {
+          dropdown.remove(i);
+          break;
+        }
+      }
+    }
+
+    // Initialize the game
+    startTimer();
+  </script>
+</body>
+</html>

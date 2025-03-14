@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture-Based Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .quiz-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        #answer-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c40094;
+            margin-top: 15px;
+        }
+        #submit-button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .result-box {
+            display: none;
+            color: #c40094;
+            width: 300px;
+            text-align: center;
+        }
+        .circular-progress {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, .4) 0deg);
+        }
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .progress-value {
+            position: relative;
+            font-size: 24px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        .score-text {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="quiz-container">
+        <h2 id="question">Question will appear here</h2>
+        <img id="question-image" src="" alt="Question Image">
+        <input type="text" id="answer-input" placeholder="Type your answer here">
+        <p id="timer">Time left: <span id="time-left">10</span>s</p>
+        <button id="submit-button" onclick="submitAnswer()">Submit Answer</button>
+    </div>
+
+    <div class="result-box" id="result-box">
+        <h2>Quiz Result</h2>
+        <div class="circular-progress">
+            <span class="progress-value">0%</span>
+        </div>
+        <p class="score-text">Your Score 0 out of <span id="total-questions">0</span></p>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What vitamin is needed for bone health?",
+                image: "toto.jpg", // Replace with your own image path
+                correctAnswer: "Vitamin D",
+                explanation: "Vitamin D is essential for healthy bones."
+            },
+            {
+                question: "What vitamin is needed for bone health?",
+                image: "toto.jpg", // Replace with your own image path
+                correctAnswer: "Vitamin D",
+                explanation: "Vitamin D is essential for healthy bones."
+            },
+            // Add more questions as needed
+        ];
+        
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 10;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            document.getElementById('question-image').src = currentQuestion.image;
+            document.getElementById('answer-input').value = "";
+            document.getElementById('time-left').textContent = timeLeft;
+            document.getElementById('submit-button').disabled = false;
+
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 10;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time-left').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitAnswer();
+                }
+            }, 1000);
+        }
+
+        function submitAnswer() {
+            clearInterval(timer);
+            const userAnswer = document.getElementById('answer-input').value.trim();
+            const currentQuestion = questions[currentQuestionIndex];
+            if (userAnswer.toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('total-questions').textContent = questions.length;
+            animateProgress();
+        }
+
+        function animateProgress() {
+    const totalQuestions = questions.length;
+    const percentage = Math.round((score / totalQuestions) * 100);
+    let progressValue = 0;
+    const progressInterval = setInterval(() => {
+        if (progressValue >= percentage) {
+            clearInterval(progressInterval);
+        } else {
+            progressValue++;
+            document.querySelector('.progress-value').textContent = `${progressValue}%`;
+            document.querySelector('.circular-progress').style.background = `conic-gradient(
+                #c40094 ${progressValue * 3.6}deg,
+                rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+            )`;
+            document.querySelector('.score-text').textContent = `Your Score ${score} out of ${totalQuestions}`;
+        }
+    }, 20);
+}
+
+
+        loadQuestion();
+    </script>
+</body>
+</html>
