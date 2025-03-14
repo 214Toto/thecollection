@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title> Totoz Collection </title>
+<!-- 
+
+Known Template 
+
+https://templatemo.com/tm-516-known
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/owl.carousel.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/templatemo-style.css">
+
+     <style>
+     .containerz {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+      margin: 50px 0; /* Top and bottom margins */
+      text-align: center;
+    }
+    .course-card {
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     background: white;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    img {
+     text-align: center;
+     /* margin-left: 8%; */
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #6200ea;
+      color: white;
+    }
+    .button:hover {
+      background-color: #3700b3;
+    }
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: none; /* Hidden by default */
+    }
+    .modal p {
+      margin: 0 0 20px;
+    }
+    .modal .close {
+      padding: 10px 20px;
+      background: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .modal .close:hover {
+      background: #3700b3;
+    }
+    /* Background Blur */
+    .blur {
+      filter: blur(5px);
+      pointer-events: none;
+    }
+    /* Vertical Scrollable Buttons */
+    .popup-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 200px; /* Set a fixed height for scrolling */
+      overflow-y: auto; /* Enable vertical scrolling */
+      margin-top: 10px;
+    }
+    .popup-buttons button {
+      padding: 10px 15px;
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .popup-buttons button:hover {
+      background-color: #3700b3;
+    }
+     </style>
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand"> Totoz Collection </a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="#top" class="smoothScroll">Home</a></li>
+                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
+                         <li><a href="#courses" class="smoothScroll">Courses</a></li>
+                         <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
+                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="https://wa.me/+260965091047?text=Hello%2C%20I%20need%20help%21" target="_blank"><i class="fa fa-phone"></i> +260965091047 </a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+
+     <!-- HOME -->
+     <section id="home">
+          <div class="row">
+
+                    <div class="owl-carousel owl-theme home-slider">
+                         <div class="item item-first">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1> School of Medicine - MBChB/BDS/CM </h1>
+                                             <h3>Our online courses are designed to fit in your academics, supporting all-round with latest techniques </h3>
+                                             <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover more</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-second">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1>Start your journey with our practical courses</h1>
+                                             <h3>Our online courses are built in partnership with technology leaders and are designed to meet Academic demands.</h3>
+                                             <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a course</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="item item-third">
+                              <div class="caption">
+                                   <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                             <h1>Efficient Learning Methods</h1>
+                                             <h3> Learn multiple ways of going about all sorts of questions... and more <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
+                                             <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+          </div>
+     </section>
+
+
+     <!-- FEATURE -->
+     <section id="feature">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="feature-thumb hey1">
+                              <span>01</span>
+                              <h3> MBChB/BDS/CM </h3>
+                              <p> The Totoz Collection is an online Learning tool that covers the following courses under  MBChB/BDS/CM in the School of Medicine </p>
+                              <br> <ul>
+                                        <li type="circle"> MBS 200 - Human Anatomy </li>
+                                        <li type="circle"> MBS 210 - Human Physiology </li>
+                                        <li type="circle"> MBS 220 - Human Pathology  </li>
+                                        <li type="circle"> MBS 230 - Biochemistry and Therapetuics </li>
+                                        <li type="circle"> MBS 240 - Laboratory Science and Diagnostics  </li>
+                                        <li type="circle"> MCS 200 - Clinical Science </li>
+                                        <li type="circle"> MCS 210 - Public Health & Society And Medicine </li>
+                                   </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="feature-thumb hey2">
+                              <span>02</span>
+                              <h3> Natural Sciences </h3>
+                              <p> The Totoz Collection further extends its services to the follwing NS Courses  </p>
+                              <br> <ul>
+                                        <li type="circle"> MA 110 - Mathematics I </li>
+                                        <li type="circle"> CH 110 - Chemistry I </li>
+                                        <li type="circle"> PH 110 - Physics I  </li>
+                                        <!-- <li type="circle"> MBS 0 - Biochemistry and Therapetuics </li>
+                                        <li type="circle"> MBS 240 - Laboratory Science and Diagnostics  </li>
+                                        <li type="circle"> MCS 200 - Clinical Science </li>
+                                        <li type="circle"> MCS 210 - Public Health & Society And Medicine </li> -->
+                                   </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="feature-thumb hey3">
+                              <span>02</span>
+                              <h3>Books & Library</h3>
+                              <p> All the Books here are highly recommended as Trusted sources for CBU use.</p>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- ABOUT -->
+     <section id="about">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="about-info">
+                              <h2>Start your journey to a better life with online practical courses</h2>
+
+                              <figure>
+                                   <span><i class="fa fa-users"></i></span>
+                                   <figcaption>
+                                        <h3>Professional Trainers</h3>
+                                        <p> Meet Toto, your personal study buddy. Here to help you with all your academic challenges as you embark on this academic journey.</p>
+                                   </figcaption>
+                              </figure>
+
+                              <figure>
+                                   <span><i class="fa fa-certificate"></i></span>
+                                   <figcaption>
+                                        <h3> 24/7 Assistance Assurance </h3>
+                                        <p> Use This Platform to your Hearts content Anytime Anywhere with a guaranteed full time service .</p>
+                                   </figcaption>
+                              </figure>
+
+                              <figure>
+                                   <span><i class="fa fa-bar-chart-o"></i></span>
+                                   <figcaption>
+                                        <h3> Free Free Free </h3>
+                                        <p> No Payments whatsoever will be asked of you during your use of this Collection, all services are free !!</p>
+                                   </figcaption>
+                              </figure>
+
+
+                              class="col-md-offset-1 col-md-4 col-sm-12
+                              <div class="containerz col-md-offset-1 col-md-4 col-sm-12" id="main-container">
+                                   <!-- Course 1 -->
+                                   <div class="course-card">
+                                        <img src="img/med.webp" alt="Biochemistry Course">
+                                        <button class="button" id="about-course-1">About Course</button>
+                                        <button class="button" id="start-course-1">Start Course</button>
+                                   </div>
+
+                                   <!-- Course 2 -->
+                                   <div class="course-card">
+                                        <img src="img/NS.webp" alt="Anatomy Course">
+                                        <button class="button" id="about-course-2">About Course</button>
+                                        <button class="button" id="start-course-2">Start Course</button>
+                                   </div>
+
+                                   <!-- Course 3 -->
+                                   <div class="course-card">
+                                        <img src="../med2/Totoz Study Space/quiz.jpg" alt="Anatomy Course">
+                                        <button class="button" id="about-course-3">About Course</button>
+                                        <button class="button" id="start-course-3">Start Course</button>
+                                   </div>
+                              </div>   
+
+
+                                                            <!-- Modals for Course 1 -->
+                              <div class="modal" id="about-modal-1">
+                                   <p>This course covers Biochemistry, focusing on biomolecules, enzymes, metabolism, and more. It's ideal for understanding the chemistry of life!</p>
+                                   <button class="close" id="about-close-1">Close</button>
+                              </div>
+                              
+                              <div class="modal" id="start-modal-1">
+                                   <p>Choose a term to begin:</p>
+                                   <div class="popup-buttons">
+                                             <!-- <button>Term 1: Biomolecules</button> -->
+                                             <!-- <button>Term 2: Enzymes & Metabolism</button> -->
+                                             <button><a href="med2/Totoz-Study-Space/password.html"> Begin Program </a></button>
+                                        </div>
+                                   <button class="close" id="start-close-1">Close</button>
+                              </div>
+                              
+                              <!-- Modals for Course 2 -->
+                              <div class="modal" id="about-modal-2">
+                                   <p>This course explores Anatomy, including tissues, organs, systems, and developmental processes. A foundation for medical sciences!</p>
+                                   <button class="close" id="about-close-2">Close</button>
+                              </div>
+                              
+                              <div class="modal" id="start-modal-2">
+                                   <p>Choose a term to begin:</p>
+                                        <div class="popup-buttons">
+                                             <!-- <button>Term 1: Tissue & Staining</button> -->
+                                             <!-- <button>Term 2: Organ Systems</button> -->
+                                             <button><a href="Non-qota/password.html"> Begin Program </a></button>
+                                        </div>
+                                   <button class="close" id="start-close-2">Close</button>
+                              </div>
+
+                              <!-- Modals for Course 3 -->
+                              <div class="modal" id="about-modal-3">
+                                   <p>This course explores Anatomy, including tissues, organs, systems, and developmental processes. A foundation for medical sciences!</p>
+                                   <button class="close" id="about-close-3">Close</button>
+                              </div>
+                              
+                              <div class="modal" id="start-modal-3">
+                                   <p>Choose a term to begin:</p>
+                                        <div class="popup-buttons">
+                                             <!-- <button>Term 1: Tissue & Staining</button> -->
+                                             <!-- <button>Term 2: Organ Systems</button> -->
+                                             <button><a href="Med3/password.html"> Begin Program </a></button>
+                                        </div>
+                                   <button class="close" id="start-close-3">Close</button>
+                              </div>
+                         
+
+                         </div>
+
+                    </div>
+
+                    <!-- <div class="col-md-offset-1 col-md-4 col-sm-12">
+                         <div class="entry-form">
+                              <form action="https://formsubmit.co/el/sodiyi" method="post">
+                                   <h2>Signup today</h2>
+                                   <img width="100%" height="100%" src="output (30).jpg" alt="">
+
+                                   <input type="text" name="name" class="form-control" placeholder="Full name" required="">
+
+                                   <input type="email" name="email" class="form-control" placeholder="Your email address" required="">
+
+                                   <input type="password" name="password" class="form-control" placeholder="Your password" required="">
+                                   
+                                   <button class="submit-btn form-control" id="form-submit"><a href="https://wa.me/+260965091047?text=Hello%2C%20I%20need%20help%21" target="_blank"></a> Send Me a Message </button>
+                              </form>
+                         </div>
+                    </div> -->
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TEAM -->
+     <section id="team">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2> Hey There !! <small>Meet the Doctor in the making </small></h2>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                         <div class="team-thumb">
+                              <div class="team-image">
+                                   <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                              </div>
+                              <div class="team-info">
+                                   <h3> Toto Kapanga </h3>
+                                   <span> Lets get this done </span>
+                              </div>
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <!-- <div class="col-md-3 col-sm-6">
+                         <div class="team-thumb">
+                              <div class="team-image">
+                                   <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                              </div>
+                              <div class="team-info">
+                                   <h3>Catherine</h3>
+                                   <span>Education is the key!</span>
+                              </div>
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-google"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                         <div class="team-thumb">
+                              <div class="team-image">
+                                   <img src="images/author-image3.jpg" class="img-responsive" alt="">
+                              </div>
+                              <div class="team-info">
+                                   <h3>Jessie Ca</h3>
+                                   <span>I like Online Courses</span>
+                              </div>
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                   <li><a href="#" class="fa fa-linkedin"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                         <div class="team-thumb">
+                              <div class="team-image">
+                                   <img src="images/author-image4.jpg" class="img-responsive" alt="">
+                              </div>
+                              <div class="team-info">
+                                   <h3>Andrew Berti</h3>
+                                   <span>Learning is fun</span>
+                              </div>
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-google"></a></li>
+                                   <li><a href="#" class="fa fa-behance"></a></li>
+                              </ul>
+                         </div>
+                    </div> -->
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- Courses -->
+     <section id="courses">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2> Your Courses <small> Here are all the courses you are to expect for your 2nd and 3rd year of study </small></h2>
+                         </div>
+
+                         <div class="owl-carousel owl-theme owl-courses">
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="courses-thumb">
+                                             <div class="courses-top">
+                                                  <div class="courses-image">
+                                                       <img src="images/groos.jpg" class="img-responsive" alt="">
+                                                  </div>
+                                                  <div class="courses-date">
+                                                       <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
+                                                       <span><i class="fa fa-clock-o"></i> 7 Hours</span>
+                                                  </div>
+                                             </div>
+
+                                             <div class="courses-detail">
+                                                  <h3><a href="#"> MBS 200 - Human Anatomy </a></h3>
+                                                  <p> &starf; The course has three Branches being taught by two Lecturers at the moment; Dr. Mulenga & Mrs. D. Chikwanda <br> &starf; It is one of the pivots of medicine, especially on the surgery part and you will refering to it as you do other courses like pathology, clicical science and physiology,<br> &starf; thus it is very bulky, stuyding in advance is highly recommended, Either you are a 2nd or 3rd year student <br> &starf; The Branches of this course are;
+                                                  <br> <ol type="i" >
+                                                            <li> <strong> Gross Anatomy</strong> &raquo; This branch deals with what you can see with your naked eye, from the surface anatomy to the deep structures within the body. </li>
+                                                            <li> <strong>Histology</strong> &raquo; This one is basically about what you cannot see with your naked eyes. Microscopic analysation of different tissues of the body as well as their constituent cells is what you will be doing here </li>
+                                                            <li> <strong>Embryology</strong> &raquo; You will focus on the development of every body structure right from before fusion of the sperm and the ovum till all the systems of a fetus are fully developed. </li>
+                                                       </ol>  
+                                                  </p>
+                                             </div>
+
+                                             <div class="courses-info">
+                                                  <div class="courses-author">
+                                                       <img src="images/me1.jpg" class="img-responsive" alt="">
+                                                       <span> You can read ahead, Provided you have the right material </span>
+                                                  </div>
+                                                  <div class="courses-price">
+                                                       <a href="Totoz Study Space/password.html"><span>Start course</span></a>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="courses-thumb">
+                                             <div class="courses-top">
+                                                  <div class="courses-image">
+                                                       <img src="images/physiology.jpg" class="img-responsive" alt="">
+                                                  </div>
+                                                  <div class="courses-date">
+                                                       <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
+                                                       <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
+                                                  </div>
+                                             </div>
+
+                                             <div class="courses-detail">
+                                                  <h3><a href="#"> MBS 210 - Human Physiology  </a></h3>
+                                                  <p> &bigstar; This course is about the normal processes and working mechanisms of the body. This is the how-to manual of the human body <br>&bigstar; You will learn how the human body is supposed to function in its normal state to maintain stable body conditions. <br>&bigstar; you will have two Lecturers under this course; Dr. Balapala & Mr. Ngala <br>&bigstar; it is the opposite of Pathology. <br>&bigstar; To that 2nd year year student who wants to study ahead before classes begin... feel free, this one is abit bulky too. Just stick to the content of the named Lecturers </p>
+                                             </div>
+
+                                             <div class="courses-info">
+                                                  <div class="courses-author">
+                                                       <img src="images/me1.jpg" class="img-responsive" alt="">
+                                                       <span> You can read ahead. </span>
+                                                  </div>
+                                                  <div class="courses-price">
+                                                       <a href="https://t.me/+f1WGdNmD9zI0Y2Rk"><span> Join/Visit Telegram Group </span></a>
+                                                       <!-- <a href="Totoz Study Space/password.html"><span> Start Course </span></a> -->
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="courses-thumb">
+                                             <div class="courses-top">
+                                                  <div class="courses-image">
+                                                       <img src="images/output (5).jpg" class="img-responsive" alt="">
+                                                  </div>
+                                                  <div class="courses-date">
+                                                       <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
+                                                       <span><i class="fa fa-clock-o"></i> 6 Hours</span>
+                                                  </div>
+                                             </div>
+
+                                             <div class="courses-detail">
+                                                  <h3><a href="#"> MBS 220 - Human Pathology </a></h3>
+                                                  <p> &star; This course is all about the abnormal state of the body, the dieseases state of it. <br>&star; This is where you will find all sorts and kinds of diseases including other concepts like Inflammations and much more <br>&star; The course is taken by 4 Lecturers; Mr. Machiko ; Mr. Manyepa ; Mrs. Kalolekesha ; Dr. Petrenko  </p>
+                                             </div>
+
+                                             <div class="courses-info">
+                                                  <div class="courses-author">
+                                                       <img src="images/me1.jpg" class="img-responsive" alt="">
+                                                       <span> You can read ahead, Provided you have the right material </span>
+                                                  </div>
+                                                  <div class="courses-price free">
+                                                       <a href="Totoz Study Space/password.html"><span> Start Course </span></a>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="courses-thumb">
+                                             <div class="courses-top">
+                                                  <div class="courses-image">
+                                                       <img src="images/courses-image4.jpg" class="img-responsive" alt="">
+                                                  </div>
+                                                  <div class="courses-date">
+                                                       <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
+                                                       <span><i class="fa fa-clock-o"></i> 8 Hours</span>
+                                                  </div>
+                                             </div>
+
+                                             <div class="courses-detail">
+                                                  <h3><a href="#"> MBS 230 - Biochemistry and Therapetuics </a></h3>
+                                                  <p> &starf; Looking at the combination of the courses you can conclude that these are half courses. But Trust me there weight individually is as heavy as Anatomy or even Pathology.  
+                                                       <br> &spadesuit; <strong> Biochemistry </strong><br> &raquo;This is basically the chemistry of the body, this is where you will find the Biomolecules, Nucleic acids , Macro and micro-nutrients and so much more......
+                                                       <br> &raquo;<strong> Dr. Mbindo Njunju</strong> will take you through the course, and don't worry he is a chilled ohn, he's just boring in class time time chapwa
+                                                       <br> &spadesuit; <strong> Therapetuics </strong><br> &raquo; This is all about drugs, their use, side effects, classes and everything about them..... But we just never look at the doses, only the prescription part. 
+                                                       <br> &raquo; <strong> Mr. BIETE LUNDAU LUKE </strong>...... one of the best SOM has to offer, following he's ppt is enough.
+                                                  </p> 
+                                             </div>
+
+                                             <div class="courses-info">
+                                                  <div class="courses-author">
+                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                                       <span> You can read ahead, Provided you have the right material </span>
+                                                  </div>
+                                                  <div class="courses-price">
+                                                       <a href="Totoz Study Space/password.html"><span> Start Course </span></a>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="courses-thumb">
+                                             <div class="courses-top">
+                                                  <div class="courses-image">
+                                                       <img src="images/courses-image5.jpg" class="img-responsive" alt="">
+                                                  </div>
+                                                  <div class="courses-date">
+                                                       <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
+                                                       <span><i class="fa fa-clock-o"></i> 10 Hours</span>
+                                                  </div>
+                                             </div>
+
+                                             <div class="courses-detail">
+                                                  <h3><a href="#"> MBS 240 - Laboratory Science and Diagnostics </a></h3>
+                                                  <p> &bigstar; Another set of courses combined together 
+                                                       <br> &spadesuit;<strong> Laboratory Science </strong><br> &raquo; This Branch Of medicine is all about the different Laboratory Tests and examinations carried out to diagnose patients.
+                                                       <br> &raquo; These range from liver function tests to clinical chemistry to immunodiagnistics. 
+                                                       <br> &spadesuit;<strong> Diagnostics </strong><br> &raquo; Diagnostics focuses on more advanced medical examinations such as Medical Imaging, Chest Trauma Examinations and  Ultrasounds That aid in deciding which further medical interventions to carry out on your patient
+                                                  </p>
+                                             </div>
+
+                                             <div class="courses-info">
+                                                  <div class="courses-author">
+                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                                       <span> You can read ahead, Provided you have the right material </span>
+                                                  </div>
+                                                  <div class="courses-price free">
+                                                       <a href="Totoz Study Space/password.html"><span> Start Course </span></a>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+
+                         </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- TESTIMONIAL -->
+     <section id="testimonial">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>Student Reviews <small>from around the world</small></h2>
+                         </div>
+
+                         <div class="owl-carousel owl-theme owl-client">
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="tst-image">
+                                             <img src="images/bob1.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="tst-author">
+                                             <h4>Bob Musemeka</h4>
+                                             <span> Professor </span>
+                                        </div>
+                                        <p> The only place where Success comes before work is in the Dictionary !</p>
+                                        <div class="tst-rating">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="tst-image">
+                                             <img src="images/mike1.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="tst-author">
+                                             <h4>Mike Mwape</h4>
+                                             <span> TGM </span>
+                                        </div>
+                                        <p>Its not about how bad you want it. Its about how hard you are willing to work for it.</p>
+                                        <div class="tst-rating">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="tst-image">
+                                             <img src="images/mwanza1.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="tst-author">
+                                             <h4>Charles Mwanza</h4>
+                                             <span> Dr. Mwanza </span>
+                                        </div>
+                                        <p> Don't watch the clock; Do what it does. Keep going.</p>
+                                        <div class="tst-rating">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-md-4 col-sm-4">
+                                   <div class="item">
+                                        <div class="tst-image">
+                                             <img src="images/fwalanga1.jpg" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="tst-author">
+                                             <h4>Prince Fwalanga</h4>
+                                             <span>MBChB 2 Class Rep</span>
+                                        </div>
+                                        <p>Success is the sum of small efforts, repeat day in and day out.</p>
+                                        <div class="tst-rating">
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                        </div>
+                                   </div>
+                              </div>
+
+                         </div>
+
+               </div>
+          </div>
+     </section> 
+
+
+     <!-- CONTACT -->
+     <section id="contact">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-12">
+                         <form id="contact-form" role="form" action="" method="post">
+                              <div class="section-title">
+                                   <h2>Contact us <small>we love conversations. let us talk!</small></h2>
+                              </div>
+
+                              <div class="col-md-12 col-sm-12">
+                                   <input type="text" class="form-control" placeholder="Enter full name" name="name" required="">
+                    
+                                   <input type="email" class="form-control" placeholder="Enter email address" name="email" required="">
+
+                                   <textarea class="form-control" rows="6" placeholder="Tell us about your message" name="message" required=""></textarea>
+                              </div>
+
+                              <div class="col-md-4 col-sm-12">
+                                   <input type="submit" class="form-control" name="send message" value="Send Message">
+                              </div>
+
+                         </form>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                         <div class="contact-image">
+                              <img src="img/SOM2.jpg" class="img-responsive" alt="Smiling Two Girls">
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>       
+
+
+     <!-- FOOTER -->
+     <footer id="footer">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2>Headquarter</h2>
+                              </div>
+                              <address>
+                                   <p>Copperbelt, Ndola<br> MCS - SOM </p>
+                              </address>
+
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+
+                              <div class="copyright-text"> 
+                                   <p>Copyright &copy; 2023 Totoz Collection</p>
+                                   
+                                   <p>Totoz Collection</p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2>Contact Info</h2>
+                              </div>
+                              <address>
+                                   <p>+65 2244 1100, +260 9650 91047</p>
+                                   <p><a href="mailto:youremail.co">chitotelek@gmail.com</a></p>
+                              </address>
+
+                              <div class="footer_menu">
+                                   <h2>Quick Links</h2>
+                                   <ul>
+                                        <li><a href="#">Career</a></li>
+                                        <li><a href="#">Investor</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Refund Policy</a></li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                         <div class="footer-info newsletter-form">
+                              <div class="section-title">
+                                   <h2>Newsletter Signup</h2>
+                              </div>
+                              <div>
+                                   <div class="form-group">
+                                        <form action="#" method="get">
+                                             <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                             <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
+                                        </form>
+                                        <span><sup>*</sup> Please note - we do not spam your email.</span>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+
+     <!-- SCRIPTS -->
+     <script src="js/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/owl.carousel.min.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/custom.js"></script>
+
+     <script>
+          // Modal Toggle Logic for Course 1
+          const aboutCourse1 = document.getElementById('about-course-1');
+          const startCourse1 = document.getElementById('start-course-1');
+          const aboutModal1 = document.getElementById('about-modal-1');
+          const startModal1 = document.getElementById('start-modal-1');
+          const aboutClose1 = document.getElementById('about-close-1');
+          const startClose1 = document.getElementById('start-close-1');
+        
+          aboutCourse1.addEventListener('click', () => {
+            aboutModal1.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose1.addEventListener('click', () => {
+            aboutModal1.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse1.addEventListener('click', () => {
+            startModal1.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose1.addEventListener('click', () => {
+            startModal1.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          // Modal Toggle Logic for Course 2
+          const aboutCourse2 = document.getElementById('about-course-2');
+          const startCourse2 = document.getElementById('start-course-2');
+          const aboutModal2 = document.getElementById('about-modal-2');
+          const startModal2 = document.getElementById('start-modal-2');
+          const aboutClose2 = document.getElementById('about-close-2');
+          const startClose2 = document.getElementById('start-close-2');
+        
+          aboutCourse2.addEventListener('click', () => {
+            aboutModal2.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose2.addEventListener('click', () => {
+            aboutModal2.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse2.addEventListener('click', () => {
+            startModal2.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose2.addEventListener('click', () => {
+            startModal2.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+
+          // Modal Toggle Logic for Course 3
+          const aboutCourse3 = document.getElementById('about-course-3');
+          const startCourse3 = document.getElementById('start-course-3');
+          const aboutModal3 = document.getElementById('about-modal-3');
+          const startModal3 = document.getElementById('start-modal-3');
+          const aboutClose3 = document.getElementById('about-close-3');
+          const startClose3 = document.getElementById('start-close-3');
+        
+          aboutCourse3.addEventListener('click', () => {
+            aboutModal3.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose3.addEventListener('click', () => {
+            aboutModal3.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse3.addEventListener('click', () => {
+            startModal3.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose3.addEventListener('click', () => {
+            startModal3.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        </script>
+</body>
+</html>
