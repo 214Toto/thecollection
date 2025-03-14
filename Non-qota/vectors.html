@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Ph110 Questions</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url(../ns-images/physics.jpeg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .pamulu {
+        background-color: #0056b3;
+        width: 50%;
+        text-align: center;
+        border-radius: 6px;
+    }
+    header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #060625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  text-decoration: none;
+  /* border-left: 2px solid #ffffff; */
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  border-left: 2px solid #ffffff;
+}
+
+
+    #question-container {
+    width: 80%;
+    margin: 20px auto;
+    background: rgb(70,195,191);
+background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #000000;
+}
+
+#buttons-container {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-1 {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-1:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.subquestion {
+  border-top: 2px #444 solid;
+  margin-bottom: 5px;
+}
+
+#navigation-container {
+  position: fixed; /* Keeps the buttons at the bottom of the page */
+  bottom: 20px; /* Adds some space from the bottom */
+  left: 0;
+  width: 100%; /* Makes the container span the width of the page */
+  display: flex; /* Aligns the buttons horizontally */
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 10px; /* Adds space between the buttons */
+}
+
+#navigation-container button {
+  background-color: #4CAF50; /* Green background for buttons */
+  color: white; /* White text */
+  padding: 10px 20px; /* Adjust padding for better appearance */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Round corners */
+  cursor: pointer; /* Pointer cursor for hover effect */
+  font-size: 16px; /* Adjust text size */
+}
+
+#navigation-container button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="pamulu">
+    <a href="../index.html" class="logo" style="text-decoration: underline;"> Scalars and Vectors </a>
+
+    
+        <h2> Totoz Collection ! </h2>
+
+  <a href="../Non-qota/PH-topics.html" class="nav" style="color: #000000; font-weight: bolder;" > &Leftarrow; Back </a>
+  </div>
+
+  
+
+  <div id="question-container">
+
+    <div class="question" id="question-2">
+      <h2 style="text-align: center;"> 2024 Test 1 </h2>
+      <div class="subquestion">
+        <h3>(a) Distinguish between a scalar quantity and a vector quantity.       [2]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_1')">Video</button>
+        </div>
+        <div id="solution1_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/1.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video> 
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(b) A bank in town A is robbed. The thieves escape from the police to town B by helicopter making four successive flights described by the following displacements: 14 km east, 15 km at 30° east of north, 16 km at 45° west of north and 13 km at 60° east of south. At the end of the fourth flight, they are captured. In order to apprehend the thieves faster, a police helicopter flies directly from town A to town B in a straight line. In what direction and how far will the police helicopter travel in this direct flight?          [10]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_2')">Video</button>
+        </div>
+        <div id="solution1_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/2.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(c) (i) Find the values of a for which vectors A = ai - 2j + k and B = 2ai + aj - 4k are perpendicular to each other          [6]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_3')">Video</button>
+        </div>
+        <div id="solution1_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/3.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(ii) If A = 4i - j + 3k and B = -2i + j - 2k, find a unit vector perpendicular to both A and B.          [7]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_4')">Video</button>
+        </div>
+        <div id="solution1_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/4.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="question hidden" id="question-1">
+      <h2 style="text-align: center;"> 2023 Test 1 </h2>
+      <!-- <img id="main-question-image" src="main_question_image1.png" alt="Main Question Illustration"> -->
+      <div class="subquestion">
+        <h3>(a) State three methods used to graphically add vectors.          [3]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio2_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_1')">Video</button>
+        </div>
+        <div id="solution2_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(b) Define the terms listed below and give two examples in each case:
+         <br> i) Scalar quantities, and ii) Vector quantities.          [4] 
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_2')">Video</button>
+        </div>
+        <div id="solution2_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/6.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(c) You find yourself, in a deep thought about a physics problem. First you walk 3.5 meters due south. Then, you walk 8.2 meters due northeast. Then you doze off and find yourself 15.0 meters due west. Determine how far you walked while you were lost in the deep thought.         [5]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_3')">Video</button>
+        </div>
+        <div id="solution2_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/7a.jpg" alt="Solution for Subquestion 1">
+          <img width="100%" src="../images/PH110/vectors/7b.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(d) Define a unit vector         [2]</h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_4')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_4')">Video</button>
+        </div>
+        <div id="solution2_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/8.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(e) Let a force F=( 5i + A<sub>y</sub>j +4k )N act on an object over a displacement R=( 3i - j +2k )m. Given that the force F has a magnitude of &Sqrt;90. Determine or otherwise as indicated, <br> i) the value of A<sub>y</sub>         [2]
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_5')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_5')">Video</button>
+        </div>
+        <div id="solution2_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/9.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(ii) the unit vector of F          [2] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_6')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_6')">Video</button>
+        </div>
+        <div id="solution2_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/10.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> (iii) the dot product of F and R.         [3] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_7')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_7')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_7')">Video</button>
+        </div>
+        <div id="solution2_7" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/10.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_7" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_7" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(iv) a vector perpendicular to F and R         [2] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_8')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_8')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_8')">Video</button>
+        </div>
+        <div id="solution2_8" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/10.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_8" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_8" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>(1) Find the magnitude of the cross product for a force given by F=( 2i + j + 2k )N acting at 30° angel to the radius R= (i + j + k)m.         [2] </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_9')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_9')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_9')">Video</button>
+        </div>
+        <div id="solution2_9" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/10.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_9" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_9" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="question hidden" id="question-2">
+      <h2 style="text-align: center;" > 2022 Test 1 </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2022-KInematics-a.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_1')">Video</button>
+        </div>
+        <div id="solution3_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2022-KInematics-b.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_2')">Video</button>
+        </div>
+        <div id="solution3_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2022-KInematics-c.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_3')">Video</button>
+        </div>
+        <div id="solution3_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2022-KInematics-d.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_4')">Video</button>
+        </div>
+        <div id="solution3_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="question hidden" id="question-5">
+      <h2 style="text-align: center;" > 2022 Sessional </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../00.vectors/sessional-2022-d.JPG" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_1')">Video</button>
+        </div>
+        <div id="solution5_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../00.vectors/sessional-2022-e.JPG" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_2')">Video</button>
+        </div>
+        <div id="solution5_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="question hidden" id="question-3">
+      <h2 style="text-align: center;" > 2021 Test 1 </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-vectors-a.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_1')">Video</button>
+        </div>
+        <div id="solution4_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-vectors-b.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_2')">Video</button>
+        </div>
+        <div id="solution4_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2021-vectors-c.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_3')">Video</button>
+        </div>
+        <div id="solution4_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-6">
+      <h2 style="text-align: center;" > 2021 Sessional </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../00.vectors/sessional-2021.JPG" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution6_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio6_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video6_1')">Video</button>
+        </div>
+        <div id="solution6_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/vectors/5.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio6_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video6_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-4">
+      <h2 style="text-align: center;" > 2020 Test 1 </h2>
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-a.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_1')">Video</button>
+        </div>
+        <div id="solution5_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-a-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-b.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_2')">Video</button>
+        </div>
+        <div id="solution5_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-b-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3> <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-c.jpg" alt="Solution for Subquestion 1"> </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_3')">Video</button>
+        </div>
+        <div id="solution5_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="../05.img-ph110-past-papers/2020-vectors-c-answer.JPG" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation2_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation2_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div id="navigation-container" class="buttons">
+    <button onclick="previousQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+  
+
+  <script>
+    let currentQuestion = 0;
+
+function toggleContent(contentId) {
+    const content = document.getElementById(contentId);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+    } else {
+        content.classList.add('hidden');
+    }
+}
+
+function previousQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion > 0) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion -= 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+function nextQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion < questions.length - 1) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion += 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+// Hide all questions except the first one
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question, index) => {
+        if (index !== 0) question.style.display = 'none';
+    });
+});
+
+  </script>
+</body>
+</html>

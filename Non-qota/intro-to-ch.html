@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> CH 110 Questions </title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url(../ns-images/bio.jpg);
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .pamulu {
+        background-color: #0056b3;
+        width: 50%;
+        text-align: center;
+        border-radius: 6px;
+    }
+    header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #060625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  text-decoration: none;
+  /* border-left: 2px solid #ffffff; */
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header h2 {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  border-left: 2px solid #ffffff;
+}
+
+
+    #question-container {
+    width: 80%;
+    margin: 20px auto;
+    background: rgb(70,195,191);
+background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #000000;
+}
+
+#buttons-container {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-1 {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-1:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.subquestion {
+  border-top: 2px #444 solid;
+  margin-bottom: 5px;
+}
+
+
+#navigation-container {
+  position: fixed; /* Keeps the buttons at the bottom of the page */
+  bottom: 20px; /* Adds some space from the bottom */
+  left: 0;
+  width: 100%; /* Makes the container span the width of the page */
+  display: flex; /* Aligns the buttons horizontally */
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 10px; /* Adds space between the buttons */
+}
+
+#navigation-container button {
+  background-color: #4CAF50; /* Green background for buttons */
+  color: white; /* White text */
+  padding: 10px 20px; /* Adjust padding for better appearance */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Round corners */
+  cursor: pointer; /* Pointer cursor for hover effect */
+  font-size: 16px; /* Adjust text size */
+}
+
+#navigation-container button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="pamulu">
+    <a href="../index.html" class="logo" style="text-decoration: underline;"> Introduction To Chemistry  </a>
+    
+      <h2> Totoz Collection ! </h2>
+
+    <a href="../Non-qota/CH-topics.html" class="nav" style="color: #000000; font-weight: bolder;" > &Leftarrow; Back </a>
+
+  </div>
+
+
+  <div id="question-container">
+
+    <div class="question" id="question-1">
+      <h2 style="text-align: center;"> 2024 Test 1 </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-a.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_1')">Video</button>
+        </div>
+        <div id="solution1_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-b.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_2')">Video</button>
+        </div>
+        <div id="solution1_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-c.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_3')">Video</button>
+        </div>
+        <div id="solution1_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-d.jpg" >
+          </div> 
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_4')">Video</button>
+        </div>
+        <div id="solution1_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="../images/PH110/" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-e.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_5')">Video</button>
+        </div>
+        <div id="solution1_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-f.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_6')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_6')">Video</button>
+        </div>
+        <div id="solution1_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-g.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_7')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_7')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_7')">Video</button>
+        </div>
+        <div id="solution1_7" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_7" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_7" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2024-q1-h.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution1_8')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio1_8')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video1_8')">Video</button>
+        </div>
+        <div id="solution1_8" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio1_8" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video1_8" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-5">
+      <h2 style="text-align: center;"> 2023 Sessional </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2023-a.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio5_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_1')">Video</button>
+        </div>
+        <div id="solution5_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2023-b.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio5_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_2')">Video</button>
+        </div>
+        <div id="solution5_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-b-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2023-c.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio5_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_3')">Video</button>
+        </div>
+        <div id="solution5_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+          <img width="100%" src="g" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2023-f.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution5_4')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio5_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video5_4')">Video</button>
+        </div>
+        <div id="solution5_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio5_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video5_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-2">
+      <h2 style="text-align: center;"> 2023 Test 1 </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio2_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_1')">Video</button>
+        </div>
+        <div id="solution2_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-b.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_2')">Video</button>
+        </div>
+        <div id="solution2_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-b-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-c.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_3')">Video</button>
+        </div>
+        <div id="solution2_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+          <img width="100%" src="g" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-d.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_4')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_4')">Video</button>
+        </div>
+        <div id="solution2_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-e.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_5')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_5')">Video</button>
+        </div>
+        <div id="solution2_5" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-f.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_6')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_6')">Video</button>
+        </div>
+        <div id="solution2_6" class="hidden" style="text-align: center;">
+          <img src="solution1.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-g.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_7')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_7')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_7')">Video</button>
+        </div>
+        <div id="solution2_7" class="hidden" style="text-align: center;">
+          <img src="solution1.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_7" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_7" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-h.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution2_8')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio2_8')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video2_8')">Video</button>
+        </div>
+        <div id="solution2_8" class="hidden" style="text-align: center;">
+          <img src="solution1.png" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio2_8" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video2_8" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-3">
+      <h2 style="text-align: center;"> 2022 Test 1 </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-a.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_1')">Video</button>
+        </div>
+        <div id="solution3_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-b.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_2')">Video</button>
+        </div>
+        <div id="solution3_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-c.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_3')">Video</button>
+        </div>
+        <div id="solution3_3" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-d.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_4')">Video</button>
+        </div>
+        <div id="solution3_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-e.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_5')">Video</button>
+        </div>
+        <div id="solution3_5" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-f.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_6')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_6')">Video</button>
+        </div>
+        <div id="solution3_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2022-q1-g.jpg" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution3_7')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio3_7')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video3_7')">Video</button>
+        </div>
+        <div id="solution3_7" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio3_7" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video3_7" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-6">
+      <h2 style="text-align: center;"> 2022 Sessional </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2022-d.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution6_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio6_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video6_1')">Video</button>
+        </div>
+        <div id="solution6_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio6_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video6_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2022-e.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution6_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio6_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video6_2')">Video</button>
+        </div>
+        <div id="solution6_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-b-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio6_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video6_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2022-f.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution6_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio6_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video6_3')">Video</button>
+        </div>
+        <div id="solution6_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+          <img width="100%" src="g" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio6_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video6_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <div class="question hidden" id="question-4">
+      <h2 style="text-align: center;"> 2021 Test 1 </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-a.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_1')">Video</button>
+        </div>
+        <div id="solution4_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-b.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_2')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_2')">Video</button>
+        </div>
+        <div id="solution4_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-c.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_3')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_3')">Video</button>
+        </div>
+        <div id="solution4_3" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-d.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_4')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_4')">Video</button>
+        </div>
+        <div id="solution4_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-e.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_5')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_5')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_5')">Video</button>
+        </div>
+        <div id="solution4_5" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_5" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_5" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-f.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_6')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_6')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_6')">Video</button>
+        </div>
+        <div id="solution4_6" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_6" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_6" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/2021-g.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution4_7')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio4_7')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video4_7')">Video</button>
+        </div>
+        <div id="solution4_7" class="hidden" style="text-align: center;">
+          <img width="100%" src=" " alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio4_7" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video4_7" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question hidden" id="question-7">
+      <h2 style="text-align: center;"> 2021 Sessional </h2>
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2021-a.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution7_1')"><span>Solution</span> </button>
+          <button class="btn-1" onclick="toggleContent('audio7_1')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video7_1')">Video</button>
+        </div>
+        <div id="solution7_1" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-a-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio7_1" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video7_1" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2021-b.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution7_2')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio7_2')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video7_2')">Video</button>
+        </div>
+        <div id="solution7_2" class="hidden" style="text-align: center;">
+          <img width="100%" src="../02.Introduction-to-chemistry/2023-q1-b-answer.jpg" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio7_2" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video7_2" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2021-c.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution7_3')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio7_3')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video7_3')">Video</button>
+        </div>
+        <div id="solution7_3" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+          <img width="100%" src="g" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio7_3" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video7_3" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="subquestion">
+        <h3>
+          <div style="text-align: center;">
+            <img width="100%" src="../02.Introduction-to-chemistry/sessional-2021-d.JPG" alt="Solution for Subquestion 1">
+          </div>
+        </h3>
+        <div id="buttons-container">
+          <button class="btn-1" onclick="toggleContent('solution7_4')">Solution</button>
+          <button class="btn-1" onclick="toggleContent('audio7_4')">Explanation</button>
+          <button class="btn-1" onclick="toggleContent('video7_4')">Video</button>
+        </div>
+        <div id="solution7_4" class="hidden" style="text-align: center;">
+          <img width="100%" src="" alt="Solution for Subquestion 1">
+        </div>
+        <div id="audio7_4" class="hidden" style="text-align: center;">
+          <audio controls>
+            <source src="explanation1_1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="video7_4" class="hidden" style="text-align: center;">
+          <video controls>
+            <source src="explanation1_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="navigation-container" class="buttons">
+    <button onclick="previousQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+  
+
+  <script>
+    let currentQuestion = 0;
+
+function toggleContent(contentId) {
+    const content = document.getElementById(contentId);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+    } else {
+        content.classList.add('hidden');
+    }
+}
+
+function previousQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion > 0) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion -= 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+function nextQuestion() {
+    const questions = document.querySelectorAll('.question');
+    if (currentQuestion < questions.length - 1) {
+        questions[currentQuestion].style.display = 'none';
+        currentQuestion += 1;
+        questions[currentQuestion].style.display = 'block';
+    }
+}
+
+// Hide all questions except the first one
+document.addEventListener('DOMContentLoaded', () => {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question, index) => {
+        if (index !== 0) question.style.display = 'none';
+    });
+});
+
+  </script>
+</body>
+</html>
