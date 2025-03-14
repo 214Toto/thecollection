@@ -1,0 +1,3041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Totoz Drug Store </title>
+  <link rel="stylesheet" href="../med2/Totoz-Study-Space/style.css">
+  <style>
+    body.modal-open {
+      overflow: hidden;
+    }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    .modal {
+      /* color: wheat; */
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* background-image: url(../med2/Totoz-Study-Space/Pharmacy2.png); */
+      /* background: rgb(126, 201, 170); */
+      background-color: #1d6354;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      width: 90%;
+      height: 50%;
+      overflow-y: auto;
+    }
+    .modal h2 {
+      font-size: 24px;
+      color: #333;
+    }
+    .modal p {
+        color: wheat;
+    }
+    
+    .modal ul {
+        background-color: #009688;
+        color: #000000;
+    }
+    .modal ul {
+      padding-left: 20px;
+    }
+    .section {
+        font-weight: bold;
+        margin-top: 20px;
+        color: wheat;
+        width: 100%;
+        font-size: 18px;
+        background-color: rgb(158, 26, 26);
+    }
+    .modal button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .modal button:hover {
+      background-color: #0056b3;
+    }
+    .word-title {
+      cursor: pointer;
+      color: rgb(255, 145, 0);
+      text-decoration: underline;
+    }
+    .blurred {
+      filter: blur(5px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <main>
+    <header class="header">
+      <a href="../index.html" class="logo"> CBU SOM </a>
+
+  
+      <h2> Totoz Study Space ! </h2>
+
+      <a href="../med2/Totoz-Study-Space/index3.html" class="nav"> Back </a>
+
+
+    </header>
+
+    <div class="container">
+
+      <section class="search">
+        <h1> Totoz Drug Store</h1>
+        <input type="text" id="searchBar" onkeyup="searchTerm()" placeholder="Search for drugs......">
+      </section>
+    
+
+      <div id="dictionary">
+        <div class="word" data-word="Ranitidine">
+          <h2 class="word-title" onclick="openModal('Ranitidine')">Ranitidine</h2>
+        </div>
+        <div class="word" data-word="Cimetidine">
+          <h2 class="word-title" onclick="openModal('Cimetidine')">Cimetidine</h2>
+        </div>
+        <div class="word" data-word="Acetylcholine">
+            <h2 class="word-title" onclick="openModal('Acetylcholine')">Acetylcholine</h2>
+        </div>
+        <div class="word" data-word="Bethanechol">
+            <h2 class="word-title" onclick="openModal('Bethanechol')">Bethanechol</h2>
+        </div>
+        <div class="word" data-word="Carbachol">
+            <h2 class="word-title" onclick="openModal('Carbachol')">Carbachol</h2>
+        </div>
+        <div class="word" data-word="Muscarine">
+            <h2 class="word-title" onclick="openModal('Muscarine')">Muscarine</h2>
+        </div>
+        <div class="word" data-word="Nicotine">
+            <h2 class="word-title" onclick="openModal('Nicotine')">Nicotine</h2>
+        </div>
+        <div class="word" data-word="Pilocarpine">
+            <h2 class="word-title" onclick="openModal('Pilocarpine')">Pilocarpine</h2>
+        </div>
+        <div class="word" data-word="Cervimeline">
+            <h2 class="word-title" onclick="openModal('Cervimeline')">Cervimeline</h2>
+        </div>
+        <div class="word" data-word="Varenicline">
+            <h2 class="word-title" onclick="openModal('Varenicline')">Varenicline</h2>
+        </div>
+        <div class="word" data-word="Edrophonium">
+            <h2 class="word-title" onclick="openModal('Edrophonium')">Edrophonium</h2>
+        </div>
+        <div class="word" data-word="Neostigmine">
+            <h2 class="word-title" onclick="openModal('Neostigmine')">Neostigmine</h2>
+        </div>
+        <div class="word" data-word="Physostigmine">
+            <h2 class="word-title" onclick="openModal('Physostigmine')">Physostigmine</h2>
+        </div>
+        <div class="word" data-word="Ecothiophate">
+            <h2 class="word-title" onclick="openModal('Ecothiophate')">Ecothiophate</h2>
+        </div>
+        <div class="word" data-word="Isoflurophate">
+            <h2 class="word-title" onclick="openModal('Isoflurophate')">Isoflurophate</h2>
+        </div>
+        <div class="word" data-word="Malathion">
+            <h2 class="word-title" onclick="openModal('Malathion')">Malathion</h2>
+        </div>
+        <div class="word" data-word="Pyridostigmine">
+            <h2 class="word-title" onclick="openModal('Pyridostigmine')">Pyridostigmine</h2>
+        </div>
+        <div class="word" data-word="Soman">
+            <h2 class="word-title" onclick="openModal('Soman')">Soman</h2>
+        </div>
+        <div class="word" data-word="Sarin">
+            <h2 class="word-title" onclick="openModal('Sarin')">Sarin</h2>
+        </div>
+        <div class="word" data-word="Sildenafil">
+            <h2 class="word-title" onclick="openModal('Sildenafil')">Sildenafil</h2>
+        </div>
+        <div class="word" data-word="Tadalafil">
+            <h2 class="word-title" onclick="openModal('Tadalafil')">Tadalafil</h2>
+        </div>
+        <div class="word" data-word="Vardenafil">
+            <h2 class="word-title" onclick="openModal('Vardenafil')">Vardenafil</h2>
+        </div>
+        <div class="word" data-word="Viagra">
+            <h2 class="word-title" onclick="openModal('Viagra')">Viagra</h2>
+        </div>
+        <div class="word" data-word="Atropine">
+            <h2 class="word-title" onclick="openModal('Atropine')">Atropine</h2>
+        </div>
+        <div class="word" data-word="Hyoscyamine">
+            <h2 class="word-title" onclick="openModal('Hyoscyamine')">Hyoscyamine</h2>
+        </div>
+        <div class="word" data-word="Scopolamine">
+            <h2 class="word-title" onclick="openModal('Scopolamine')">Scopolamine</h2>
+        </div>
+        <div class="word" data-word="Dicyclomine">
+            <h2 class="word-title" onclick="openModal('Dicyclomine')">Dicyclomine</h2>
+        </div>
+        <div class="word" data-word="Glycopyrrolate">
+            <h2 class="word-title" onclick="openModal('Glycopyrrolate')">Glycopyrrolate</h2>
+        </div>
+        <div class="word" data-word="Oxybutinin">
+            <h2 class="word-title" onclick="openModal('Oxybutinin')">Oxybutinin</h2>
+        </div>
+        <div class="word" data-word="Tropicamide">
+            <h2 class="word-title" onclick="openModal('Tropicamide')">Tropicamide</h2>
+        </div>
+        <div class="word" data-word="Ipratropium Bromide">
+            <h2 class="word-title" onclick="openModal('Ipratropium Bromide')">Ipratropium Bromide</h2>
+        </div>
+        <div class="word" data-word="Solifenacin">
+            <h2 class="word-title" onclick="openModal('Solifenacin')">Solifenacin</h2>
+        </div>
+        <div class="word" data-word="Triotropium">
+            <h2 class="word-title" onclick="openModal('Triotropium')">Triotropium</h2>
+        </div>
+        <div class="word" data-word="Pirenzipine">
+            <h2 class="word-title" onclick="openModal('Pirenzipine')">Pirenzipine</h2>
+        </div>
+        <div class="word" data-word="Rocuronium">
+            <h2 class="word-title" onclick="openModal('Rocuronium')">Rocuronium</h2>
+        </div>
+        <div class="word" data-word="Cisatracurium">
+            <h2 class="word-title" onclick="openModal('Cisatracurium')">Cisatracurium</h2>
+        </div>
+        <div class="word" data-word="Pancuronium">
+            <h2 class="word-title" onclick="openModal('Pancuronium')">Pancuronium</h2>
+        </div>
+        <div class="word" data-word="Atracurium">
+            <h2 class="word-title" onclick="openModal('Atracurium')">Atracurium</h2>
+        </div>
+        <div class="word" data-word="Vecuronium">
+            <h2 class="word-title" onclick="openModal('Vecuronium')">Vecuronium</h2>
+        </div>
+        <div class="word" data-word="Succinylcholine">
+            <h2 class="word-title" onclick="openModal('Succinylcholine')">Succinylcholine</h2>
+        </div>
+        <div class="word" data-word="Suxamethonium">
+            <h2 class="word-title" onclick="openModal('Suxamethonium')">Suxamethonium</h2>
+        </div>
+        <div class="word" data-word="Tubocurarine">
+            <h2 class="word-title" onclick="openModal('Tubocurarine')">Tubocurarine</h2>
+        </div>
+        <div class="word" data-word="Curariform Drugs">
+            <h2 class="word-title" onclick="openModal('Curariform Drugs')">Curariform Drugs</h2>
+        </div>
+        <div class="word" data-word="Dobutamine">
+            <h2 class="word-title" onclick="openModal('Dobutamine')">Dobutamine</h2>
+        </div>
+        <div class="word" data-word="Dopamine">
+            <h2 class="word-title" onclick="openModal('Dopamine')">Dopamine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+        <div class="word" data-word="Norepinephrine">
+            <h2 class="word-title" onclick="openModal('Norepinephrine')">Norepinephrine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+        <div class="word" data-word="Isoproterenol">
+            <h2 class="word-title" onclick="openModal('Isoproterenol')">Isoproterenol</h2>
+        </div>
+        <div class="word" data-word="Salbutamol">
+            <h2 class="word-title" onclick="openModal('Salbutamol')">Salbutamol</h2>
+        </div>
+        <div class="word" data-word="Albuterol">
+            <h2 class="word-title" onclick="openModal('Albuterol')">Albuterol</h2>
+        </div>
+        <div class="word" data-word="Apraclonidine">
+            <h2 class="word-title" onclick="openModal('Apraclonidine')">Apraclonidine</h2>
+        </div>
+        <div class="word" data-word="Clonidine">
+            <h2 class="word-title" onclick="openModal('Clonidine')">Clonidine</h2>
+        </div>
+        <div class="word" data-word="Midodrine">
+            <h2 class="word-title" onclick="openModal('Midodrine')">Midodrine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div><div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div><div class="word" data-word="Epinephrine">
+            <h2 class="word-title" onclick="openModal('Epinephrine')">Epinephrine</h2>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal">
+      <h2 id="modal-title"></h2>
+      <div id="modal-content"></div>
+      <button onclick="closeModal()">Close</button>
+    </div>
+    <script>
+      function searchTerm() {
+        let input = document.getElementById('searchBar').value.toLowerCase();
+        let terms = document.getElementsByClassName('word');
+        for (let i = 0; i < terms.length; i++) {
+          let word = terms[i];
+          let title = word.getElementsByClassName('word-title')[0].textContent.toLowerCase();
+          if (title.includes(input)) {
+            word.style.display = "";
+          } else {
+            word.style.display = "none";
+          }
+        }
+      }
+      function openModal(word) {
+        let data = {
+          'Ranitidine': `<strong class="section" >Class:</strong> 
+                        <ul>
+                            <li> Histamine 2 Receptor Antagonists (H2As)   
+                        </ul>
+                        <strong class="section" class="section"  >Mechanism:</strong> 
+                        <ul>
+                            <li> Blocks Histamine 2 receptors...
+                        </ul>
+                        <strong class="section"  class="section"  >Indications:</strong>
+                        <ul>
+                          <li>PUD & Heartburn</li>
+                          <li>GERD/GORD & Allergic reactions when used with H1 receptor blockers</li>
+                          <li>A dose is recommended to suppress Acid secretion the whole night</li>
+                        </ul>` ,
+
+          'Cimetidine': `<strong class="section" >Class:</strong> Histamine 2 Receptor Antagonists (H2As)<br>
+                        <strong class="section"  >Mechanism:</strong> Blocks Histamine 2 receptors...<br>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                          <li>PUD & Heartburn</li>
+                          <li>GERD/GORD & Allergic reactions when used with H1 receptor blockers</li>
+                          <li>A dose is recommended to suppress Acid secretion the whole night</li>
+                        </ul>`,
+
+            'Acetylcholine': `<strong class="section" >Class:</strong> <br> Direct Acting Cholinergic Agonists<br>
+                        <strong class="section"  >Mechanism:</strong> <br> bind and activate Ach receptors. both Muscarinic and Nicotinic Receptors <br> 
+                        The vasodilative Effect is caused by the following mechanism;
+                        <ul>
+                            <li> Mediated by M3 receptors located in vascular endothelial cells
+                            <li> This is accomplished by muscarinic activation of the nitric oxide synthetase which subsequently leads to formation of nitric oxide (NO)
+                            <li> NO is a gas that diffuses into vascular smooth muscle cells and activate
+                                guanylyl cyclase to increase the formation of cycl ic guosine monophosphate (cGMP)
+                            <li> Increased cGMP leads to vascular smooth muscle relaxation and vasodilation
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics </strong> <br> 
+                        <ul>
+                            <li> a choline ester of Acetic Acid
+                            <li> rapidly hydrolyzed by cholinesterase and has an extreme short half life
+                            <li> limited clinical applicaition due to limited absoprtion and short duration of action and lack of specificity for muscarinic and nicotinic receptors 
+                            <li> Topical administration is not effective as it is hydrolyzed by corneal cholinesterase       
+                        </ul>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                          <li>Ophthalmic acetylcholine is available for use during cataract surgery</li>
+                          <li>Can be useful in other ophthalmic surgeries where rapid or complete miosis is desired</li>
+                          <li>A dose is recommended to suppress Acid secretion the whole night</li>
+                          <li>Intracoronary injection causes a localized vasoconstrictive response in patients with vasospastic angina
+                        </ul>`,
+                        
+            'Bethanechol': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists<br>
+                        <strong class="section"  >Mechanism:</strong> <br> 
+                        <ul>
+                            <li> stimulate bladder or GIT muscle without significantly affecting heart rate or blood pressure
+                            <li> bind and activate Ach receptors, but specific to only muscarinic receptors ! 
+                        </ul>
+                        <strong class="section"  > Pharamocokinetics</strong> <br>
+                        <ul>
+                            <li> Therapeutic doses of bethanechol given orally or subcutaneously has little effect on BP
+                            <li> called choline esters of carbamic acid
+                            <li> to be resistant to hydrolysis by cholinesteras
+                            <li> Their duration of action is relatively short
+                        </ul>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                          <li>Postoperatively or postpartumly, it is given to increase muscle tone in patients with
+                            non-obstructive neurogenic urinary retention after receiving anaesthesia during
+                            childbirth or other surgery</li>
+                          <li>GERD/GORD & Allergic reactions when used with H1 receptor blockers</li>
+                          <li>A dose is recommended to suppress Acid secretion the whole night</li>
+                        </ul>
+                        <strong class="section"  > Side Effects</strong> <br>
+                        <ul>
+                            <li> should not be given through I.V as it can cause hypotension and bradycardia
+                        </ul>`,
+
+            'Carbachol': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists - Choline Esters <br>
+                        <strong class="section"  >Mechanism:</strong> <br>
+                        <ul>
+                            <li> bind and activate Ach receptors, both muscarinic and Nicotinic receptors !
+                        </ul> <br>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                          <li>available as a solution to produce miosis during ophthalmic surgery</li>
+                          <li>cataract surgery</li>
+                          <li>iridectomy</li>
+                          <li> Was used for treating open angle glaucoma but has now been replaced by agents that have fewer side effects   </li>
+                        </ul>`,
+
+            'Muscarine': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists - Plant Alkaloids <br>
+                        <strong class="section"  >Indications </strong><br>
+                        <ul>
+                            <li> No medical use
+                        </ul>
+                        <strong class="section"  > Pharamocokinetics</strong> <br>
+                        <ul>
+                            <li> Found in mushrooms of the genera inocybe and clitocybe
+                            <li> Amanita muscaria is known to be the original source of muscarine    
+                        </ul>
+                        <strong class="section"  > Side Effects</strong> <br>
+                        <ul>
+                            <li> Consumption of these poisonous mushrooms can cause diarrhea, sweating, salivation and lacrimation
+                        </ul>`,
+
+            'Nicotine': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists - Plant Alkaloids <br>
+                        <strong class="section"  > Pharamocokinetics</strong> <br>
+                        <ul>
+                            <li> derived from nicotiana plants and is contained in cigarettes and other tobacco plant
+                        </ul>
+                        <strong class="section"  >Indications </strong><br>
+                        <ul>
+                            <li> available in chewing gums, transdermal patches and other products meant for use in smoking
+                        </ul>`,
+
+            'Pilocarpine': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists - Plant Alkaloids <br>
+                        <strong class="section"  >Indications </strong><br>
+                        <ul>
+                            <li> second line drug for treatment of chronic angle glaucoma
+                            <li> Also used in acute closed angle glaucoma
+                            <li> administered orally for treatment of xerostemia (dry mouth)
+                        </ul>
+                        <strong class="section"  > Pharamocokinetics</strong> <br>
+                        <ul>
+                            <li> To avoid side effects, low doses are needed because of its high sensitivity of the salivary glands to muscarinic stimulation
+                        </ul>
+                        <strong class="section"  > Side Effects</strong> <br>
+                        <ul>
+                            <li>ocular administration causes Decreased night vision as the main side effect and also difficult in focusing on distant objects
+                        </ul>`,
+
+            'Cervimeline': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists <br>
+                        <strong class="section"  > Pharamocokinetics</strong> <br>
+                        <ul>
+                            <li> It is synthetic
+                        </ul>
+                        <strong class="section" > Indications </strong> <br>
+                        <ul>
+                            <li> administered orally to treat dry mouth in patients who have had radiation therapy for head or neck cancer
+                            <li> Also used in Sjogren syndrome (Dry mouth, dry eyes and arthritis)
+                        </ul>
+                        <strong class="section"  > Side Effects</strong> <br>
+                        <ul>
+                            <li> Increased sweating, nausea and visual disturbance caused by drug induced miosis
+                            <li> As with other Ach agonists, cevimeline should be used cautiously in patients with asthma and cardiac arrythmia
+                        </ul>`,
+
+            'Varenicline': `<strong class="section" >Class:</strong> Direct Acting Cholinergic Agonists <br>
+                        <strong> Mechanism of Action </strong> <br>
+                        <ul>
+                            <li> This is a partial agonist at the nicotinic receptor subtype in the brain that mediates the reinforcing effect of nicotine in smokers
+                        </ul>
+                        <strong class="section"> Indication </strong> <br>
+                        <ul>
+                            <li> used for smoking cessation and has been found to reduce both the craving and the withdrawal effects caused by nicotine
+                        </ul>`,
+
+            'Edrophonium': `<strong class="section" >Class:</strong> <br> Reversible cholinesterase inhibitors 
+                        <strong> Mechanism of Action </strong> <br>
+                        <ul>
+                            <li> Edrophonium is a positive alcohol that reversibly binds a negatively charged site on cholinesterase
+                        </ul>
+                        <strong class="section" >Pharmacokinetics:</strong>
+                        <ul>
+                            <li> its short duration of action (about 10mins) is due to its reversible binding and rapid renal excretion.
+                        </ul>
+                        <strong class="section" > Indication </strong> <br>
+                        <ul>
+                            <li> Useful in intial diagnosis of myasthenia and in distinguishing between
+                                myathenia crisis and cholinergic crisis in myasthenia patients being treated
+                                with pyridostigmine
+                            <li> Routinely used as Antidote during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required
+                        </ul>`,
+
+            'Physostigmine': `<strong class="section" >Class:</strong> <br> Reversible cholinesterase inhibitors
+                        <strong class="section" >Pharmacokinetics:</strong>
+                        <ul>
+                            <li> plant alkaloid that is well absorbed from the gut and penetrates the blood brain barrier
+                        </ul>
+                        <strong class="section" > Indications :</strong>
+                        <ul>
+                            <li> used in the treatment of glaucoma though other drugs are used today
+                            <li> As a parenteral preparation, physostigmine is used as an antidote to counteract seizure caused by atropine overdose
+                        </ul>`,
+
+            'Pyridostigmine':`<strong class="section" >Class:</strong> <br> Reversible cholinesterase inhibitors
+                        <strong>Pharmacokinetics:</strong>
+                        <ul>
+                            <li> is a synthetic drug that exists as positively charged at physiologic pH and hence is less absorbed and does not cross the blood brain barrier
+                        </ul>
+                        <strong class="section" > Indication </strong> <br>
+                        <ul>
+                            <li> Long term Use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis
+                            <li> Routinely used as Antidote during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required
+                        </ul>
+                        `,
+
+            'Neostigmine':`<strong class="section" >Class:</strong> <br> Reversible cholinesterase inhibitors
+                        <strong>Pharmacokinetics:</strong>
+                        <ul>
+                            <li> is a synthetic drug that exists as positively charged at physiologic pH and hence is less absorbed and does not cross the blood brain barrier
+                        </ul>
+                        <strong class="section" > Indication </strong> <br>
+                        <ul>
+                            <li> Long term Use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis
+                            <li> Routinely used as Antidote during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required
+                        </ul>`,
+
+            'Ecothiophate':`<strong class="section" >Class:</strong> <br> Quasi Reversible cholinesterase inhibitors
+                        <strong class="section" > Mechanism :</strong> <br>
+                        <ul> 
+                            <li> They augment cholinergic neurotransmission at both the central and peripheral cholinergic synapses
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics </strong> <br>
+                        <ul>
+                            <li> highly lipid soluble and are effectively absorbed from all sites in the body including the skin, mucus membranes, eyes and the gut
+                        </ul>
+                        <strong class="section" > Indication </strong> <br> 
+                        <ul>
+                            <li> Used as Pesticide
+                        </ul>
+                        <strong class="section"  > Side Effects </strong> <br> 
+                        <ul>
+                            <li> Systemic exposure to organophosphates will produce all effects of muscarinic activation such as sal ivation, lacrimation, miosis, accommodative spasms, bronchoconstriction, intestinal cramps, and urinary incontinence
+                        </ul>
+                        `,
+
+            'Isoflurophate':`<strong class="section" >Class:</strong> <br> Quasi Reversible cholinesterase inhibitors
+                        <strong> Mechanism :</strong> <br>
+                        <ul> 
+                            <li> They augment cholinergic neurotransmission at both the central and peripheral cholinergic synapses
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics </strong> <br>
+                        <ul>
+                            <li> highly lipid soluble and are effectively absorbed from all sites in the body including the skin, mucus membranes, eyes and the gut
+                        </ul>
+                        <strong> Indication </strong> <br> 
+                        <ul>
+                            <li> Used as Pesticide
+                        </ul>
+                        <strong class="section"  > Side Effects </strong> <br> 
+                        <ul>
+                            <li> Systemic exposure to organophosphates will produce all effects of muscarinic activation such as sal ivation, lacrimation, miosis, accommodative spasms, bronchoconstriction, intestinal cramps, and urinary incontinence
+                        </ul>`,
+
+            'Malathion':`<strong class="section" >Class:</strong> <br> Quasi Reversible cholinesterase inhibitors <br>
+                        <strong> Mechanism :</strong> <br>
+                        <ul> 
+                            <li> They augment cholinergic neurotransmission at both the central and peripheral cholinergic synapses
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics: </strong> <br>
+                        <ul>
+                            <li> highly lipid soluble and are effectively absorbed from all sites in the body including the skin, mucus membranes, eyes and the gut
+                        </ul>
+                        <strong class="section" > Indication </strong> <br> 
+                        <ul>
+                            <li> Used as Pesticide
+                        </ul>
+                        <strong class="section"  > Side Effects </strong> <br> 
+                        <ul>
+                            <li> Systemic exposure to organophosphates will produce all effects of muscarinic activation such as sal ivation, lacrimation, miosis, accommodative spasms, bronchoconstriction, intestinal cramps, and urinary incontinence
+                        </ul>`,
+
+            'Soman': `<strong class="section" >Class:</strong> <br> Quasi Reversible cholinesterase inhibitors <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> Was developed as chemical warfare agent
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br> 
+                        <ul>
+                            <li> Systemic exposure to organophosphates will produce all effects of muscarinic activation such as sal ivation, lacrimation, miosis, accommodative spasms, bronchoconstriction, intestinal cramps, and urinary incontinence
+                        </ul>`,
+
+            'Sarin': `<strong class="section" >Class:</strong> <br> Quasi Reversible cholinesterase inhibitors <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> Was developed as chemical warfare agent
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br> 
+                        <ul>
+                            <li> Systemic exposure to organophosphates will produce all effects of muscarinic activation such as sal ivation, lacrimation, miosis, accommodative spasms, bronchoconstriction, intestinal cramps, and urinary incontinence
+                        </ul>`,
+
+            'Sildenafil':`<strong class="section" >Class:</strong> <br> Type 5 phosphodiesterase inhibitors <br>
+                        <strong> Mechanism of Action: </strong> <br>
+                        <ul>
+                            <li> These drugs potentiate the vasodilative effect of acetylcholine released from parasympathetic neurons in the pelvic plexus
+                            <li> First, acetylcholine stimulates M3 receptors in vascular endothelial cells leading to increased nitric oxide which diffuses into the vascular smooth muscle cells in the corpus carvenosum, where it activates guanylyl cyclase where it increase cGMP leading to muscle relaxation and vasodilation
+                            <li> Sildenafil and the related drugs inhibit the breakdown of cGMP by type 5 phosphodiesterase (5-PDE) leading to elevated levels of cGMP and increased smooth muscle relaxation which then results in increased blood flow into the penis and the eventual erection
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> marketed as Viagra used in management of erectile dysfunction
+                            <li> approved for pulmonary arterial hypertension
+                            
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br> 
+                        <ul>
+                            <li> headache
+                            <li> nasal congestion
+                            <li> dyspepsia
+                            <li> myalgia
+                            <li> back pain
+                            <li> visual disturbances
+                        </ul>
+                        <strong class="section" > Contraindication: </strong> <br> 
+                        <ul>
+                            <li> This drug should not be used by patients who take nitroglycerine or other organic nitrates as they also increase cGMP formation and can lead to profound hypotension which can cause death
+                        </ul>
+                        `,
+
+            'Tadalafil':`<strong class="section" >Class:</strong> <br> Type 5 phosphodiesterase inhibitors<br>
+                        <strong class="section" > Mechanism of Action: </strong> <br>
+                        <ul>
+                            <li> These drugs potentiate the vasodilative effect of acetylcholine released from parasympathetic neurons in the pelvic plexus
+                            <li> First, acetylcholine stimulates M3 receptors in vascular endothelial cells leading to increased nitric oxide which diffuses into the vascular smooth muscle cells in the corpus carvenosum, where it activates guanylyl cyclase where it increase cGMP leading to muscle relaxation and vasodilation
+                            <li> Tadalafil and the related drugs inhibit the breakdown of cGMP by type 5 phosphodiesterase (5-PDE) leading to elevated levels of cGMP and increased smooth muscle relaxation which then results in increased blood flow into the penis and the eventual erection
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li>  marketed as Viagra used in management of erectile dysfunction
+                            <li> has been shown to significantly improve urinary symptoms of benign prostatic hypertrophy (BPH) including urge to urinate, difficulty in starting micturition, weak urine flow, frequent urination during the night
+                            <li> approved for pulmonary arterial hypertension
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br> 
+                        <ul>
+                            <li> headache
+                            <li> nasal congestion
+                            <li> dyspepsia
+                            <li> myalgia
+                            <li> back pain
+                            <li> visual disturbances
+                        </ul>
+                        <strong class="section" > Contraindication: </strong> <br> 
+                        <ul>
+                            <li> This drug should not be used by patients who take nitroglycerine or other organic nitrates as they also increase cGMP formation and can lead to profound hypotension which can cause death
+                        </ul>
+                        `,
+
+            'Vardenafil':`<strong class="section" >Class:</strong> <br> Type 5 phosphodiesterase inhibitors <br>
+                        <strong class="section" > Mechanism of Action: </strong> <br>
+                        <ul>
+                            <li> These drugs potentiate the vasodilative effect of acetylcholine released from parasympathetic neurons in the pelvic plexus
+                            <li> First, acetylcholine stimulates M3 receptors in vascular endothelial cells leading to increased nitric oxide which diffuses into the vascular smooth muscle cells in the corpus carvenosum, where it activates guanylyl cyclase where it increase cGMP leading to muscle relaxation and vasodilation
+                            <li> Vardenafil and the related drugs inhibit the breakdown of cGMP by type 5 phosphodiesterase (5-PDE) leading to elevated levels of cGMP and increased smooth muscle relaxation which then results in increased blood flow into the penis and the eventual erection
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br> 
+                        <ul>
+                            <li> headache
+                            <li> nasal congestion
+                            <li> dyspepsia
+                            <li> myalgia
+                            <li> back pain
+                            <li> visual disturbances
+                        </ul>
+                        <strong class="section" > Contraindication: </strong> <br> 
+                        <ul>
+                            <li> This drug should not be used by patients who take nitroglycerine or other organic nitrates as they also increase cGMP formation and can lead to profound hypotension which can cause death
+                        </ul>`,
+
+            'Viagra': `<strong> Market name for Sildenafil </strong> <br>
+                        `,
+
+            'Atropine':`<strong class="section" >Class:</strong> <br> Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Ionized Tertiary amine that is well absorbed from the gut and readily distributed to the CNS
+                            <li>  After systemic administration, they are excreted in the urine with half-life of about 2 hours
+                            <li> when administered topically i.e. ocularly they have a longer lasting effects as they bind to pigments in the iris that release the drug slowly
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> used to produce mydriasis and facilitate ophthalmoscopic examination of the peripheral retina
+                            <li> used in treatment of iritis and cyclitis  associated with infection or trauma
+                            <li> used to treat sinus bradycardia
+                            <li> used to reduce salivary and respiratory secretions and thereby preventing airway obstruction in patients receiving general anesthetics (though Glycopyrrolate is now used for this ) 
+                            <li> Was previously used to treat asthma and Obstructive Lung Disease due to its bronchodilating effects (has been overtaken by ipratropium bromide)
+                            <li> relieve intestinal spasms and pain associated with GIT disorders
+                            <li> used to relieve urinary bladder spasms in persons overactive bladder
+                            <li> used to prevent muscarinic side effects when cholinesterase inhibitors are used in patients with myasthenia gravis
+                        </ul> `,
+                        
+            'Hyoscyamine':`<strong class="section" >Class:</strong> <br> Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Isomer of Racemic Atropine 
+                            <li> it is a natural form of alkaloids that occurs in plants
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> Formulations of hyocyamine like hyoscine butyl bromide (Buscopan) for oral or sublingual administration are used for intestinal spasms
+                            <li> used to produce mydriasis and facilitate ophthalmoscopic examination of the peripheral retina
+                            <li> used in treatment of iritis and cyclitis  associated with infection or trauma
+                            <li> used to reduce salivary and respiratory secretions and thereby preventing airway obstruction in patients receiving general anesthetics (though Glycopyrrolate is now used for this ) 
+                            <li> relieve intestinal spasms and pain associated with GIT disorders
+                            <li> used to relieve urinary bladder spasms in persons overactive bladder
+                        </ul>`,
+
+            'Scopolamine ':`<strong class="section" >Class:</strong> <br> Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Ionized Tertiary amine that is well absorbed from the gut and readily distributed to the CNS
+                            <li>  After systemic administration, they are excreted in the urine with half-life of about 2 hours
+                            <li> when administered topically i.e. ocularly they have a longer lasting effects as they bind to pigments in the iris that release the drug slowly
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> Transdermal formulation of scopolamine is used to prevent motion sickness
+                            <li> used to produce mydriasis and facilitate ophthalmoscopic examination of the peripheral retina
+                            <li> used in treatment of iritis and cyclitis  associated with infection or trauma
+                            <li> used to reduce salivary and respiratory secretions and thereby preventing airway obstruction in patients receiving general anesthetics (though Glycopyrrolate is now used for this ) 
+                            <li> relieve intestinal spasms and pain associated with GIT disorders
+                            <li> used to relieve urinary bladder spasms in persons overactive bladder
+                        </ul> `,
+            
+            'Glycopyrrolate': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> This drug has taken up thhe role of Atrpine and the others in reducing salivary and respiratory secretions in patients receiving general anesthetics
+                            <li> used to prevent muscarinic side effects when cholinesterase inhibitors are used in patients with myasthenia gravis
+                            <li> 
+                        </ul> `,
+
+            'Ipratropium Bromide': `<strong class="section" >Class:</strong> <br>Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Derivative of atropine
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> Overtakes Atropine in treating asthma and Obstructive Lung Disease (emphysema and chronic bronchitis)
+                            <li> administered by inhalation to patients with obstructive lung disease
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br>
+                        <ul>
+                            <li> Because these drugs are not well absorbed from the lungs into the systemic circulation they produce few adverse effects
+                        </ul>`,
+
+            'Triotropium': ` <strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Derivative of atropine
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> administered by inhalation to patients with obstructive lung disease
+                        </ul>
+                        <strong class="section"  > Side Effects: </strong> <br>
+                        <ul>
+                            <li> Because these drugs are not well absorbed from the lungs into the systemic circulation they produce few adverse effects
+                        </ul>`,
+
+            'Oxybutynin': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> used to reduce the four major symptoms of overactive bladder which are daytime urinary frequency, nocturia (frequent urination at night), urgency  and incontinency
+                        </ul>
+                        `,
+
+            'Solifenacin': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> used to reduce the four major symptoms of overactive bladder which are daytime urinary frequency, nocturia (frequent urination at night), urgency  and incontinency
+                        </ul>
+                        `,
+
+            'Dicyclomine': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section"  > Pharmacokinetics: </strong>
+                        <ul>
+                            <li> Synthetic amine
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> used to relax intestinal smooth muscle and thereby relieve bowel symptoms such as intestinal cramping
+                        </ul>`,
+
+            'Tropicamide': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> developed for topical ocular administration as a mydriatic (Pupilary dilator)
+                            <li> Also given before ophthalmoscopic examination of the peripheral retina
+                        </ul>`,
+
+            'Pirenzipine': `<strong class="section" >Class:</strong> <br> Synthetic Muscarinic receptor Antagonists <br>
+                        <strong class="section" > Mechanism: </strong> <br>
+                        <ul>
+                            <li> A muscarinic receptor antagonist that is selective for M1 receptors   
+                            <li>  It blocks M1 receptors on paracrine cells and inhibits the release of histamine, a potent gastric acid stimulant
+                        </ul>
+                        <strong class="section" > Indication: </strong> <br> 
+                        <ul>
+                            <li> developed to reduce vagally stimulated gastric secretion in patients with peptic ulcers
+                            <li> Also given before ophthalmoscopic examination of the peripheral retina
+                        </ul>`,
+
+            'Rocuronium': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong class="section" > Mechanism:</strong> <br>
+                        <ul>
+                            <li> Binds to the muscle type of nicotinic acetylcholine receptor and inhibit neurotransmission at skeletal neural muscular junction
+                            <li> After administration, the curariform drugs first papralyses the small and rapidly moving muscles of the eyes and face, then paralyses the larger muscles of the limbs and trunk and finally paralyses the intercostal muscles and the diaphragm causing ceasure of respiration
+                            <li> This sequency is good in that it enables relaxation of abdominal muscles for surgical procedures without causing apnea
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> estimated duration of action of 30 – 60 mins
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Primarily used to induce muscle relaxation during surgery to enable surgical manipulation
+                            <li> Used sometimes as adjuncts to electroconvulsive therapy to prevent injuries  that might be caused by involuntary muscle contractions
+                            <li>  Facilitation of intubation of the respiratory tract so as to enable ventilation and endoscopic procedures
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> extremely dangerous because they can cause complete respiratory failure in patients lacking external ventilator support
+                        </ul>`,
+
+            'Cisatracurium': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong> Mechanism:</strong> <br>
+                        <ul>
+                            <li> Binds to the muscle type of nicotinic acetylcholine receptor and inhibit neurotransmission at skeletal neural muscular junction
+                            <li> After administration, the curariform drugs first papralyses the small and rapidly moving muscles of the eyes and face, then paralyses the larger muscles of the limbs and trunk and finally paralyses the intercostal muscles and the diaphragm causing ceasure of respiration
+                            <li> This sequency is good in that it enables relaxation of abdominal muscles for surgical procedures without causing apnea
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> estimated duration of action of 30 – 60 mins
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Primarily used to induce muscle relaxation during surgery to enable surgical manipulation
+                            <li> Used sometimes as adjuncts to electroconvulsive therapy to prevent injuries  that might be caused by involuntary muscle contractions
+                            <li>  Facilitation of intubation of the respiratory tract so as to enable ventilation and endoscopic procedures
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> extremely dangerous because they can cause complete respiratory failure in patients lacking external ventilator support
+                        </ul>`,
+
+            'Pancuronium': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong class="section" > Mechanism:</strong> <br>
+                        <ul>
+                            <li> Binds to the muscle type of nicotinic acetylcholine receptor and inhibit neurotransmission at skeletal neural muscular junction
+                            <li> After administration, the curariform drugs first papralyses the small and rapidly moving muscles of the eyes and face, then paralyses the larger muscles of the limbs and trunk and finally paralyses the intercostal muscles and the diaphragm causing ceasure of respiration
+                            <li> This sequency is good in that it enables relaxation of abdominal muscles for surgical procedures without causing apnea
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> It and Doxacuronium have longer duration of action than the other Neuromuscular Agents
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Primarily used to induce muscle relaxation during surgery to enable surgical manipulation
+                            <li> Used sometimes as adjuncts to electroconvulsive therapy to prevent injuries  that might be caused by involuntary muscle contractions
+                            <li>  Facilitation of intubation of the respiratory tract so as to enable ventilation and endoscopic procedures
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> extremely dangerous because they can cause complete respiratory failure in patients lacking external ventilator support
+                        </ul>`,
+
+            'Atracurium': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong class="section" > Mechanism:</strong> <br>
+                        <ul>
+                            <li> Binds to the muscle type of nicotinic acetylcholine receptor and inhibit neurotransmission at skeletal neural muscular junction
+                            <li> After administration, the curariform drugs first papralyses the small and rapidly moving muscles of the eyes and face, then paralyses the larger muscles of the limbs and trunk and finally paralyses the intercostal muscles and the diaphragm causing ceasure of respiration
+                            <li> This sequency is good in that it enables relaxation of abdominal muscles for surgical procedures without causing apnea
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> estimated duration of action of 30 – 60 mins
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Primarily used to induce muscle relaxation during surgery to enable surgical manipulation
+                            <li> Used sometimes as adjuncts to electroconvulsive therapy to prevent injuries  that might be caused by involuntary muscle contractions
+                            <li>  Facilitation of intubation of the respiratory tract so as to enable ventilation and endoscopic procedures
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> extremely dangerous because they can cause complete respiratory failure in patients lacking external ventilator support
+                            <li>  At higher doses, atracurium causes histamine release
+                        </ul>`,
+
+            'Vecuronium': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong class="section" > Mechanism:</strong> <br>
+                        <ul>
+                            <li> Binds to the muscle type of nicotinic acetylcholine receptor and inhibit neurotransmission at skeletal neural muscular junction
+                            <li> After administration, the curariform drugs first papralyses the small and rapidly moving muscles of the eyes and face, then paralyses the larger muscles of the limbs and trunk and finally paralyses the intercostal muscles and the diaphragm causing ceasure of respiration
+                            <li> This sequency is good in that it enables relaxation of abdominal muscles for surgical procedures without causing apnea
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> estimated duration of action of 30 – 60 mins
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Primarily used to induce muscle relaxation during surgery to enable surgical manipulation
+                            <li> Used sometimes as adjuncts to electroconvulsive therapy to prevent injuries  that might be caused by involuntary muscle contractions
+                            <li> Facilitation of intubation of the respiratory tract so as to enable ventilation and endoscopic procedures
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> extremely dangerous because they can cause complete respiratory failure in patients lacking external ventilator support
+                        </ul>`,
+
+            'Succinylcholine': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Depolarizing Blocker <br>
+                        <strong class="section" > Mechanism:</strong> <br>
+                        <ul>
+                            <li> binds to nicotinic receptors and causes persistent depolarization
+                            <li> Administration of succinylcholine produces transient  muscle contractions called fasciculations  which are quickly followed by a sustained muscle paralysis
+                        </ul>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> When compared to curariforms, succinylcholine has a short duration of action, 5 – 10 minutes due it hydrolysis by plasma cholinesterase
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> Muscle relaxation before and during surgery
+                            <li> If endothelial intubation fails or in any emergency situation where resumption of spontanous breathing is needed, it is the best drug to use due to its duration of action  
+                            <li> Facilitation of intubation
+
+                        </ul>
+                        <strong class="section"  > Side Effects:</strong> <br> 
+                        <ul>
+                            <li> Patients with Atypical cholinesterase can not metabolize this drug at normal rate hence susceptible to prolonged paralysis 
+                            <li> Causes hyperkalemia sufficient to cause cardiac arrest especially in patients with unhealed skeletal muscle injury like third degree burns
+                        </ul>`,
+
+            'Suxamethonium': `<strong> This is another name for Succinylcholine </strong> <br>`,
+
+            'Tubocurarine': `<strong class="section" >Class:</strong> <br> Nicotinic receptor antagonists - Non Depolarizing Blocker <br>
+                        <strong class="section"  > Pharmacokinetics:</strong> <br>
+                        <ul>
+                            <li> Original Curare drug was extracted from plants used by native South Americans as arrow poisons for hunting wild game
+                            <li> not absorbed from the gut and do not cross the blood brain barrier and hence they do not cause poisoning when meat containing these agents is ingested
+                            <li> estimated duration of action of 30 – 60 mins
+                        </ul>
+                        <strong class="section" > Indication:</strong> <br>
+                        <ul>
+                            <li> No longer used clinically due to higher incidences of histamine release and adverse effects
+                        </ul>`,
+
+            'Curariform Drugs': `<strong class="section" > Definition:</strong><br>
+                            <ul>
+                                <li> These are the Non Depolarizing Neuromuscular Agents     
+                                <li> They include pancuronium, atracurium, rocuronium, vecuronium, cisatracurium     
+                            </ul>`,
+
+            'Dobutamine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Catecholamine <br> 
+                        <strong class="section" >Pharmacokinetics:</strong>
+                        <ul>
+                            <li> Synthetic Catecholamine
+                            <li> Contains the catechol moiety and an ethylamine side chain
+                            <li> They are rapidly inactivated by MAO and COMT, enzymes found in the gut, liver and other tissues 
+                            <li> For this reason, this drug has low bioavailability and short plasma half lives 
+                        </ul>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                            <li> Cardiac stimulant (Inotropic agent) during surgery
+                            <li> Short term management of acute heart failure
+                            <li> Cardiogenic shock
+                            <li> Also routinely used in treating septic shock
+                            <li> administered parenterally when systemic action is required like in management of anaphylactic shock
+                            <li> Treats several types of shocks
+                        </ul>
+                            `,
+
+            'Dopamine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Catecholamine <br> 
+                        <strong class="section" >Pharmacokinetics:</strong>
+                        <ul>
+                            <li> Neurotransmitter
+                            <li> precursor to norepinephrine and epinephrine 
+                            <li> Contains the catechol moiety and an ethylamine side chain
+                            <li> They are rapidly inactivated by MAO and COMT, enzymes found in the gut, liver and other tissues 
+                            <li> For this reason, this drug has low bioavailability and short plasma half lives 
+                        </ul>
+                        <strong class="section"  >Indications:</strong>
+                        <ul>
+                            <li> administered parenterally when systemic action is required like in management of anaphylactic shock
+                            <li> Treats several types of shocks
+                        </ul>`,
+                            
+            'Epinephrine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Catecholamine <br> 
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Principal hormone of the  adrenal medulla
+                                <li> Contains the catechol moiety and an ethylamine side chain
+                                <li> They are rapidly inactivated by MAO and COMT, enzymes found in the gut, liver and other tissues 
+                                <li> For this reason, this drug has low bioavailability and short plasma half lives 
+                            </ul>
+                            <strong class="section"  >Indications:</strong>
+                            <ul>
+                                <li> Treatment of choice for anaphylaxis. This is because it counteracts the effects of histamine and other mediators released from mast cell and basophils during immediate hypersensitivity reactions 
+                                <li> Used as a vasoconstrictor to reduce bleeding  during surgery
+                                <li> Prolongs the action of local anesthetics by retarding their absorption into general circulation 
+                                <li> Used as cardiac stimulant in the treatment of cardiac arrest and ventricular fibrillation 
+                                <li> Administered parenterally when systemic action is required like in management of anaphylactic shock
+                                <li> Treats several types of shocks
+                            </ul>
+                            `,
+
+            'Norepinephrine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Catecholamine <br> 
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Naturally occurring catecholamine 
+                                <li> An endogenous sympathetic neurotransmitter
+                                <li> Contains the catechol moiety and an ethylamine side chain
+                                <li> They are rapidly inactivated by MAO and COMT, enzymes found in the gut, liver and other tissues 
+                                <li> For this reason, this drug has low bioavailability and short plasma half lives 
+                            </ul>
+                            <strong class="section"  >Indications:</strong>
+                            <ul>
+                                <li> administered parenterally when systemic action is required like in management of anaphylactic shock
+                                <li> Treats several types of shocks
+                            </ul>
+                            `,
+
+            'Isoproterenol': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Catecholamine <br> 
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Synthetic Catecholamine
+                                <li> Contains the catechol moiety and an ethylamine side chain
+                                <li> They are rapidly inactivated by MAO and COMT, enzymes found in the gut, liver and other tissues 
+                                <li> For this reason, this drug has low bioavailability and short plasma half lives 
+                            </ul>
+                            <strong class="section"  >Indications:</strong>
+                            <ul>
+                                <li> Refractory tachycardia 
+                                <li> Atrioventricular block
+                                <li> may be used for asthma treatment but increases the heart rate, therefore selective beta 2 receptor agonists like salbutamol, terbutaline, salmetelol are used
+                                <li> administered parenterally when systemic action is required like in management of anaphylactic shock
+                                <li> Treats several types of shocks
+                            </ul>
+                            `,
+                            
+            'Salbutamol': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>`,
+
+            'Albuterol': `<strong>Definition:</strong> <br> Other name of Salbutamol
+                            `,
+
+            'Apraclonidine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Under another division called Imidazoline drugs
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation
+                            </ul>`,
+
+            'Clonidine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Under another division called Imidazoline drugs
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation
+                            </ul>`,
+
+            'Midodrine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>`,
+
+            'Oxymetazoline': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Under another division called Imidazoline drugs
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>
+                            `,
+
+            'Phenylephrine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>
+                            <strong class="section"  >Mechanism:</strong>
+                            <ul>
+                                <li> Phenylephrine activates 1 adrenoceptors and causes smooth muscle contraction which produces vasoconstriction and increases vascular resistance and blood pressure 
+                                <li> Ocular administration of phenylephrine leads to contraction of the iris dilator muscle and dilatation of the pupil (Mydriasis) 
+                            </ul>
+                            <strong class="section" >Indications:</strong>
+                            <ul>
+                                <li> Used as nasal decongestant in patients with viral rhinitis(common cold) caused by different subtypes of rhinovirus 
+                                <li> Allergic Rhinitis, an inflammation by histamine released from mast cells during allergic reaction 
+                                <li> Also used in allergic conjunctivitis (red eye), an inflammation of the eye associated to hay fever or other allergies 
+                                <li> When administered intravenously, phenylephrine is used to treat forms of hypotension and shock caused by decreased peripheral resistance 
+                            </ul>`,
+
+            'Brimonidine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Under another division called Imidazoline drugs
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>`,
+
+            'Dexmedetomidine': `<strong class="section" >Class:</strong> <br> Direct Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            <strong class="section" >Pharmacokinetics:</strong>
+                            <ul>
+                                <li> Under another division called Imidazoline drugs
+                                <li> Does not have the catechol moiety
+                                <li> Neither are they substrates for the COMT and some of them are resistant to MAO degradation 
+                            </ul>`,
+            
+            'Imidazoline drugs': `<strong>Definition:</strong> <br>
+                            <ul>
+                                <li> Division of Non-Catecholamines based on their chemical structure 
+                                <li> They Include the following drugs: Oxymetazoline, Apraclonidine, Brimonidine,  Clonidine and Dexmedetomidine  
+                                <li> Mnemonic - OABCD
+                            </ul>`,
+
+            'Amphetamine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Cocaine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Tyramine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Ephedrine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Pseudoephedrine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Tyramine': `<strong class="section" >Class:</strong> <br> Indirect Acting Adrenoceptor Agonists - Non-Catecholamine <br>
+                            `,
+
+            'Vasopressors': `<strong>Definition:</strong> <br>
+                            <ul>
+                                <li> Catecholamine drugs that increase blood pressure
+                            </ul>
+                            <strong class="section" >Indication:</strong>
+                            <ul>
+                                <li> treats shock when organ function is impaired because mean arterial blood pressure is less than 60mm Hg or simply the BP being less  than 90/60 mm Hg
+                                <li> For hypovolemia, it is always important to correct it by administering intravenous (I.V) fluids before giving vasopressors because vasopressors will not be effective when hypovolemia is present 
+                            </ul>`,
+
+
+            
+
+            
+        };
+        document.getElementById('modal-title').textContent = word;
+        document.getElementById('modal-content').innerHTML = data[word];
+        document.querySelector('.modal-overlay').style.display = 'block';
+        document.getElementById('modal').style.display = 'block';
+        document.getElementById('content').classList.add('blurred');
+      }
+      function closeModal() {
+        document.querySelector('.modal-overlay').style.display = 'none';
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('content').classList.remove('blurred');
+      }
+    </script>
+      
+      <!-- <div id="dictionary">
+        <div class="word" data-word="Ranitidine">
+            <h2 class="word-title">Ranitidine</h2>
+        
+            <p class="section-title" class="section" >Class:</p>
+            <p> Histamine 2 Receptor Antagonists (H2As)</p>
+        
+            <p class="section-title" class="section"  >Mechanism: PIG</p>
+            <ul>
+                <li>Blocks Histamine 2 receptors, leading to:</li>
+                <ul>
+                    <li>Pepsinogen activation failure to pepsin</li>
+                    <li>Intrinsic Factor low secretion but not enough to reduce vitamin B12 absorption</li>
+                    <li>Gastric Acid secretion prevention</li>
+                </ul>
+            </ul>
+
+            <p class="section-title" class="section"  > Pharmacokinetics:  </p>
+            <ul>
+                <li>Absorption: GUT. then undergoes hepatic inactivation b4 secretion thru urine </li>
+                <li> has long duration of action inspite of having a half-life of 2-3hrs</li>
+                <li> given once or twice a day </li>
+            </ul>
+        
+            <p class="section-title" class="section"  >Indications: PH GAD</p>
+            <ul>
+                <li> PUD & Heartburn</li>
+                <li> GERD/GORD & Allergic reactions when used in combination with H1 receptor blockers & Dyspepsia </li>
+                <li> A dose is recommended to supress Acid secretion the whole night </li>
+            </ul>
+        
+            <p class="section-title">Side Effects: ABCD HART</p>
+            <ul>
+                <li> AV Block, Bradycardia, Confusion, Diarrhoea & Depression & Dizziness </li>
+                <li> Headache & Hypersensitivity rxns, Altered liver function, Rash, Tiredness</li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li> Due to its ability to Change gastric pH it lowers absoption of Drugs like iron & Atazanavir while increasing absoprtion of drugs like saquinavir </li>
+            </ul>
+        </div>
+        
+    
+        
+        <div class="word" data-word="Cimetidine">
+            <h2 class="word-title"> Cimetidine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Histamine 2 Receptor Antagonists (H2As)</p>
+        
+            <p class="section-title" class="section"  >Mechanism: PIG</p>
+            <ul>
+                <li>Blocks Histamine 2 receptors, leading to:</li>
+                <ul>
+                    <li>Pepsinogen activation failure to pepsin</li>
+                    <li>Intrinsic Factor low secretion but not enough to reduce vitamin B12 absorption</li>
+                    <li>Gastric Acid secretion prevention</li>
+                </ul>
+            </ul>
+
+            <p class="section-title" class="section"  > Pharmacokinetics:  </p>
+            <ul>
+                <li>Absorption: GUT. then undergoes hepatic inactivation b4 secretion thru urine </li>
+                <li> has long duration of action inspite of having a half-life of 2-3hrs</li>
+                <li> given once or twice a day </li>
+            </ul>
+        
+            <p class="section-title" class="section"  >Indications: PH GAD</p>
+            <ul>
+                <li> PUD & Heartburn</li>
+                <li> GERD/GORD & Allergic reactions when used in combination with H1 receptor blockers & Dyspepsia </li>
+                <li> A dose is recommended to supress Acid secretion the whole night </li>
+            </ul>
+        
+            <p class="section-title">Side Effects: ABCD GHART</p>
+            <ul>
+                <li> AV Block, Bradycardia, Confusion, Diarrhoea & Depression & Dizziness </li>
+                <li> Gynecomastia & Hypersensitivity rxns, Headache, Altered liver function, Rash, Tiredness</li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li> Due to its ability to Change gastric pH it lowers absoption of Drugs like iron & Atazanavir while increasing absoprtion of drugs like saquinavir </li>
+                <li> inhibits CYP450 enzymes 1A2, 2C9, 2D6, and 3A4 which wll affect metabolism of drugs like saquinavir, warfarin  </li>
+                <li> competes with medication and creatine for tubular secretion in the kidney </li>
+            </ul> 
+        </div>
+    
+        <div class="word" data-word="Famotidine">
+            <h2 class="word-title">Famotidine</h2>
+        
+            <p class="section-title" class="section" >Class:</p>
+            <p> Histamine 2 Receptor Antagonists (H2As)</p>
+        
+            <p class="section-title" class="section"  >Mechanism: PIG</p>
+            <ul>
+                <li>Blocks Histamine 2 receptors, leading to:</li>
+                <ul>
+                    <li>Pepsinogen activation failure to pepsin</li>
+                    <li>Intrinsic Factor low secretion but not enough to reduce vitamin B12 absorption</li>
+                    <li>Gastric Acid secretion prevention</li>
+                </ul>
+            </ul>
+
+            <p class="section-title" class="section"  > Pharmacokinetics:  </p>
+            <ul>
+                <li>Absorption: GUT. then undergoes hepatic inactivation b4 secretion thru urine </li>
+                <li> has long duration of action inspite of having a half-life of 2-3hrs</li>
+                <li> given once or twice a day </li>
+            </ul>
+        
+            <p class="section-title" class="section"  >Indications: PH GAD</p>
+            <ul>
+                <li> PUD & Heartburn</li>
+                <li> GERD/GORD & Allergic reactions when used in combination with H1 receptor blockers & Dyspepsia </li>
+                <li> A dose is recommended to supress Acid secretion the whole night </li>
+            </ul>
+        
+            <p class="section-title">Side Effects: ABCD HART</p>
+            <ul>
+                <li> AV Block, Bradycardia, Confusion, Diarrhoea & Depression & Dizziness </li>
+                <li> Headache & Hypersensitivity rxns, Altered liver function, Rash, Tiredness</li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li> Due to its ability to Change gastric pH it lowers absoption of Drugs like iron & Atazanavir while increasing absoprtion of drugs like saquinavir </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Acetylcholine">
+            <h2 class="word-title">Acetylcholine</h2>
+        
+            <p class="section-title" class="section" >Class:</p>
+            <p>Choline Ester</p>
+        
+            <p class="section-title" class="section"  >Mechanism: Hydrolysis & Receptor Action</p>
+            <ul>
+                <li>Acetylcholine is a choline ester of acetic acid.</li>
+                <li>Rapidly hydrolyzed by cholinesterase, leading to an extremely short half-life.</li>
+                <li>Acts on both muscarinic and nicotinic receptors, although it lacks specificity for these receptors.</li>
+            </ul>
+        
+            <p class="section-title">Pharmacokinetics:</p>
+            <ul>
+                <li>Absorption: Poor absorption due to rapid hydrolysis by cholinesterase.</li>
+                <li>Metabolism: Hydrolyzed quickly by cholinesterase.</li>
+                <li>Duration: Extremely short half-life due to rapid hydrolysis, limiting its clinical use.</li>
+            </ul>
+        
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>Ophthalmic Use: Used during cataract surgery to produce miosis after lens removal.</li>
+                <li>Useful in other ophthalmic surgeries requiring rapid or complete miosis.</li>
+                <li>Not effective topically due to hydrolysis before it can penetrate to the iris.</li>
+                <li>Vascular Effects: Used intracoronary to induce vasoconstriction in vasospastic angina for diagnostic purposes.</li>
+            </ul>
+        
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Short duration of action limits the occurrence of side effects.</li>
+                <li>Potential for parasympathetic overstimulation leading to bradycardia, hypotension, and other cholinergic effects.</li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li>Increased hydrolysis by cholinesterase in the cornea limits its effectiveness when administered topically.</li>
+            </ul>
+        </div>
+        
+
+        <div class="word" data-word="Nizatidine">
+            <h2 class="word-title">Nizatidine</h2>
+        
+            <p class="section-title" class="section" >Class:</p>
+            <p> Histamine 2 Receptor Antagonists (H2As)</p>
+        
+            <p class="section-title" class="section"  >Mechanism: PIG</p>
+            <ul>
+                <li>Blocks Histamine 2 receptors, leading to:</li>
+                <ul>
+                    <li>Pepsinogen activation failure to pepsin</li>
+                    <li>Intrinsic Factor low secretion but not enough to reduce vitamin B12 absorption</li>
+                    <li>Gastric Acid secretion prevention</li>
+                </ul>
+            </ul>
+
+            <p class="section-title" class="section"  > Pharmacokinetics:  </p>
+            <ul>
+                <li>Absorption: GUT. then undergoes hepatic inactivation b4 secretion thru urine </li>
+                <li> has long duration of action inspite of having a half-life of 2-3hrs</li>
+                <li> given once or twice a day </li>
+            </ul>
+        
+            <p class="section-title" class="section"  >Indications: PH GAD</p>
+            <ul>
+                <li> PUD & Heartburn</li>
+                <li> GERD/GORD & Allergic reactions when used in combination with H1 receptor blockers & Dyspepsia </li>
+                <li> A dose is recommended to supress Acid secretion the whole night </li>
+            </ul>
+        
+            <p class="section-title">Side Effects: ABCD HART</p>
+            <ul>
+                <li> AV Block, Bradycardia, Confusion, Diarrhoea & Depression & Dizziness </li>
+                <li> Headache & Hypersensitivity rxns, Altered liver function, Rash, Tiredness</li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li> Due to its ability to Change gastric pH it lowers absoption of Drugs like iron & Atazanavir while increasing absoprtion of drugs like saquinavir </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Omeprazole">
+            <h2 class="word-title"> Omeprazole </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>  </p>
+        
+            <p class="section-title" class="section"  >Mechanism: PIG</p>
+            <ul>
+                <li> irreversibly block the proton pump and cause almost total acid suppression for > 24hours</li>
+            </ul>
+        
+            <p class="section-title" class="section"  > Pharmacokinetics:  </p>
+            <ul>
+                <li> acid labile prodrug given orally as sustained release, enteric coated preparation </li>
+                <li> absorption:gut. then taken to secretory canaliculi and converted to the active metabolites </li>
+                <li> inactivated mu liver by CYP 450 microsomal enzymes and excreted thru urine</li>
+                <li> pipo with CYP 2C19 extensive metabolizer phenotypes require a higher dose </li>
+            </ul>
+
+            <p class="section-title" class="section"  >Indications:  </p>
+            <ul>
+                <li>  </li>
+                <li> </li>
+                <li>  </li>
+            </ul>
+        
+            <p class="section-title">Side Effects: </p>
+            <ul>
+                <li>  </li>
+                <li>  </li>
+            </ul>
+        
+            <p class="section-title">Drug Interactions:</p>
+            <ul>
+                <li>   </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Oliguria">
+            <h2 class="word-title"> Oliguria </h2>
+            
+            <p class="section-title"> Description:</p>
+            <ul> 
+                <li> Reduced Blood Volume </li>
+            </ul>
+    
+            <p class="section-title"> Where can i find it :</p>
+            <ul> 
+                <li> Drugs used in Diarrhoea ppt </li>
+                <li> page 7 </li>
+            </ul>
+
+
+        </div>
+
+        <div class="word" data-word="Calcium polycarbophyl">
+            <h2 class="word-title"> Calcium polycarbophyl </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Bulk forming laxatives </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <ul> 
+                <li> absorb and retain water in the intestinal lumen thereby, increasing the mass of intestinal  content </li>
+                <li> This causes eventual distention of  the intestinal wall and thus leading to stimulation of peristalsis </li>
+            </ul>
+
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Chronic Constipation </li>
+                <li> treatment of diarrhea as it absorbs H2O and irritants </li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul> 
+                <li> may cause dehydration and Intestinal obstruction </li>
+                <li> To avoid this, take this drug with a full cup of water </li>
+                <li> Rarely cause Adverse Effects </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Methyl cellulose ">
+            <h2 class="word-title"> Methyl cellulose </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Bulk forming laxatives </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <ul> 
+                <li> absorb and retain water in the intestinal lumen thereby, increasing the mass of intestinal  content </li>
+                <li> This causes eventual distention of  the intestinal wall and thus leading to stimulation of peristalsis </li>
+            </ul>
+
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Chronic Constipation </li>
+                <li> treatment of diarrhea as it absorbs H2O and irritants </li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul> 
+                <li> may cause dehydration and Intestinal obstruction </li>
+                <li> To avoid this, take this drug with a full cup of water </li>
+                <li> Rarely cause Adverse Effects </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Psyllium hydrophyllic mucilloid">
+            <h2 class="word-title">  Psyllium hydrophyllic mucilloid </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Bulk forming laxatives </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <ul> 
+                <li> absorb and retain water in the intestinal lumen thereby, increasing the mass of intestinal  content </li>
+                <li> This causes eventual distention of  the intestinal wall and thus leading to stimulation of peristalsis </li>
+            </ul>
+
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Chronic Constipation </li>
+                <li> treatment of diarrhea as it absorbs H2O and irritants </li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul> 
+                <li> may cause dehydration and Intestinal obstruction </li>
+                <li> To avoid this, take this drug with a full cup of water </li>
+                <li> Rarely cause Adverse Effects </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Docusate">
+            <h2 class="word-title"> Docusate</h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Stool softeners (Surfactant laxatives) </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> softens the stool by facilitating  the incorporation of water into fatty intestinal material </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Constipation where stool is hard with painful and irritating passage anorectal conditions </li>
+                <li> Conditions where patients needs to avoid straining  during defecation  e.g after having abdominal or other related surgery </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Liquid paraffin ">
+            <h2 class="word-title"> Liquid paraffin </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Stool softeners (Surfactant laxatives) </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> softens the stool by facilitating  the incorporation of water into fatty intestinal material </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Constipation where stool is hard with painful and irritating passage anorectal conditions </li>
+                <li> Conditions where patients needs to avoid straining  during defecation  e.g after having abdominal or other related surgery </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Lactulose ">
+            <h2 class="word-title">  Lactulose </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Osmotic laxatives - Poorly Absorbed Sugars  </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p>  These substances  attract  and retain water in the intestinal lumen leading to increase intraluminal pressure, which will eventually lead to Stimulation of peristalsis </p>
+
+            <p class="section-title">Pharamacokinetics:</p>
+            <ul> 
+                <li>  These drugs can either be taken orally or as enemas(sometimes used for diagnostic purposes) </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> </p>
+
+            <p class="section-title">Side Effects:</p>
+            <p> </p>
+
+            <p class="section-title">Drug Interactions:</p>
+            <p> </p>
+        </div>
+
+        <div class="word" data-word="Magnesium oxide">
+            <h2 class="word-title">  Magnesium oxide </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Osmotic laxatives - Poorly absorbed salts (saline laxatives)  </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p>  These substances  attract  and retain water in the intestinal lumen leading to increase intraluminal pressure, which will eventually lead to Stimulation of peristalsis </p>
+
+            <p class="section-title">Pharamacokinetics:</p>
+            <ul> 
+                <li>  This drug can either be taken orally or as enemas(sometimes used for diagnostic purposes) </li>
+                <li>  Sufficient doses act rapidly to stimulate defecations </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> </p>
+
+            <p class="section-title">Side Effects:</p>
+            <p> </p>
+
+            <p class="section-title">Drug Interactions:</p>
+            <p> </p>
+        </div>
+
+        <div class="word" data-word="Polyethylene glycol (PEG)">
+            <h2 class="word-title"> Polyethylene glycol (PEG)  </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> </p>
+
+            <p class="section-title">Side Effects:</p>
+            <p> </p>
+
+            <p class="section-title">Drug Interactions:</p>
+            <p> </p>
+        </div>
+
+        <div class="word" data-word="Sodium phosphate">
+            <h2 class="word-title"> Sodium phosphate </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Osmotic laxatives - Poorly absorbed salts (saline laxatives)  </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p>  These substances  attract  and retain water in the intestinal lumen leading to increase intraluminal pressure, which will eventually lead to Stimulation of peristalsis </p>
+
+            <p class="section-title">Pharamacokinetics:</p>
+            <ul> 
+                <li>  This drug can either be taken orally or as enemas(sometimes used for diagnostic purposes) </li>
+                <li>  Sufficient doses act rapidly to stimulate defecations </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul> 
+                <li> Bowel evacuation in patients scheduled for surgery/diagnostic exams </li>
+                <li>  Patients with drug overdose or poisoning </li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <p> </p>
+
+            <p class="section-title">Drug Interactions:</p>
+            <p> </p>
+        </div>
+
+        <div class="word" data-word="Ketoconazole ">
+            <h2 class="word-title"> Ketoconazole </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Antifungal (Azole) </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> Inhibits fungal cell membrane synthesis by blocking the enzyme lanosterol 14-alpha-demethylase, preventing conversion of lanosterol to ergosterol. </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> Fungal infections (e.g., candidiasis, dermatophytosis) </p>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Hepatotoxicity</li>
+                <li>GI disturbances</li>
+                <li>hormonal imbalance</li>
+            </ul>
+
+            
+        </div>
+
+        <div class="word" data-word="Itraconazole ">
+            <h2 class="word-title">Itraconazole </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Antifungal (Azole) </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> Inhibits fungal cell membrane synthesis by blocking the enzyme lanosterol 14-alpha-demethylase, preventing conversion of lanosterol to ergosterol.</p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> Fungal infections (e.g., aspergillosis, histoplasmosis)</p>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Hepatotoxicity</li>
+                <li>GI upset</li>
+                <li>headache</li>
+                <li>Rash</li>
+                <li>potential cardiac effects (e.g., QT prolongation)</li>
+            </ul>
+
+            
+        </div>
+
+        <div class="word" data-word="Anulia ">
+            <h2 class="word-title"> Anulia </h2>
+            
+            <p class="section-title"> Description:</p>
+            <ul> 
+                <li> Absence of urine </li>
+            </ul>
+    
+            <p class="section-title"> Where can i find it :</p>
+            <ul> 
+                <li> Drugs used in Diarrhoea ppt </li>
+                <li> page 7 </li>
+            </ul>
+        </div>
+
+        <div class="word" data-word="Atazanavir">
+            <h2 class="word-title"> Atazanavir </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Antiretroviral (Protease Inhibitor) </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> Inhibits the HIV-1 protease enzyme, preventing viral protein cleavage and maturation of infectious particles </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p> HIV/AIDS (as part of combination therapy) </p>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Hyperbilirubinemia</li>
+                <li>GI disturbances</li>
+                <li>rash</li>
+                <li>elevated liver enzymes</li>
+            </ul>
+
+            
+        </div>
+
+        <div class="word" data-word="Dopamine">
+            <h2 class="word-title"> Dopamine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Catecholamine</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>Treating septic/cardiogenic Shock when patients remain hypotensive depsite dluid administration </li>
+            </ul>
+
+            <p class="section-title">Pharmacokinetics:</p>
+            <ul>
+                <li>low does of 2mg/kg is started with then titrated to acheive desired BP</li>
+                <li>though low dose increases urine output</li>
+                <li>the low dose is however not effective in preventing and treating Acute renal Failure </li>
+            </ul>
+
+    
+        </div>
+
+        <div class="word" data-word="Norepinephrine">
+            <h2 class="word-title"> Norepinephrine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Catecholamine</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> Used to treat Septic Shock</li>
+                <li> given to patients with cardiogenic shock when the response to
+                    dopamine is inadequate or is accompanied by tachycardia </li>
+                <li> treat hypotension caused by decreased
+                    peripheral resistance like in persons who have received excessive doses
+                    of vasodilator drugs </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Epinephrine">
+            <h2 class="word-title"> Epinephrine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Catecholamine</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>anaphylaxis as it counteracts the effects of bena histamine and other mediators </li>
+                <li> reduce bleeding during surgery as it is a vasoconstrictor </li>
+                <li> prolongs the action of local anesthetics by retarding their absorption into general circulation </li>
+                <li> used as cardiac stimulant in the treatment of cardiac arrest and ventricular fibrillation </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Isoproterenol">
+            <h2 class="word-title"> Isoproterenol </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Catecholamine</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> Refractory Tachycardia</li>
+                <li> Atrioventricula Block </li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <p> If used for treatment of asthma, it also increases the heart rate..... and so for this reason selective β2 receptor agonists like
+                salbutamol, terbutaline, salmetelol are more preferred </p>
+
+        </div>
+
+        <div class="word" data-word="Dobutamine">
+            <h2 class="word-title"> Dobutamine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Catecholamine</li>
+            </ul>
+
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> Used as cardiac stimulant during heart surgery and in the short term
+                    management of acute heart failure and cardiogenic shock </li>
+                <li> used in treating septic shock </li>
+                <li></li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Phenylephrine">
+            <h2 class="word-title"> Phenylephrine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Non-Catecholamine</li>
+            </ul>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <ul>
+                <li>activates &alpha;1 adrenoceptors vasoconstriction increasesing vascular resistance and blood pressure</li>
+                <li>Ocular administration of phenylephrine leads to contraction of the iris 
+                    dilator muscle and dilatation of the pupil (Mydriasis)</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>nasal decongestant in patients with viral rhinitis</li>
+                <li>used in allergic rhinitis</li>
+                <li>used in allergic conjunctivitis</li>
+                <li>When administered intravenously, phenylephrine is used to treat forms of 
+                    hypotension and shock caused by decreased peripheral resistant</li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Midodrine">
+            <h2 class="word-title"> Midodrine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> Direct Acting Adrenergic Agonists</p>
+            <ul>
+                <li> Non-Catecholamine</li>
+            </ul>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> Forms an active metabolite that selectively activates 1-
+                adrenoceptors in arteriolar and venous circulation </p>
+
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>o increase in diastolic and systolic pressure in standing, 
+                    sitting and supine position </li>
+                <li> used to treat postural (orthostatic) hypotension in person 
+                    impaired by the condition e.g. patients with severe diabetic 
+                    autonomic neuropathy</li>
+                <li></li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <p> Hypertension in supine position is the known adverse effect </p>
+        </div>
+
+        <div class="word" data-word="Acetylcholine">
+            <h2 class="word-title">  </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Choline esters </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharmacokinetics:</p>
+            <p>limited clinical application because:</p>
+            <ul>
+                <li>limited absorption</li>
+                <li>short duration of action</li>
+                <li>lack of specificity for muscarinic or nicotinic receptors</li>
+                <li>rapidly hydrolyzed by cholinesterase and has an extreme short half life</li>
+                <li>Topical administration is not effective as it is hydrolyzed by corneal cholinesterase before it can
+                    penetrate to the iris and ciliary muscle</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>Ophthalmic acetylcholine is available for use during cataract surgery</li>
+                <li> Generally, Can be useful in other ophthalmic surgeries where rapid or complete miosis is desired</li>
+                <li> used to help establish the diagnosis of vasospastic angina</li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Bethanechol">
+            <h2 class="word-title"> Bethanechol </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Choline esters </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharmacokinetics:</p>
+            <ul>
+                <li>Resistant to Hydrolysis by cholinesterase</li>
+                <li>Duration of action is relatively short, lasting for sveral hours after ocular ot systemic administration</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>stimulate bladder or GIT muscle without significantly affecting heart rate or blood pressure</li>
+                <li>Postoperatively or postpartumly, it is given to increase muscle tone in patients with
+                    non-obstructive neurogenic urinary retention after receiving anaesthesia during
+                    childbirth or other surgery</li>
+                <li></li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Should not be given through I.V as it can cause hypotension and Bradycardia</li>
+                <li>Hence, Therapeutic doses of bethanechol given orally or subcutaneously has little effect on BP</li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Carbachol">
+            <h2 class="word-title"> Carbachol </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Choline esters </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharmacokinetics:</p>
+            <ul>
+                <li>Resistant to Hydrolysis by cholinesterase</li>
+                <li>Duration of action is relatively short, lasting for sveral hours after ocular ot systemic administration</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>used suring opthalmic surgery as a solution instilled intraocularly to produce miosis</li>
+                <li> cataract surgery </li>
+                <li> iridectomy </li>
+                <li> Was used to treat open angle Glaucoma previously, but has since been replaced by other agents with fewer side effects </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Muscarine">
+            <h2 class="word-title"> Muscarine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Plant Alkaloid </li>
+                    </ul>
+                </li>
+            </ul>
+            
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p>  Muscarine has no medical use </p>
+
+
+        </div>
+
+        <div class="word" data-word="Nicotine">
+            <h2 class="word-title"> Nicotine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Plant Alkaloid </li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <p>  available in chewing gums, transdermal patches and other products
+                meant for use in smoking  </p>
+
+        </div>
+
+        <div class="word" data-word="Pilocarpine">
+            <h2 class="word-title"> Pilocarpine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Plant Alkaloid </li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>administered orally for treatment of xerostemia (dry mouth)</li>
+                <li>2nd line drug for chronic angle Glaucoma</li>
+                <li>used in acute closed angle glaucoma</li>
+                <li></li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <p> Decreased night vision is the main side effects of ocular administration </p>
+
+            <p class="section-title"> Therapeutice Advice:</p>
+            <p> To avoid side effects, low doses are needed because of its high sensitivity of
+                the salivary glands to muscarinic stimulation
+            </p>
+        </div>
+
+        <div class="word" data-word="Cervimeline">
+            <h2 class="word-title"> Cervimeline</h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Other synthetic Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>administered orally to treat dry mouth in patients
+                    who have had radiation therapy for head or neck cancer</li>
+                <li>used in Sjogren syndrome (Dry mouth, dry eyes and arthritis)</li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li>Increased sweating, nausea and visual disturbance caused by drug
+                    induced miosis</li>
+                <li>As with other Ach agonists, cevimeline should be used cautiously in
+                    patients with asthma and cardiac arrythmias
+                    </li>
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Vernicline">
+            <h2 class="word-title"> Vernicline </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Direct Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Other synthetic Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> The drug is used for smoking cessation and has been found to
+                    reduce both the craving and the withdrawal effects caused by
+                    nicotine </li>    
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Edrophonium">
+            <h2 class="word-title"> Edrophonium </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Indirect Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Reversible Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title" class="section"  > Pharamacokinetics/p>
+            <ul>
+                <li>a positive alcohol that reversibly binds a negatively
+                    charged site on cholinesterase</li>
+                <li>Its reversible binding and rapid renal excretion are responsible for its short
+                    duration of action (about 10mins)</li>
+                <li>used during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required</li>
+                <li> Long Term use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis </li>    
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li>Useful in intial diagnosis of myasthenia </li>
+                <li>distinguishing between myathenia crisis and cholinergic crisis in myasthenia patients being treated
+                    with pyridostigmine</li>    
+                <li></li>    
+            </ul>
+
+        </div>
+
+        <div class="word" data-word="Physostigmine ">
+            <h2 class="word-title"> Physostigmine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Indirect Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Reversible Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharmacokinetics:</p>
+            <ul>
+                <li>plant alkaloid that is well absorbed from the gut</li>
+                <li>penetrates the blood brain barrier</li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> Long Term use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis </li>    
+                <li> Physostigmine is used in the treatment of glaucoma though other drugs are used today</li>    
+                <li> As a parenteral preparation, physostigmine is used as an antidote to counteract seizure
+                    caused by atropine overdose </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" Neostigmine ">
+            <h2 class="word-title"> Neostigmine</h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Indirect Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Reversible Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharamacokinetics:</p>
+            <ul>
+                <li>Synthetic Drug</li>
+                <li>Exist as positively charged at physiologic pH and hence is less absorbed and does not cross the BBB </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li> 
+                <li> Long Term use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis </li>    
+                <li>used during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required</li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" pyridostigmine ">
+            <h2 class="word-title"> Pyridostigmine </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p>Cholinergic Receptor Agnists</p>
+            <ul>
+                <li>Indirect Acting Acetylcholine receptor agonists </li>
+                <li>
+                    <ul>
+                        <li> Reversible Agonists </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p class="section-title">Pharamacokinetics:</p>
+            <ul>
+                <li>Synthetic Drug</li>
+                <li>Exist as positively charged at physiologic pH and hence is less absorbed and does not cross the BBB </li>
+            </ul>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> Long Term use in myasthenia gravis where they improve muscle tone and reduces eyelid and facial ptosis </li>    
+                <li>used during surgery to reverse effects of curariform drugs when muscle relaxation is no longer required</li>
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+        <div class="word" data-word=" ">
+            <h2 class="word-title"> </h2>
+            
+            <p class="section-title" class="section" >Class:</p>
+            <p> </p>
+            
+            <p class="section-title" class="section"  >Mechanism:</p>
+            <p> </p>
+    
+            <p class="section-title" class="section"  >Indications:</p>
+            <ul>
+                <li> </li>    
+            </ul>
+
+            <p class="section-title">Side Effects:</p>
+            <ul>
+                <li> </li>
+            </ul>
+
+            <p class="section-title"> uhm:</p>
+            <p>  </p>
+        </div>
+
+
+    </div> -->
+    
+    <!-- <script>
+        function searchTerm() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let terms = document.getElementsByClassName('word');
+    
+            for (let i = 0; i < terms.length; i++) {
+                let word = terms[i];
+                let title = word.getElementsByClassName('word-title')[0].textContent.toLowerCase();
+                if (title.includes(input)) {
+                    word.style.display = "";
+                } else {
+                    word.style.display = "none";
+                }
+            }
+        }
+    </script> -->
+</body>
+</html>

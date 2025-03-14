@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure and Minerals Structure Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container, .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        .quiz-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c40094;
+            margin-top: 15px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .circular-progress {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, .4) 0deg);
+            margin: 20px auto;
+            position: relative;
+        }
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .progress-value {
+            position: relative;
+            font-size: 24px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        .score-text {
+            font-size: 18px;
+        }
+        .buttons button {
+            width: 130px;
+            height: 47px;
+            outline: none;
+            background: #c40094;
+            border: 2px solid #c40094;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 600;
+            margin: 0 20px 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .buttons button:nth-child(1):hover {
+            background: #950170;
+            color: #fff;
+        }
+
+        .buttons button:nth-child(2) {
+            background: transparent;
+            color: #c40094;
+        }
+
+        .buttons button:nth-child(2):hover {
+            background: #c40094;
+            color: #fff;
+        }
+        .question-review {
+            text-align: left;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .question-review p {
+            margin: 5px 0;
+        }
+        .question-review p strong {
+            color: #007bff;
+        }
+        .question-review .answer {
+            font-style: italic;
+        }
+        #show-score-button {
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #show-score-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="quiz-container">
+        <h2 id="question">Question will appear here</h2>
+        <input type="text" id="answer-input" placeholder="Type your answer here">
+        <p id="timer">Time left: <span id="time-left">20</span>s</p>
+        <button id="submit-button" onclick="submitAnswer()">Submit Answer</button>
+    </div>
+
+    <div class="result-box" id="result-box" style="display: none;"></div>
+
+    <script>
+        const questions = [
+            {
+                question: "What drug would you give a person with hypotension caused by decreased peripheral resistance?",
+                correctAnswer: "Norepinephrine"
+            },
+            {
+                question: "Identify the structure below (Vitamin B1).",
+                correctAnswer: "Thiamine"
+            },
+            {
+                question: "What process is taking place here (enzymatic transfer of a pyrophosphate group)?",
+                correctAnswer: "Activation of Thiamine"
+            },
+            {
+                question: "Identify the structure below (Vitamin B6 member).",
+                correctAnswer: "Pyridoxine"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 20;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            document.getElementById('answer-input').value = "";
+            document.getElementById('time-left').textContent = timeLeft;
+            document.getElementById('submit-button').disabled = false;
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 20;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time-left').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitAnswer();
+                }
+            }, 1000);
+        }
+
+        function submitAnswer() {
+            clearInterval(timer);
+            const userAnswer = document.getElementById('answer-input').value.trim();
+            const currentQuestion = questions[currentQuestionIndex];
+            currentQuestion.userAnswer = userAnswer;
+            if (userAnswer.toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showReview();
+            }
+        }
+
+        function showReview() {
+            document.getElementById('quiz-container').style.display = 'none';
+            const resultBox = document.getElementById('result-box');
+            resultBox.innerHTML = `<h2>Review Your Answers</h2>`;
+            const reviewList = document.createElement('div');
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question-review');
+                questionDiv.innerHTML = `
+                    <p><strong>Question ${index + 1}:</strong> ${q.question}</p>
+                    <p><strong>Your Answer:</strong> <span class="answer">${q.userAnswer || "No Answer Given"}</span></p>
+                    <p><strong>Correct Answer:</strong> ${q.correctAnswer}</p>
+                `;
+                reviewList.appendChild(questionDiv);
+            });
+
+            const showScoreButton = document.createElement('button');
+            showScoreButton.id = 'show-score-button';
+            showScoreButton.textContent = "Show Score";
+            showScoreButton.onclick = showScore;
+
+            resultBox.appendChild(reviewList);
+            resultBox.appendChild(showScoreButton);
+            resultBox.style.display = 'block';
+        }
+
+        function showScore() {
+            const resultBox = document.getElementById('result-box');
+            resultBox.innerHTML = `
+                <h2>Quiz Result</h2>
+                <div class="circular-progress">
+                    <span class="progress-value">0%</span>
+                </div>
+                <p class="score-text">Your Score ${score} out of ${questions.length}</p>
+                <div class="buttons">
+                    <button onclick="restartQuiz()">Try Again</button>
+                    <button onclick="finishQuiz()">Done</button>
+                </div>
+            `;
+            animateProgress();
+        }
+
+        function animateProgress() {
+            const totalQuestions = questions.length;
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let progressValue = 0;
+            const progressInterval = setInterval(() => {
+                if (progressValue >= percentage) {
+                    clearInterval(progressInterval);
+                } else {
+                    progressValue++;
+                    document.querySelector('.progress-value').textContent = `${progressValue}%`;
+                    document.querySelector('.circular-progress').style.background = `conic-gradient(
+                        #c40094 ${progressValue * 3.6}deg,
+                        rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+                    )`;
+                }
+            }, 20);
+        }
+
+        function finishQuiz() {
+            window.location.href = 'Cholinergic-quiz.html';
+        }
+
+        function restartQuiz() {
+            window.location.reload();
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
