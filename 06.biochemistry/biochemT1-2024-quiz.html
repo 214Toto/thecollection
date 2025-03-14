@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../med2/Totoz-Study-Space/style.css">
+    <title>Image Quiz</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(../med2/Totoz-Study-Space/quiz1.jpg);
+            /* background: linear-gradient(to right, #00c6ff, #0072ff); */
+            /* background-image: url(../med2/Totoz-Study-Space/quiz.webp */
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        /* Quiz Container */
+        .quiz-container {
+            text-align: center;
+            max-width: 90%;
+            height: 100%;
+            /* background: #fff; */
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #333;
+            padding: 10px;
+            /* margin-top: 20px; */
+            /* margin: auto; */
+            /* margin: 15%; */
+            margin-top: 5rem;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Question Styling */
+        .question {
+            margin-bottom: 25px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        img {
+            width: 100%;
+            /* max-width: 400px; */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        label:hover {
+            background: #e0f7ff;
+        }
+
+        /* Submit Button */
+        button {
+            background: #0072ff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            display: block;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            background: #005bb5;
+        }
+
+        /* Result Box */
+        .result-box {
+            background: white;
+            color: #333;
+            padding: 20px;
+            margin: auto;
+            border-radius: 12px;
+            max-width: 400px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .percentage-container {
+            margin-top: 20px;
+        }
+
+        .circular-progress {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, 0.4) 0deg);
+            position: relative;
+            margin: auto;
+        }
+
+        .progress-value {
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            color: #333;
+        }
+
+        .answer-box {
+            display: none;
+            /* text-align: center; */
+            /* align-items: center; */
+            /* margin-left: 20%; */
+            /* margin-right: 20%; */
+            /* margin: 5rem; */
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 90%;
+            color: #333;
+            margin-top: 20px;
+            background: #f1f1f1;
+            padding: 8px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .ans {
+            color: #218838;
+        }
+
+        .expl {
+            color: #cc0000;
+        }
+
+        .question-Ans-Exp {
+            border: 2px solid #c40094;
+            padding: .3rem;
+            border-radius: 6px;
+            margin: .6rem;
+            margin-bottom: 2rem;
+        }
+
+        .question-Ans-Exp img {
+            width: 100%;
+        }
+
+        .answer-box p {
+            text-align: center;
+            font-size: 100%;
+        }
+
+
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        .buttons button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .tryagain-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .done-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .tryagain-btn:hover {
+            background: #cc0000;
+        }
+
+        .done-btn:hover {
+            background: #218838;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+
+    <header class="header">
+        <a href="../index.html" class="logo"> CBU SOM </a>
+
+    
+        <h2> Totoz Collection ! </h2>
+
+        <a href="../06.biochemistry/biochem-test1.html" class="nav"> Back </a>
+
+    </header>
+
+    <div class="quiz-container" id="quiz-container">
+        <h1>Image Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q1.JPG" alt="Question 1">
+                <label><input type="radio" name="q1" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q1" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q1" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q1" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q2.JPG" alt="Question 1">
+                <label><input type="radio" name="q2" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q2" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q2" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q2" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q3.JPG" alt="Question 1">
+                <label><input type="radio" name="q3" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q3" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q3" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q3" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q4.JPG" alt="Question 1">
+                <label><input type="radio" name="q4" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q4" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q4" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q4" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q5.JPG" alt="Question 1">
+                <label><input type="radio" name="q5" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q5" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q5" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q5" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q6.JPG" alt="Question 1">
+                <label><input type="radio" name="q6" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q6" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q6" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q6" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q7.JPG" alt="Question 1">
+                <label><input type="radio" name="q7" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q7" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q7" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q7" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q8.JPG" alt="Question 1">
+                <label><input type="radio" name="q8" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q8" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q8" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q8" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q9.JPG" alt="Question 1">
+                <label><input type="radio" name="q9" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q9" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q9" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q9" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q10.JPG" alt="Question 1">
+                <label><input type="radio" name="q10" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q10" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q10" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q10" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q11.JPG" alt="Question 1">
+                <label><input type="radio" name="q11" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q11" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q11" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q11" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q12.JPG" alt="Question 1">
+                <label><input type="radio" name="q12" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q12" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q12" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q12" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q13.JPG" alt="Question 1">
+                <label><input type="radio" name="q13" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q13" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q13" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q13" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q14.JPG" alt="Question 1">
+                <label><input type="radio" name="q14" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q14" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q14" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q14" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q15.JPG" alt="Question 1">
+                <label><input type="radio" name="q15" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q15" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q15" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q15" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q16.JPG" alt="Question 1">
+                <label><input type="radio" name="q16" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q16" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q16" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q16" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q17.JPG" alt="Question 1">
+                <label><input type="radio" name="q17" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q17" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q17" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q17" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q18.JPG" alt="Question 1">
+                <label><input type="radio" name="q18" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q18" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q18" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q18" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q19.JPG" alt="Question 1">
+                <label><input type="radio" name="q19" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q19" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q19" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q19" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q20.JPG" alt="Question 1">
+                <label><input type="radio" name="q20" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q20" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q20" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q20" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q21.JPG" alt="Question 1">
+                <label><input type="radio" name="q21" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q21" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q21" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q21" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q22.JPG" alt="Question 1">
+                <label><input type="radio" name="q22" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q22" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q22" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q22" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q23.JPG" alt="Question 1">
+                <label><input type="radio" name="q23" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q23" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q23" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q23" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q24.JPG" alt="Question 1">
+                <label><input type="radio" name="q24" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q24" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q24" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q24" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q25.JPG" alt="Question 1">
+                <label><input type="radio" name="q25" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q25" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q25" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q25" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q26.JPG" alt="Question 1">
+                <label><input type="radio" name="q26" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q26" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q26" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q26" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q27.JPG" alt="Question 1">
+                <label><input type="radio" name="q27" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q27" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q27" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q27" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q28.JPG" alt="Question 1">
+                <label><input type="radio" name="q28" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q28" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q28" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q28" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q29.JPG" alt="Question 1">
+                <label><input type="radio" name="q29" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q29" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q29" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q29" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q30.JPG" alt="Question 1">
+                <label><input type="radio" name="q30" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q30" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q30" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q30" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q31.JPG" alt="Question 1">
+                <label><input type="radio" name="q31" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q31" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q31" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q31" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q32.JPG" alt="Question 1">
+                <label><input type="radio" name="q32" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q32" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q32" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q32" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q33.JPG" alt="Question 1">
+                <label><input type="radio" name="q33" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q33" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q33" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q33" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q34.JPG" alt="Question 1">
+                <label><input type="radio" name="q34" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q34" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q34" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q34" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q35.JPG" alt="Question 1">
+                <label><input type="radio" name="q35" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q35" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q35" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q35" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q36.JPG" alt="Question 1">
+                <label><input type="radio" name="q36" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q36" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q36" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q36" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q37.JPG" alt="Question 1">
+                <label><input type="radio" name="q37" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q37" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q37" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q37" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q38.JPG" alt="Question 1">
+                <label><input type="radio" name="q38" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q38" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q38" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q38" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q39.JPG" alt="Question 1">
+                <label><input type="radio" name="q39" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q39" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q39" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q39" value="D"> D) Option 4</label>
+            </div>
+
+            <div class="question">
+                <img src="../08.Biochemistry-Test1/2024-q40.JPG" alt="Question 1">
+                <label><input type="radio" name="q40" value="A"> A) Option 1</label>
+                <label><input type="radio" name="q40" value="B"> B) Option 2</label>
+                <label><input type="radio" name="q40" value="C"> C) Option 3</label>
+                <label><input type="radio" name="q40" value="D"> D) Option 4</label>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+    </div>
+
+    <div class="answer-box" id="answer-box">
+        <h3>Correct Answers:</h3>
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q1.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q2.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q3.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q20.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q4.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q5.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q6.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q7.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q8.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q9.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q10.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q11.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q12.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q13.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q14.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q15.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q16.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q17.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q18.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q19.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+
+        <div class="question-Ans-Exp">
+            <img src="../08.Biochemistry-Test1/2024-q20.JPG" alt="Question 1">
+            <p>Answer: <strong>A) Option 1</strong></p>
+            <p>Explanation: <strong>A) Option 1</strong></p>
+        </div>
+        
+        
+    </div>
+
+    <script>
+    function checkAnswers() {
+        const answers = { q1: "A", q2: "C" };
+        let score = 0;
+        let totalQuestions = Object.keys(answers).length;
+
+        for (let question in answers) {
+            let userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+            if (userAnswer && userAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        let percentage = Math.round((score / totalQuestions) * 100);
+
+        document.getElementById("quiz-container").innerHTML = `
+            <div class="result-box">
+                <h2>Quiz Result</h2>
+                <div class="percentage-container">
+                    <div class="circular-progress">
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <span class="score-text">Your Score 0 out of ${totalQuestions}</span>
+                </div>
+                <div class="buttons">
+                    <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
+                        <button class="show-answers-btn" onclick="showAnswers()">Show Answers</button>
+                    <button class="done-btn" onclick="finishQuiz()">Done</button>
+                </div>
+            </div>
+        `;
+
+        let progressValue = 0;
+        let speed = 20;
+
+        const progressInterval = setInterval(() => {
+            if (progressValue >= percentage) {
+                clearInterval(progressInterval);
+                return;
+            }
+
+            progressValue++;
+            document.querySelector('.progress-value').textContent = `${progressValue}%`;
+            document.querySelector('.circular-progress').style.background = `conic-gradient(
+                #c40094 ${progressValue * 3.6}deg, 
+                rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+            )`;
+
+            document.querySelector('.score-text').textContent = `Your Score ${score} out of ${totalQuestions}`;
+        }, speed);
+    }
+
+    function restartQuiz() { window.location.reload(); }
+    function finishQuiz() { window.location.href = 'lab-test1.html'; }
+    function showAnswers() {
+            document.getElementById("answer-box").style.display = "block";
+        }
+</script>
+
+
+</body>
+</html>

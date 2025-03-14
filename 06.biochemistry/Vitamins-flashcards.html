@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Biochemistry Term 3 </title>
+  <link rel="stylesheet" href="../med2/Totoz-Study-Space/style.css">
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('your-background-image.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .quiz-container {
+        max-width: 340px;
+        margin: 50px auto;
+        background: rgba(0, 0, 0, 0.7);
+        /* padding: 20px; */
+        padding-left: 15px;
+        border-radius: 8px;
+        color: #fff;
+    }
+    .nav-buttons-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-bottom: 20px;
+    }
+    .nav-buttons {
+        display: inline-flex;
+    }
+    .nav-buttons button {
+        margin: 5px;
+        padding: 10px 15px;
+        background: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s;
+        flex-shrink: 0;
+    }
+    .nav-buttons button:hover {
+        background: #555;
+    }
+    .nav-buttons button.active {
+        background: #007BFF;
+    }
+    .flashcards {
+        display: none; /* Hide by default */
+        /* background: rgba(255, 255, 255, 0.1); */
+        /* padding: 15px; */
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  
+  <main>
+    <header class="header">
+      <a href="../index.html" class="logo"> CBU SOM </a>
+      <h2> Totoz Collection ! </h2>
+      <a href="Micronutrients-flashcards-T3.html" class="nav"> Back </a>
+    </header>
+
+
+
+    <div class="container">
+      <img src="../med2/Totoz-Study-Space/Log.png">
+      <h1> Vitamins </h1>
+
+
+      <div class="quiz-container">
+        <div class="nav-buttons-container">
+            <div class="nav-buttons">
+                <button onclick="showFlashcards(1)" class="active"> General Flashcards</button>
+                <button onclick="showFlashcards(2)"> Vitamin B1 </button>
+                <button onclick="showFlashcards(3)"> Vitamin B2 </button>
+                <button onclick="showFlashcards(4)"> Vitamin B3 </button>
+                <button onclick="showFlashcards(5)"> Vitamin B6 </button>
+                <button onclick="showFlashcards(6)"> Vitamin B7 </button>
+                <button onclick="showFlashcards(7)"> Vitamin B12 </button>
+                <button onclick="showFlashcards(8)"> Vitamin C </button>
+                <button onclick="showFlashcards(9)"> Folic Acid </button>
+                <button onclick="showFlashcards(10)"> Vitamin A </button>
+                <button onclick="showFlashcards(11)"> Vitamin D </button>
+                <button onclick="showFlashcards(12)"> Vitamin E </button>
+                <button onclick="showFlashcards(13)"> Vitamin K </button>
+            </div>
+        </div>
+
+        <!-- General FlashCards Flashcards -->
+        <div id="flashcards1" class="flashcards">
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Micronutrients Can be Classified according to ? </div>
+            <div class="back">&#10003; Solubility              
+                <br>&#10003; Functions in metabolism
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> These micronutrients have a wide range of functions, what is the Prominent function capacities in the body ? </div>
+            <div class="back">&#10003; Most prominent function- serve as co-factors (co-enzymes)
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vitamin B1 Flashcards -->
+        <div id="flashcards2" class="flashcards">
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the other name for Vitamin B1 ? </div>
+            <div class="back">&#10003; Thiamine
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> It occurs as what coenzyme ? </div>
+            <div class="back">&#10003; Thiamine pyrophosphate (TPP)
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> WHat is the primary role of TPP ? </div>
+            <div class="back">&#10003; TPP functions in the generation of activated aldehyde species
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> List the enzymes that use TPP  </div>
+            <div class="back">&#10003; pyruvate decarboxylase
+                <br>&#10003; branched chain α-keto acid dehydrogenase
+                <br>&#10003; pyruvate dehydrogenase
+                <br>&#10003; α-keto glutarate dehydrogenase
+                <br>&#10003; transketolase
+                <!-- <br>&#10003;  -->
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Structurally, What is thiamine made up of ? </div>
+            <div class="back">&#10003; A substitute pyrimidine ring (dimethyl 6-amino pyrimidine) Connected to a substitute thiazole ring (Methyl Hydroxy ethyl thiazole) by means of methylene bridge 
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How is thiamine activated to TPP </div>
+            <div class="back">&#10003; through an enzymatic transfer of a pyrophosphate grou from ATP to thiamine
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Of the Totoal Thiamine in the body, what percent of it is stored as TPP and where is it stored ? </div>
+            <div class="back">&#10003; 80%
+                <br>&#10003; Skeletal muscle, liver, heart, kidneys etc
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Name some of the Nutritional sources of vitamin B1 </div>
+            <div class="back">&#10003; seeds, nuts, wheat and lean meat etc
+                <!-- <br>&#10003;  -->
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003; 
+                <br>&#10003; 
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vitamin B3 Flashcards -->
+        <div id="flashcards3" class="flashcards">
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Niacin can go by other names, that may also act as a source of The same vitamin, What names are those ? </div>
+            <div class="back">&#10003; Nicotinic Acid
+                <br>&#10003; Nicotinamide
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Niacin is a simple derivative of ? </div>
+            <div class="back">&#10003; Pyridine </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What type of reactions is niacin mainly invloved in </div>
+            <div class="back">&#10003; Oxidoreductase rxns </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> The active forms of Niacin are ? </div>
+            <div class="back">&#10003;  Nicotinamide adenine dinucleotide (NAD+)
+                <br>&#10003; Nicotinamide adenine dinucleotide phosphate (NADP+)
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What coenzymes depend of niacin as a key component </div>
+            <div class="back">&#10003;  Nicotinamide adenine dinucleotide (NAD+)
+                <br>&#10003; Nicotinamide adenine dinucleotide phosphate (NADP+)
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> The amino acid from which Niacin can be derived from is ? </div>
+            <div class="back">&#10003; Tryptophan </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the RDA for Niacin </div>
+            <div class="back">&#10003; 15 to 20 mg  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> The severe deficiency of Niacin can be observed as the three Ds.... namely </div>
+            <div class="back">&#10003; Diarrhoea 
+              <br>&#10003; Dermatitis
+              <br>&#10003; Dementia
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How does excessive intake of maize and sorghum lead to Niacin deficiency</div>
+            <div class="back">&#10003; Maize contains niacin (vitamin B3), but niacin in its natural form in maize is bound to other compounds, making it biologically unavailable for absorption by the human body.
+                <br>&#10003;Sorghum (jowar) contains compounds that act as niacin antagonists, which means they interfere with niacin absorption and utilization in the body
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How will deficiency of vitamin B6 cause niacin deficiency </div>
+            <div class="back">&#10003; vitamin B6  is involved as a coenzyme in the pathway of synthesis of niacin from tryptophan. </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Explain how a person having Malignant carcinoid syndrome might be predisposed to niacin deficiency </div>
+            <div class="back">&#10003;  tryptophan metabolism is diverted to formation of serotonin </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is Hartnup disease and how does it cause niacin deficiency </div>
+            <div class="back">&#10003; it is a genetic disorder in which tryptophan absorption and transportation is impaired. </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Isoniazid predisposes niacin deficiency..... True or FALSE...... support your answer 
+            </div>
+            <div class="back">&#10003; True
+                <br>&#10003; soniazid is a medication used primarily to treat tuberculosis (TB) but it  interferes with the conversion of tryptophan to niacin
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Draw the chemical structure of niacin and Nicotinamide </div>
+            <div class="back"> <img src="niacin.png" alt=""> </div>
+          </div>
+        </div>
+
+        <!-- Vitamin B6 Flashcards -->
+        <div id="flashcards4" class="flashcards">
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Vitamin B6 is a mixture of ? </div>
+            <div class="back">&#10003; Pyridoxine 
+              <br>&#10003; pyridoxal
+              <br>&#10003; pyridoxamine
+              <br>&#10003; thier 5' phosphates
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the activated form of vitamin B6 </div>
+            <div class="back">&#10003;  Pyridoxal phosphate (PLP) 
+              <br>&#10003; formed from phosphorylation of all three forms of vitamin B6
+            </div>
+          </div>
+      
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> When and why does the requirement of this vitamin increase </div>
+            <div class="back">&#10003; When &rightarrow; increase in protein intake
+              <br>&#10003; Why &rightarrow; it plays a major role in amino acid metabolism 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How is this vitamin Absorbed Into the body </div>
+            <div class="back">&#10003; by passive diffusion </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is its efficiency in terms of absorption </div>
+            <div class="back">&#10003; Absorption is highly efficient: about 80% of the ingested vitamin is absorbed </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What enzymes hydrolyze the vitamers before they are absorbed ? </div>
+            <div class="back">&#10003; intestinal membrane alkaline phosphatase  </div>
+          </div>
+      
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What form of Of the vitamins are absorbed into the blood </div>
+            <div class="back">&#10003; dephosphorylated forms </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Major circulating form of vitamin B6 is...........  </div>
+            <div class="back">&#10003;  pyridoxal phosphate (PLP). </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> how is the PLP excreted out of the body ? </div>
+            <div class="back">&#10003; The PLP is converted to Pyridoxic Acid, with the help of Aldehyde oxidase 
+              <br>&#10003; The Pyridoxic Acid is then excreted through urine
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Of the three major forms of vitamin B6, which is a an aldehyde, which is a primary alcohol,  and whic is an amine ? </div>
+            <div class="back">&#10003; Pyridoxine is primary alcohol
+              <br>&#10003; pyridoxal is an aldehyde
+              <br>&#10003; pyridoxamine is an amine
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Outline the important PLP-dependent reactions where Vitamin B6 serves as a coenzyme </div>
+            <div class="back">&#10003; Transamination
+              <br>&#10003; Decarboxylation
+              <br>&#10003; Condensation
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the role of B6 in Transamination ? </div>
+            <div class="back">&#10003; PLP is a coenzyme for transaminases, where it acts as an amino group carrier. </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> in Carboxylation reactions What two major enzymes is B6 a cofactor of ? </div>
+            <div class="back">&#10003; glutamate decarboxylase 
+              <br>&#10003; DOPA decarboxylase
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Name the role of each enzyme mentioned above </div>
+            <div class="back">&#10003; glutamate decarboxylase &raquo;  Converts glutamate to γ-aminobutyric acid (GABA), a major inhibitory neurotransmitter in the central nervous system
+              <br>&#10003; DOPA decarboxylase  &raquo; Converts DOPA to dopamine, which is further used to produce epinephrine and norepinephrine
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Vitamin B6 also plays a very crucial role in certain Condensation Reactions. Name an enzyme which PLP is a cofactor of and the specific reaction the enzymes catalyses </div>
+            <div class="back">&#10003; 8-aminolevulinic acid synthase
+              <br>&#10003; It catalyzes joining of glycine and succinyl CoA in the haem biosynthetic pathway 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> In spite of Vitamin B6 deficiency being rare, it is most often seen in what type of people ? </div>
+            <div class="back">&#10003;  alcoholics
+              <br>&#10003; women taking oral contraceptives
+              <br>&#10003; in infants fed with formula diet low in this vitamin
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Probably the commonest cause of deficiency is..... ? </div>
+            <div class="back">&#10003;  drug antagonism </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Name two drugs that can bring about Vitamin B6 deficiency </div>
+            <div class="back">&#10003; Isoniazid
+              <br>&#10003; Penicillamine
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> A person with TB has been administered Isoniazid as part of his therapy, explain to him how that Isoniazid can predispose B6 deficiency </div>
+            <div class="back">&#10003; Isoniazid reacts with PLP to form a biologically inactive molecule, hydrazone which is rapidly excreted in urine
+              <br>&#10003; It also inhibits pyridoxal kinase, an enzyme essential for converting Vitamin B6 to PLP
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Penicillamine, being amongst the drugs that can bring about Vitamin B6 deficiency, is initially used to treat whatty ? </div>
+            <div class="back">&#10003;  Wilson’s disease 
+              <br>&#10003; rheumatoid arthritis
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How does it cause Vitamin B6 deficiency ? </div>
+            <div class="back">&#10003; combines with PLP to render it unavailable </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Major symptoms of B6 deficiency include.... ? </div>
+            <div class="back">&#10003; neural dysfunction 
+              <br>&#10003; anaemia
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How are the symptoms mentioned above brought about ? </div>
+            <div class="back">&#10003; neural dysfunction &rbarr; impairment in the synthesis of neurotransmitters like norepinephrine and serotonin
+              <br>&#10003; anaemia &rbarr; impairment of haem biosynthesis 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What other features of Vitamin B6 deficiency are observed aside the mentioned ones above ? </div>
+            <div class="back">&#10003; lesions of the skin and mucosa
+              <br>&#10003; sideroblastic anaemia (red blood cells contain iron granules, caused by disrupted heme synthesis.)
+              <br>&#10003; personality changes 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What happens if B6 is taken in high levels ? and what is the mechanism behind it ? </div>
+            <div class="back">&#10003; vitamin B6 can be toxic and cause convulsions at very high levels 
+              <br>&#10003; Possible mechanism is by enhancing decarboxylation of L-DOPA in several tissues
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What type of patients would be significantly affected by an overdose of Vitamin B6 and How ? </div>
+            <div class="back">&#10003; patients treated for parkinsonism
+              <br>&#10003; efficiency of DOPA is thereby reduced coz high B6 with increase Decarboxylation of L-DOPA leading to it being in low amounts in the brain.
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What diagnostic test can be done to assess the levels of vitamin B6 in the body </div>
+            <div class="back">&#10003; checking activity of Aspartate transaminase in RBCs
+            </div>
+          </div>
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Severe deficiency of Vitamin B6 leads to what condition ? Explain how the named condition comes about. </div>
+            <div class="back">&#10003; Anemia 
+              <br>&#10003; PLP is a cofactor of 8-aminolevulinic Acid synthase, which is essential in the heme biosynthetic pathway.... so no B6 no pathway ro heme to Hb.... = Anemia
+            </div>
+          </div>  
+          
+        </div>
+
+        <div id="flashcards5" class="flashcards">
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What are the other names for Biotin </div>
+            <div class="back">&#10003; Vitamin B7
+              <br>&#10003; Vitamin H
+            </div>
+          </div>
+
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the main source of Biotin for the body</div>
+            <div class="back">&#10003; Intestinal flora
+            </div>
+          </div>  
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Biotin acts as a coenzyme for enzymes in what type of Reactions, give specific examples </div>
+            <div class="back">&#10003; Carboxylation Reactions
+              <br>&#10003; acetyl-CoA carboxylase in Lipogenesis
+              <br>&#10003; pyruvate carboxylase in Gluconeogenesis
+            </div>
+          </div>
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the effect of one taking high quantities of raw eggs ? </div>
+            <div class="back">&#10003; Avidin in raw eggs binds irreversibly to Biotin and thus making it unavailable for abdsorption
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> In relation to vitamin B7, its deficiency could be Inherited single or multiple carboxylase deficiencies. Explain what that means
+            </div>
+            <div class="back">&#10003; Single Carboxylase Deficiency: deficiency affects only one of the carboxylase enzymes that require biotin to function. 
+              <br>&#10003; Multiple Carboxylase Deficiency : This condition affects multiple carboxylase enzymes
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is drugs are likely to cause Biotin Deficiency if used for a long period ? </div>
+            <div class="back">&#10003; antibacterial drugs </div>
+          </div> 
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> WHat is the mechanism behind how the drugs mentioned above will cause the Deficiency </div>
+            <div class="back">&#10003; Antibiotics target and kill harmful bacteria but can also affect beneficial bacteria in the gut. This disruption can lead to reduced biotin production, as gut bacteria is capable of synthesizing biotin. </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Enlist some specific food sources of biotin  </div>
+            <div class="back">&#10003; plants, animal tissues-Liver, yeast, peanut, soybean, milk, egg yolk  </div>
+          </div>
+
+          
+        </div>
+
+        <div id="flashcards6" class="flashcards">
+          
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the other name for Vitamin B12 </div>
+            <div class="back">&#10003; Cobalamin </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Describe the structure of Cobalamin </div>
+            <div class="back">&#10003; Contains one Cobalt atom coordinated with 4 pyrrole rings(Corrin ring)
+            </div>
+          </div>          
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What is the main source of vitamin B12 </div>
+            <div class="back">&#10003; Found only in foods of animal origin
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+          
+
+
+
+
+
+        </div>
+
+        <div id="flashcards8" class="flashcards">
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What are some of the uses of Folic acid </div>
+            <div class="back">&#10003; DNA synthesis
+              <br>&#10003; repair DNA, and methylate DNA 
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  What are some of the results of Folate deficiency </div>
+            <div class="back">&#10003; Neural tubule defects in developing embryo
+              <br>&#10003; Nerve damage and limb numbness
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Explain the effect of Methotrexate, an anti- </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+          
+        </div>
+
+        <!--       Vitamin C   -->
+        <div id="flashcards7" class="flashcards">
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Describe the sensitivity of this vitamin. </div>
+            <div class="back">&#10003; Easily destroyed by heat, alkali and storage
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Why is it advised to Avoid overcooking foods that contain vitamin C. </div>
+            <div class="back">&#10003; during the Process of cooking 70% of vitamin C is lost
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Structurally, Vintamin C resembles ? </div>
+            <div class="back">&#10003; carbohydrates </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> What significane does its carbon double bonds add to it </div>
+            <div class="back">&#10003; It provides Vitamin C with Reducing property  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Of the Stereoisomers that Vitamin C has, which one has active biological activity ? </div>
+            <div class="back">&#10003; Only its L form </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Man, higher primates, guinea pigs and bats are unable to synthesize  ascorbic acid from glucose. Why ? </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Ascorbic Acid protects against oxidative damage. How does it do so ? </div>
+            <div class="back">&#10003; It donates 2 of its hydrogens with their electrons to free radicals </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Upon acheiving the function stated above, what product is formed ? </div>
+            <div class="back">&#10003; Dehydroascorbic Acid </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> outline the functions of Ascorbic acid </div>
+            <div class="back">&#10003; formation of serotonin.
+              <br>&#10003; Steroid synthesis
+              <br>&#10003; Antioxidant-prevents cancer formation
+              <br>&#10003; Collagen synthesis
+              <br>&#10003; Helps in iron absorption
+              <br>&#10003; Strengthens resistance to infection
+              <br>&#10003; &downdownarrows; the risk of cataract formation
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> Explain how Ascorbic Acid Strengthens resistance to infection </div>
+            <div class="back">&#10003; It Stimulates phagocytic action of leukocytes and formation of antibodies </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  Explain how Ascorbic Acid Helps in absorption of iron  </div>
+            <div class="back">&#10003; It Reduces ferric (Fe³⁺) to the ferrous (Fe²⁺) state, which is more readily absorbed in the intestines.  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How deos Ascorbic Acid Play a role in Hemoglobin Metabolism ? </div>
+            <div class="back">&#10003; reconversion of met-hemoglobin to hemoglobin </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> How about in Folic Acid Metabolism, how does ascorbic Acid play a role in that ? </div>
+            <div class="back">&#10003; ascorbic acid is a coenzyme of Folate Reductase, an enzyme involved in converting folic acid to tetrahydrofolic acid </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front"> WHat are the symptoms of Vitamin C deficiency ? </div>
+            <div class="back">&#10003; Anemia, atherosclerotic plaques, pinpoint hemorrhages
+              <br>&#10003; Bone fragility, joint pains
+              <br>&#10003; Bleeding gums, loosened teeth
+              <br>&#10003; Muscle degeneration and pain
+              <br>&#10003; Rough skin, blotchy bruises 
+              <br>&#10003; Poor wound healing, frequent infections
+              <br>&#10003; Hysteria, depression
+            </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+          <div class="card" onclick="flipCard(this)">
+            <div class="front">  </div>
+            <div class="back">&#10003;  </div>
+          </div>
+
+        </div>  
+
+
+      </div>
+    </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <h1> ToTo </h1>
+    </div>
+  </main>
+
+  <script>
+    function flipCard(card) {
+      card.classList.toggle("flipped");
+    }
+
+    // Show the first flashcards set by default
+    document.getElementById('flashcards1').style.display = 'block';
+
+    function showFlashcards(flashcardsNumber) {
+        // Hide all flashcards
+        const flashcards = document.querySelectorAll('.flashcards');
+        flashcards.forEach(flashcard => {
+            flashcard.style.display = 'none';
+        });
+
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('.nav-buttons button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Show the selected flashcards
+        const selectedFlashcards = document.getElementById(`flashcards${flashcardsNumber}`);
+        selectedFlashcards.style.display = 'block';
+
+        // Add active class to the selected button
+        buttons[flashcardsNumber - 1].classList.add('active');
+    }
+  </script>
+</body>
+</html>

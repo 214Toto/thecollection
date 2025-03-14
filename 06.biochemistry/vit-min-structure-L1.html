@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Structure and Minerals structure Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .quiz-container img {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        #answer-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c40094;
+            margin-top: 15px;
+        }
+        #submit-button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .result-box {
+            display: none;
+            color: #c40094;
+            width: 300px;
+            text-align: center;
+        }
+        .circular-progress {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, .4) 0deg);
+        }
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .progress-value {
+            position: relative;
+            font-size: 24px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        .score-text {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .buttons button{
+            width: 130px;
+            height: 47px;
+            outline: none;
+            background: #c40094;
+            border: 2px solid #c40094;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 600;
+            margin: 0 20px 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .buttons button:nth-child(1):hover {
+            background: #950170;
+            color: #fff;
+        }
+
+        .buttons button:nth-child(2) {
+            background: transparent;
+            color: #c40094;
+        }
+
+        .buttons button:nth-child(2):hover {
+            background: #c40094;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="quiz-container">
+        <h2 id="question">Question will appear here</h2>
+        <img id="question-image" src="" alt="Question Image">
+        <input type="text" id="answer-input" placeholder="Type your answer here">
+        <p id="timer">Time left: <span id="time-left">20</span>s</p>
+        <button id="submit-button" onclick="submitAnswer()">Submit Answer</button>
+    </div>
+
+    <div class="result-box" id="result-box">
+        <h2>Quiz Result</h2>
+        <div class="circular-progress">
+            <span class="progress-value">0%</span>
+        </div>
+        <p class="score-text"> <img src="" alt=""> Your Score 0 out of <span id="total-questions">0</span></p>
+        <div class="buttons">
+            <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
+            <button class="done-btn" onclick="finishQuiz()">Done</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                image: "Robiflavin.png", // Replace with your own image path
+                correctAnswer: "Riboflavin",
+                explanation: "Also known as Vitamin B2."
+            },
+            {
+                question: "Identify The Structure below",
+                image: "thiamine.png", // Replace with your own image path
+                correctAnswer: "Thiamine",
+                explanation: "Also known as Vitamin B1"
+            },
+            {
+                question: "Identify The Structure below",
+                image: "niacin.png", // Replace with your own image path
+                correctAnswer: "Niacin",
+                explanation: "Also known as Vitamin B3."
+            },
+            {
+                question: "What process is taking place here ?",
+                image: "TPP.png", // Replace with your own image path
+                correctAnswer: "Activation of Thiamine",
+                explanation: "The process involves enzymatic transfer of a Pyrophosphate Group from ATP to Thiamine"
+            },
+            {
+                question: "Identify The Structure below",
+                image: "folic-acid.png", // Replace with your own image path
+                correctAnswer: "Folic Acid",
+                explanation: ""
+            },
+            {
+                question: "Identify The Structure below",
+                image: "pyridoxine.png", // Replace with your own image path
+                correctAnswer: "Pyridoxine",
+                explanation: "Member of Vitamin B6"
+            },
+            {
+                question: "What Vitamin is the person below lacking ?",
+                image: "pellagra.jpg", // Replace with your own image path
+                correctAnswer: "Niacin",
+                explanation: "This condition is know as pellagra"
+            },
+            {
+                question: "Identify The Structure below",
+                image: "glucose.png", // Replace with your own image path
+                correctAnswer: "Glucose",
+                explanation: ""
+            },
+            {
+                question: "Identify The Structure below",
+                image: "Pyridoxal.png", // Replace with your own image path
+                correctAnswer: "Pyridoxal",
+                explanation: "."
+            },
+            {
+                question: "Identify The Structure below",
+                image: "nicotinamide.png", // Replace with your own image path
+                correctAnswer: "Nicotinamide",
+                explanation: ""
+            },
+            // Add more questions as needed
+        ];
+        
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 20;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            document.getElementById('question-image').src = currentQuestion.image;
+            document.getElementById('answer-input').value = "";
+            document.getElementById('time-left').textContent = timeLeft;
+            document.getElementById('submit-button').disabled = false;
+
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 20;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time-left').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitAnswer();
+                }
+            }, 1000);
+        }
+
+        function submitAnswer() {
+            clearInterval(timer);
+            const userAnswer = document.getElementById('answer-input').value.trim();
+            const currentQuestion = questions[currentQuestionIndex];
+            if (userAnswer.toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('total-questions').textContent = questions.length;
+            animateProgress();
+        }
+
+        function animateProgress() {
+    const totalQuestions = questions.length;
+    const percentage = Math.round((score / totalQuestions) * 100);
+    let progressValue = 0;
+    const progressInterval = setInterval(() => {
+        if (progressValue >= percentage) {
+            clearInterval(progressInterval);
+        } else {
+            progressValue++;
+            document.querySelector('.progress-value').textContent = `${progressValue}%`;
+            document.querySelector('.circular-progress').style.background = `conic-gradient(
+                #c40094 ${progressValue * 3.6}deg,
+                rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
+            )`;
+            document.querySelector('.score-text').textContent = `Your Score ${score} out of ${totalQuestions}`;
+        }
+    }, 20);
+}
+
+        function restartQuiz() {
+            window.location.reload();
+        }
+
+        function finishQuiz() {
+            window.location.href = 'vit-min-structure-levels.html';
+            // Add any additional actions you want to take when the quiz is done
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

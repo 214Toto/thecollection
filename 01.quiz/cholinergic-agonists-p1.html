@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cholinergic Agonists </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f4f4f4; */
+            background-image: url(../med2/Totoz-Study-Space/Doc.jpg);
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .quiz-container, .solution-container {
+            background-color: #705c5c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .solution-container {
+            display: none;
+            overflow-y: auto;
+            max-height: 70vh;
+            text-align: left;
+        }
+        #answer-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #c40094;
+            margin-top: 15px;
+            background-color: #ccc;
+            border-radius: 2px;
+        }
+        #submit-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .result-box {
+            display: none;
+            text-align: center;
+            background-color: #705c5c;
+            /* widh */
+            border-radius: 2px;
+            width: 90%;
+            height: 100%;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .done-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .solution-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .solution-item p {
+            margin: 5px 0;
+        }
+        .solution-item strong {
+            color: #007bff;
+        }
+        .solution-item.correct {
+            border-color: #28a745;
+            background-color: #eaffea;
+        }
+        .solution-item.incorrect {
+            border-color: #dc3545;
+            background-color: #ffeaea;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="quiz-container">
+        <h2 id="question">Question will appear here</h2>
+        <input type="text" id="answer-input" placeholder="Type your answer here">
+        <p id="timer">Time left: <span id="time-left">20</span>s</p>
+        <button id="submit-button" onclick="submitAnswer()">Submit Answer</button>
+    </div>
+
+    <div class="result-box" id="result-box">
+        <h2>Quiz Result</h2>
+        <p>Your Score: <span id="score"></span> out of <span id="total-questions"></span></p>
+        <div class="buttons">
+            <button class="solutions-btn" onclick="showSolutions()">Show Solutions</button>
+        </div>
+    </div>
+
+    <div class="solution-container" id="solution-container">
+        <h2>Solutions</h2>
+        <div id="solutions"></div>
+        <button class="done-btn" style="margin-top: 20px; width: 100%;" onclick="finishQuiz()">Done</button>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "What is your name", correctAnswer: "  " },
+            { question: "how are you", correctAnswer: "  " },
+            { question: "where are you", correctAnswer: "  " },
+            { question: "  ", correctAnswer: "  " },    
+            { question: "  ", correctAnswer: "  " },
+            { question: "  ", correctAnswer: "  " },
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 20;
+        const userAnswers = [];
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+            document.getElementById('answer-input').value = "";
+            document.getElementById('time-left').textContent = timeLeft;
+            document.getElementById('submit-button').disabled = false;
+            startTimer();
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = 20;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time-left').textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitAnswer();
+                }
+            }, 1000);
+        }
+
+        function submitAnswer() {
+            clearInterval(timer);
+            const userAnswer = document.getElementById('answer-input').value.trim();
+            userAnswers.push(userAnswer);
+            const currentQuestion = questions[currentQuestionIndex];
+            if (userAnswer.toLowerCase() === currentQuestion.correctAnswer.toLowerCase()) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('score').textContent = score;
+            document.getElementById('total-questions').textContent = questions.length;
+        }
+
+        function finishQuiz() {
+            alert("Quiz completed. Thank you for participating!");
+            window.location.href = "../med2/Totoz-Study-Space/index3.html";
+        }
+
+        function showSolutions() {
+            document.getElementById('result-box').style.display = 'none';
+            const solutionContainer = document.getElementById('solution-container');
+            solutionContainer.style.display = 'block';
+            const solutionsDiv = document.getElementById('solutions');
+            solutionsDiv.innerHTML = ""; // Clear previous solutions
+
+            questions.forEach((q, index) => {
+                const solutionItem = document.createElement('div');
+                solutionItem.classList.add('solution-item');
+                if (userAnswers[index]?.toLowerCase() === q.correctAnswer.toLowerCase()) {
+                    solutionItem.classList.add('correct');
+                } else {
+                    solutionItem.classList.add('incorrect');
+                }
+                solutionItem.innerHTML = `
+                    <p><strong>Question ${index + 1}:</strong> ${q.question}</p>
+                    <p><strong>Your Answer:</strong> ${userAnswers[index] || "No answer"}</p>
+                    <p><strong>Correct Answer:</strong> ${q.correctAnswer}</p>
+                `;
+                solutionsDiv.appendChild(solutionItem);
+            });
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
