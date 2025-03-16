@@ -3,98 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive MCQ Quiz</title>
   <link rel="stylesheet" href="../med2/Totoz-Study-Space/style.css">
-    <title>Image Quiz</title>
+    
     <style>
-        /* General Page Styles */
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            padding: 20px;
+            background: #1a1a2e;
             color: #fff;
+            padding: 20px;
         }
 
-        /* Quiz Container */
         .quiz-container {
-            max-width: 80%;
-            background: #fff;
-            color: #352d2d;
-            padding: 20px;
-            /* margin-top: 20px; */
-            /* margin: auto; */
-            margin-top: 5rem;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Question Styling */
-        .question {
-            margin-bottom: 25px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #f9f9f9;
-        }
-
-        img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            text-align: left;
-            padding: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        label:hover {
-            background: #e0f7ff;
-        }
-
-        /* Submit Button */
-        button {
-            background: #0072ff;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-            display: block;
-            margin: 20px auto;
-        }
-
-        button:hover {
-            background: #005bb5;
-        }
-
-        /* Result Box */
-        .result-box {
-            background: rgb(12, 137, 187);
-            border: #cc0000 3px double ;
-            color: #333;
-            padding: 20px;
+            background: #16213e;
+            margin-top: 6rem;
+            width: 80%;
             margin: auto;
+            padding: 12px;
             border-radius: 12px;
-            max-width: 400px;
-            box-shadow: 0px 4px 10px rgba(192, 18, 183, 0.2);
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
         }
 
-        .percentage-container {
+        h2 {
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        .question {
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .options label {
+            display: block;
+            background: #0f3460;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .options label:hover {
+            background: #00d4ff;
+            color: #16213e;
+        }
+
+        .btn {
+            background: #00d4ff;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 6px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .progress-container {
             margin-top: 20px;
+            display: none;
         }
 
         .circular-progress {
@@ -104,400 +80,314 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, 0.4) 0deg);
-            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: conic-gradient(#00d4ff 0deg, rgba(255, 255, 255, .1) 0deg);
+            box-shadow: 0 0 15px #00d4ff, 0 0 40px #00d4ff;
             margin: auto;
         }
 
-        .progress-value {
-            font-size: 22px;
-            font-weight: bold;
-            position: absolute;
-            color: #333;
-        }
-
-        .answer-box {
+        .answers-container {
             display: none;
-            /* text-align: center; */
-            /* align-items: center; */
-            /* margin-left: 20%; */
-            /* margin-right: 20%; */
-            /* margin: 5rem; */
-            margin-left: 10%;
-            margin-right: 10%;
-            max-width: 80%;
-            color: #333;
             margin-top: 20px;
-            background: #f1f1f1;
+            background: #0f3460;
             padding: 15px;
             border-radius: 10px;
-            text-align: left;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .ans {
-            color: #218838;
+        .correct {
+            color: #00ff88;
+            font-weight: bold;
         }
 
-        .expl {
-            color: #cc0000;
-        }
-
-        .question-Ans-Exp {
-            border: 2px solid #c40094;
-            padding: 1.7rem;
-            border-radius: 6px;
-            margin: .8rem;
-        }
-
-        .answer-box p {
-            text-align: center;
-        }
-
-        .buttons {
-            margin-top: 15px;
-        }
-
-        .question p {
-            background-color: white;
-            border-radius: 3px;
-            text-align: left;
-            color: black;
-            font-size: 1.2rem;
-        }
-
-        .buttons button {
-            margin: 5px;
-            padding: 10px 15px;
+        .explanation {
             font-size: 14px;
-            cursor: pointer;
-        }
-
-        .tryagain-btn {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .done-btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .tryagain-btn:hover {
-            background: #cc0000;
-        }
-
-        .done-btn:hover {
-            background: #218838;
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            color: #bbb;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
-
     <header class="header">
         <a href="../index.html" class="logo"> CBU SOM </a>
 
     
-        <h2> Totoz Collection ! </h2>
+        <h2> Lab Science </h2>
 
-        <a href="../06.Lab Science/lab-test1.html" class="nav"> Back </a>
+        <a href="Therapeutics-test2.html" class="nav"> Back </a>
 
     </header>
 
-    <div class="quiz-container" id="quiz-container">
-        <h1>2023 Lab Science Test 1</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <p>01. In the definition of 'Evidence based Medicine' which term means 'Careful and honest about doing one's work properly'?</p>
-                <label><input type="radio" name="q1" value="A"> A) Judicious</label>
-                <label><input type="radio" name="q1" value="B"> B) Explicit</label>
-                <label><input type="radio" name="q1" value="C"> C) Conscientious</label>
-                <label><input type="radio" name="q1" value="D"> D) All of the above</label>
-                <label><input type="radio" name="q1" value="E"> E) None of the above</label>
-            </div>
+    <div class="quiz-container">
+        <h2>2023 Test 1</h2>
 
-            <div class="question">
-                <p>Which diagnostic question assesses the risk of the patient's condition?</p>
-                <label><input type="radio" name="q2" value="A"> A) How is the patient doing?</label>
-                <label><input type="radio" name="q2" value="B"> B) What is the patient's prognosis?</label>
-                <label><input type="radio" name="q2" value="C"> C) What is the diagnosis?</label>
-                <label><input type="radio" name="q2" value="D"> D) Any of the above</label>
-                <label><input type="radio" name="q2" value="E"> E) None of the above</label>
-            </div>
-
-            <div class="question">
-                <p>The greatest overlap between the different symbiotic relationships occurs between:</p>
-                <label><input type="radio" name="q3" value="A"> A) Phoresis and Parasitism</label>
-                <label><input type="radio" name="q3" value="B"> B) Phoresis and Mutualism</label>
-                <label><input type="radio" name="q3" value="C"> C) Commensalism and Mutualism</label>
-                <label><input type="radio" name="q3" value="D"> D) Parasitism and Mutualism</label>
-                <label><input type="radio" name="q3" value="E"> E) Any of the above</label>
-            </div>
-
-            <div class="question">
-                <p>To which Kingdom do protozoan parasites belong?</p>
-                <label><input type="radio" name="q4" value="A"> A) Animalia</label>
-                <label><input type="radio" name="q4" value="B"> B) Protista</label>
-                <label><input type="radio" name="q4" value="C"> C) Fungus</label>
-                <label><input type="radio" name="q4" value="D"> D) Monera</label>
-                <label><input type="radio" name="q4" value="E"> E) None of the above</label>
-            </div>
-
-            <div class="question">
-                <p>What is the total volume of blood in a woman weighing 80 Kg?</p>
-                <label><input type="radio" name="q5" value="A"> A) 5.2L</label>
-                <label><input type="radio" name="q5" value="B"> B) 6.0L</label>
-                <label><input type="radio" name="q5" value="C"> C) 4.8L</label>
-                <label><input type="radio" name="q5" value="D"> D) 5.6L</label>
-                <label><input type="radio" name="q5" value="E"> E) None of the above</label>
-            </div>
-
-            <div class="question">
-                <p>Which one of the following White blood cell count lies within the normal count?</p>
-                <label><input type="radio" name="q6" value="A"> A) 2,000/µL</label>
-                <label><input type="radio" name="q6" value="B"> B) 3,000/µL</label>
-                <label><input type="radio" name="q6" value="C"> C) 12,000/µL</label>
-                <label><input type="radio" name="q6" value="D"> D) 13,000/µL</label>
-                <label><input type="radio" name="q6" value="E"> E) None of the above</label>
-            </div>
-
-            <div class="question">
-                <p>Physiological level of a biochemical disorder can be determined in which state of the patient?</p>
-                <label><input type="radio" name="q7" value="A"> A) Resting</label>
-                <label><input type="radio" name="q7" value="B"> B) Stressed</label>
-                <label><input type="radio" name="q7" value="C"> C) Confused</label>
-                <label><input type="radio" name="q7" value="D"> D) Any state</label>
-                <label><input type="radio" name="q7" value="E"> E) Any of the above</label>
-            </div>
-
-            <div class="question">
-                <p>Which one of the following body chemicals has a normal range similar for both men and women regardless of age?</p>
-                <label><input type="radio" name="q8" value="A"> A) Zinc</label>
-                <label><input type="radio" name="q8" value="B"> B) Iron</label>
-                <label><input type="radio" name="q8" value="C"> C) Phosphate</label>
-                <label><input type="radio" name="q8" value="D"> D) Copper</label>
-                <label><input type="radio" name="q8" value="E"> E) Magnesium</label>
-            </div>
-
-            <div class="question">
-                <p>The following statements on prokaryotic cells is correct except?</p>
-                <label><input type="radio" name="q9" value="A"> A) Cells have no true nucleus</label>
-                <label><input type="radio" name="q9" value="B"> B) Most are unicellular</label>
-                <label><input type="radio" name="q9" value="C"> C) They lack mitochondria</label>
-                <label><input type="radio" name="q9" value="D"> D) They are larger than eukaryotic cells</label>
-            </div>
-
-            <div class="question">
-                <p>Binary fission:</p>
-                <label><input type="radio" name="q10" value="A"> A) Occurs in eukaryotic cells</label>
-                <label><input type="radio" name="q10" value="B"> B) Is a process of sexual reproduction</label>
-                <label><input type="radio" name="q10" value="C"> C) Results in identical copies of the mother cell</label>
-                <label><input type="radio" name="q10" value="D"> D) Occurs as a result of mutations</label>
-            </div>
-
-            <div class="question">
-                <p>Regarding staining methods:</p>
-                <label><input type="radio" name="q11" value="A"> A) Auramine-rhodamine is a fluorescent dye that stains acid fast organisms</label>
-                <label><input type="radio" name="q11" value="B"> B) The gram stain is used to detect blood parasites</label>
-                <label><input type="radio" name="q11" value="C"> C) Potassium hydroxide is used as a contrast stain</label>
-                <label><input type="radio" name="q11" value="D"> D) India ink is used to differentiate gram positive bacteria from gram negative bacteria</label>
-            </div>
-
-            
-            <div class="question">
-                <p>What is the correct order of staining reagents in a Gram staining procedure?</p>
-                <label><input type="radio" name="q12" value="A"> A) Crystal violet -> Alcohol -> Iodine -> Safranin</label>
-                <label><input type="radio" name="q12" value="B"> B) Crystal violet -> Iodine -> Alcohol -> Safranin</label>
-                <label><input type="radio" name="q12" value="C"> C) Iodine -> Safranin -> Crystal violet -> Alcohol</label>
-                <label><input type="radio" name="q12" value="D"> D) Alcohol -> Crystal violet -> Iodine -> Safranin</label>
-                <label><input type="radio" name="q12" value="E"> E) Crystal violet -> Safranin -> Alcohol -> Iodine</label>
-            </div>
-
-            
-            <div class="question">
-                <p>The correct way to write the genus and species names of bacteria is</p>
-                <label><input type="radio" name="q13" value="A"> A) Staphylococcus aureus</label>
-                <label><input type="radio" name="q13" value="B"> B) staphylococcus aureus</label>
-                <label><input type="radio" name="q13" value="C"> C) Staphylococcus Aureus</label>
-                <label><input type="radio" name="q13" value="D"> D) staphylococcus Aureus</label>
-                <label><input type="radio" name="q13" value="E"> E) Staphylococcus. Aureus</label>
-            </div>
-
-            
-            <div class="question">
-                <p>The ability of an infectious agent to cause disease is called</p>
-                <label><input type="radio" name="q14" value="A"> A) Virulence</label>
-                <label><input type="radio" name="q14" value="B"> B) Toxigenicity</label>
-                <label><input type="radio" name="q14" value="C"> C) Pathogenicity</label>
-                <label><input type="radio" name="q14" value="D"> D) Infection</label>
-                <label><input type="radio" name="q14" value="E"> E) Invasion</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Poxvirus is a</p>
-                <label><input type="radio" name="q15" value="A"> A) Bullet shape</label>
-                <label><input type="radio" name="q15" value="B"> B) Rod shape</label>
-                <label><input type="radio" name="q15" value="C"> C) Brick shape</label>
-                <label><input type="radio" name="q15" value="D"> D) Filamentous shape</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Viral peplomers are composed of</p>
-                <label><input type="radio" name="q16" value="A"> A) Carbon</label>
-                <label><input type="radio" name="q16" value="B"> B) Phosphorus</label>
-                <label><input type="radio" name="q16" value="C"> C) Calcium</label>
-                <label><input type="radio" name="q16" value="D"> D) Glycoproteins</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Which of the following is the smallest virus?</p>
-                <label><input type="radio" name="q17" value="A"> A) Rabies virus</label>
-                <label><input type="radio" name="q17" value="B"> B) Hepatitis virus</label>
-                <label><input type="radio" name="q17" value="C"> C) Parvovirus</label>
-                <label><input type="radio" name="q17" value="D"> D) Tobacco mosaic virus</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Who is considered the 'father of immunology'?</p>
-                <label><input type="radio" name="q18" value="A"> A) Edward Jenner</label>
-                <label><input type="radio" name="q18" value="B"> B) Robert Koch</label>
-                <label><input type="radio" name="q18" value="C"> C) Louis Pasteur</label>
-                <label><input type="radio" name="q18" value="D"> D) Emil von Behring</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Which historical event led to the discovery of vaccines and the development of immunization techniques?</p>
-                <label><input type="radio" name="q2" value="A"> A) The discovery of antibiotics</label>
-                <label><input type="radio" name="q2" value="B"> B) The Black Death pandemic</label>
-                <label><input type="radio" name="q2" value="C"> C) The Spanish Flu pandemic</label>
-                <label><input type="radio" name="q2" value="D"> D) The invention of the microscope</label>
-            </div>
-
-            
-            <div class="question">
-                <p>Which of the following is a physical barrier in innate immunity that prevents entry of pathogens?</p>
-                <label><input type="radio" name="q2" value="A"> A) Cytokines</label>
-                <label><input type="radio" name="q2" value="B"> B) Interferons</label>
-                <label><input type="radio" name="q2" value="C"> C) Mucous membranes</label>
-                <label><input type="radio" name="q2" value="D"> D) T cells</label>
-            </div>
-
-<!--             
-            <div class="question">
-                <p>What is this?</p>
-                <label><input type="radio" name="q2" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q2" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q2" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q2" value="D"> D) Option 4</label>
-            </div>
-
-            
-            <div class="question">
-                <p>What is this?</p>
-                <label><input type="radio" name="q2" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q2" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q2" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q2" value="D"> D) Option 4</label>
-            </div> -->
-
-
-
-            <button type="button" onclick="checkAnswers()">Submit</button>
-        </form>
-    </div>
-
-    <div class="answer-box" id="answer-box">
-        <h3>Correct Answers:</h3>
-        <div class="question-Ans-Exp">
-            <p>01. In the definition of 'Evidence based Medicine' which term means 'Careful and honest about doing one's work properly'?</p>
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
+        <div class="question" id="q1">1. In the definition of "Evidence based Medicine" which term means "Careful and honest about doing one's work properly"?</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> Judicious</label>
+            <label><input type="radio" name="q1" value="b"> Explicit</label>
+            <label><input type="radio" name="q1" value="c"> Conscientious</label>
+            <label><input type="radio" name="q1" value="d"> All of the above</label>
+            <label><input type="radio" name="q1" value="e"> None of the above</label>
         </div>
 
-        <div class="question-Ans-Exp">
-            <p>Question 2</p>
-            <p class="ans">Answer: <strong>A) Option 1</strong></p>
-            <p class="expl">Explanation: <strong>A) Option 1</strong></p>
+        <div class="question" id="q2">2. Which diagnostic question assesses the risk of the patient's condition?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> How is the patient doing?</label>
+            <label><input type="radio" name="q2" value="b"> What is the patient's prognosis?</label>
+            <label><input type="radio" name="q2" value="c"> What is the diagnosis?</label>
+            <label><input type="radio" name="q2" value="d"> Any of the above</label>
+            <label><input type="radio" name="q2" value="e"> None of the above</label>
         </div>
-        
-        
+
+        <div class="question" id="q3">3. The greatest overlap between the different symbiotic relationships occurs between:</div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> Phoresis and Parasitism</label>
+            <label><input type="radio" name="q3" value="b"> Phoresis and Mutualism</label>
+            <label><input type="radio" name="q3" value="c"> Commensalism and Mutualism</label>
+            <label><input type="radio" name="q3" value="d"> Parasitism and Mutualism</label>
+            <label><input type="radio" name="q3" value="e"> Any of the above</label>
+        </div>
+
+        <div class="question" id="q4">4. To which Kingdom do protozoan parasites belong?</div>
+        <div class="options">
+            <label><input type="radio" name="q4" value="a"> Animalia</label>
+            <label><input type="radio" name="q4" value="b"> Protista</label>
+            <label><input type="radio" name="q4" value="c"> Fungus</label>
+            <label><input type="radio" name="q4" value="d"> Monera</label>
+            <label><input type="radio" name="q4" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q5">5. What is the total volume of blood in a woman weighing 80 Kg?</div>
+        <div class="options">
+            <label><input type="radio" name="q5" value="a"> 5.2 L</label>
+            <label><input type="radio" name="q5" value="b"> 6.0 L</label>
+            <label><input type="radio" name="q5" value="c"> 4.8 L</label>
+            <label><input type="radio" name="q5" value="d"> 5.6 L</label>
+            <label><input type="radio" name="q5" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q6">6. Which one of the following White blood cell count lies within the normal count?</div>
+        <div class="options">
+            <label><input type="radio" name="q6" value="a"> 2,000 µL</label>
+            <label><input type="radio" name="q6" value="b"> 3,000 µL</label>
+            <label><input type="radio" name="q6" value="c"> 12,000 µL</label>
+            <label><input type="radio" name="q6" value="d"> 13,000 µL</label>
+            <label><input type="radio" name="q6" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q7">7. Physiological level of a biochemical disorder can be determined in which state of the patient?</div>
+        <div class="options">
+            <label><input type="radio" name="q7" value="a"> Resting</label>
+            <label><input type="radio" name="q7" value="b"> Stressed</label>
+            <label><input type="radio" name="q7" value="c"> Confused</label>
+            <label><input type="radio" name="q7" value="d"> Any state</label>
+            <label><input type="radio" name="q7" value="e"> Any of the above</label>
+        </div>
+
+        <div class="question" id="q8">8. Which one of the following body chemicals has a normal range similar for both men and women regardless of age?</div>
+        <div class="options">
+            <label><input type="radio" name="q8" value="a"> Zinc</label>
+            <label><input type="radio" name="q8" value="b"> Iron</label>
+            <label><input type="radio" name="q8" value="c"> Phosphate</label>
+            <label><input type="radio" name="q8" value="d"> Copper</label>
+            <label><input type="radio" name="q8" value="e"> Magnesium</label>
+        </div>
+
+        <div class="question" id="q9">9. The following statements on prokaryotic cells is correct except?</div>
+        <div class="options">
+            <label><input type="radio" name="q9" value="a"> Cells have no true nucleus</label>
+            <label><input type="radio" name="q9" value="b"> Most are unicellular</label>
+            <label><input type="radio" name="q9" value="c"> They lack mitochondria</label>
+            <label><input type="radio" name="q9" value="d"> They are larger than eukaryotic cells</label>
+        </div>
+
+        <div class="question" id="q10">10. Binary fission:</div>
+        <div class="options">
+            <label><input type="radio" name="q10" value="a"> Occurs in eukaryotic cells</label>
+            <label><input type="radio" name="q10" value="b"> Is a process of sexual reproduction</label>
+            <label><input type="radio" name="q10" value="c"> Results in identical copies of the mother cell</label>
+            <label><input type="radio" name="q10" value="d"> Occurs as a result of mutations</label>
+        </div>
+
+        <div class="question" id="q11">11. Regarding staining methods:</div>
+        <div class="options">
+            <label><input type="radio" name="q11" value="a"> Auramine-rhodamine is a fluorescent dye that stains acid-fast organisms</label>
+            <label><input type="radio" name="q11" value="b"> The gram stain is used to detect blood parasites</label>
+            <label><input type="radio" name="q11" value="c"> Potassium hydroxide is used as a contrast stain</label>
+            <label><input type="radio" name="q11" value="d"> India ink is used to differentiate gram-positive bacteria from gram-negative bacteria</label>
+        </div>
+
+        <div class="question" id="q12">12. What is the correct order of staining reagents in a Gram staining procedure?</div>
+        <div class="options">
+            <label><input type="radio" name="q12" value="a"> Crystal violet - Alcohol - Iodine - Safranin</label>
+            <label><input type="radio" name="q12" value="b"> Crystal violet - Iodine - Alcohol - Safranin</label>
+            <label><input type="radio" name="q12" value="c"> Iodine - Safranin - Crystal violet - Alcohol</label>
+            <label><input type="radio" name="q12" value="d"> Alcohol - Crystal violet - Iodine - Safranin</label>
+            <label><input type="radio" name="q12" value="e"> Crystal violet - Safranin - Alcohol - Iodine</label>
+        </div>
+
+        <div class="question" id="q13">13. The correct way to write the genus and species names of bacteria is:</div>
+        <div class="options">
+            <label><input type="radio" name="q13" value="a"><i>Staphylococcus aureus</i></label>
+            <label><input type="radio" name="q13" value="b"> staphylococcus aureus</label>
+            <label><input type="radio" name="q13" value="c"> Staphylococcus Aureus</label>
+            <label><input type="radio" name="q13" value="d"> staphylococcus Aureus</label>
+            <label><input type="radio" name="q13" value="e"> Staphylococcus. Aureus</label>
+        </div>
+
+        <div class="question" id="q14">14. The ability of an infectious agent to cause disease is called:</div>
+        <div class="options">
+            <label><input type="radio" name="q14" value="a"> Virulence</label>
+            <label><input type="radio" name="q14" value="b"> Toxigenicity</label>
+            <label><input type="radio" name="q14" value="c"> Pathogenicity</label>
+            <label><input type="radio" name="q14" value="d"> Infection</label>
+            <label><input type="radio" name="q14" value="e"> Invasion</label>
+        </div>
+
+        <div class="question" id="q15">15. Poxvirus is a:</div>
+        <div class="options">
+            <label><input type="radio" name="q15" value="a"> Bullet shape</label>
+            <label><input type="radio" name="q15" value="b"> Rod shape</label>
+            <label><input type="radio" name="q15" value="c"> Brick shape</label>
+            <label><input type="radio" name="q15" value="d"> Filamentous shape</label>
+        </div>
+
+        <div class="question" id="q16">16. Viral peplomers are composed of:</div>
+        <div class="options">
+            <label><input type="radio" name="q16" value="a"> Carbon</label>
+            <label><input type="radio" name="q16" value="b"> Phosphorus</label>
+            <label><input type="radio" name="q16" value="c"> Calcium</label>
+            <label><input type="radio" name="q16" value="d"> Glycoproteins</label>
+        </div>
+
+        <div class="question" id="q17">17. Which of the following is the smallest virus?</div>
+        <div class="options">
+            <label><input type="radio" name="q17" value="a"> Rabies virus</label>
+            <label><input type="radio" name="q17" value="b"> Hepatitis virus</label>
+            <label><input type="radio" name="q17" value="c"> Parvovirus</label>
+            <label><input type="radio" name="q17" value="d"> Tobacco mosaic virus</label>
+        </div>
+
+        <div class="question" id="q18">18. Who is considered the "father of immunology"?</div>
+        <div class="options">
+            <label><input type="radio" name="q18" value="a"> Edward Jenner</label>
+            <label><input type="radio" name="q18" value="b"> Robert Koch</label>
+            <label><input type="radio" name="q18" value="c"> Louis Pasteur</label>
+            <label><input type="radio" name="q18" value="d"> Emil von Behring</label>
+        </div>
+
+        <div class="question" id="q19">19. Which historical event led to the discovery of vaccines and the development of immunization techniques?</div>
+        <div class="options">
+            <label><input type="radio" name="q19" value="a"> The discovery of antibiotics</label>
+            <label><input type="radio" name="q19" value="b"> The Black Death pandemic</label>
+            <label><input type="radio" name="q19" value="c"> The Spanish Flu pandemic</label>
+            <label><input type="radio" name="q19" value="d"> The invention of the microscope</label>
+        </div>
+
+        <div class="question" id="q20">20. Which of the following is a physical barrier in innate immunity that prevents entry of pathogens?</div>
+        <div class="options">
+            <label><input type="radio" name="q20" value="a"> Cytokines</label>
+            <label><input type="radio" name="q20" value="b"> Interferons</label>
+            <label><input type="radio" name="q20" value="c"> Mucous membranes</label>
+            <label><input type="radio" name="q20" value="d"> T cells</label>
+        </div>
+
+
+
+
+
+
+        <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+
+        <div class="progress-container">
+            <h3>Your Score:</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <p class="score-text"></p>
+            <button class="btn" onclick="showAnswers()">Show Answers</button>
+            <button class="btn" onclick="exitQuiz()">Exit Quiz</button>
+            <button class="btn" onclick="restartQuiz()">Try Again</button>
+        </div>
+
+        <div class="answers-container" id="answers">
+            <h3>Correct Answers & Explanations</h3>
+            <p><span class="correct">Q1: Mitochondria</span> - The mitochondria generate energy in the form of ATP.</p>
+            <p><span class="correct">Q2: H2O</span> - Water is chemically composed of two hydrogen and one oxygen atom.</p>
+        </div>
     </div>
 
     <script>
-    function checkAnswers() {
-        const answers = { q1: "C", q2: "B", q3: "D", q4: "B", q5: "A", q6: "C", q7: "B", q8: "B", q9: "D", q10: "C", q11: "A", q12: "B", q13: "A", q14: "C", q15: "C", q16: "D", q17: "A", q19: "C", q20: "D"  };
-        let score = 0;
-        let totalQuestions = Object.keys(answers).length;
+        function submitQuiz() {
+            let score = 0;
+            let totalQuestions = 20;
 
-        for (let question in answers) {
-            let userAnswer = document.querySelector(`input[name="${question}"]:checked`);
-            if (userAnswer && userAnswer.value === answers[question]) {
-                score++;
-            }
-        }
+            let answers = {
+                q1: "b",
+                q2: "a",
+                q3: "a",
+                q4: "a",
+                q5: "a",
+                q6: "a",
+                q7: "a",
+                q8: "a",
+                q9: "a",
+                q10: "a",
+                q11: "a",
+                q12: "a",
+                q13: "a",
+                q14: "a",
+                q15: "a",
+                q16: "a",
+                q17: "a",
+                q18: "a",
+                q19: "a",
+                q20: "a",
+            };
 
-        let percentage = Math.round((score / totalQuestions) * 100);
-
-        document.getElementById("quiz-container").innerHTML = `
-            <div class="result-box">
-                <h2>Quiz Result</h2>
-                <div class="percentage-container">
-                    <div class="circular-progress">
-                        <span class="progress-value">0%</span>
-                    </div>
-                    <span class="score-text">Your Score 0 out of ${totalQuestions}</span>
-                </div>
-                <div class="buttons">
-                    <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
-                        <button class="show-answers-btn" onclick="showAnswers()">Show Answers</button>
-                    <button class="done-btn" onclick="finishQuiz()">Done</button>
-                </div>
-            </div>
-        `;
-
-        let progressValue = 0;
-        let speed = 20;
-
-        const progressInterval = setInterval(() => {
-            if (progressValue >= percentage) {
-                clearInterval(progressInterval);
-                return;
+            for (let question in answers) {
+                let selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
             }
 
-            progressValue++;
-            document.querySelector('.progress-value').textContent = `${progressValue}%`;
-            document.querySelector('.circular-progress').style.background = `conic-gradient(
-                #c40094 ${progressValue * 3.6}deg, 
-                rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
-            )`;
+            let percentage = (score / totalQuestions) * 100;
 
-            document.querySelector('.score-text').textContent = `Your Score ${score} out of ${totalQuestions}`;
-        }, speed);
-    }
-
-    function showAnswers() {
-            document.getElementById("answer-box").style.display = "block";
+            document.querySelector(".progress-container").style.display = "block";
+            animateScore(percentage, score, totalQuestions);
         }
 
-    function restartQuiz() { window.location.reload(); }
-    function finishQuiz() { window.location.href = 'lab-test1.html'; }
-</script>
+        function animateScore(percentage, score, totalQuestions) {
+            let progressValue = 0;
+            let speed = 20;
 
+            const progressInterval = setInterval(() => {
+                if (progressValue >= percentage) {
+                    clearInterval(progressInterval);
+                    return;
+                }
+
+                progressValue++;
+                document.querySelector('.progress-value').textContent = `${progressValue}%`;
+                document.querySelector('.circular-progress').style.background = `conic-gradient(
+                    #00d4ff ${progressValue * 3.6}deg, 
+                    rgba(255, 255, 255, .1) ${progressValue * 3.6}deg
+                )`;
+
+                document.querySelector('.score-text').textContent = `Your Score: ${score} out of ${totalQuestions}`;
+            }, speed);
+        }
+
+        function restartQuiz() { window.location.reload(); }
+        function exitQuiz() { window.location.href = 'lab-test1.html'; }
+        function showAnswers() {
+            document.getElementById("answers").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>

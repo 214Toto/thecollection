@@ -3,100 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive MCQ Quiz</title>
   <link rel="stylesheet" href="../med2/Totoz-Study-Space/style.css">
-    <title>Image Quiz</title>
+    
     <style>
-        /* General Page Styles */
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            padding: 20px;
+            /* background: #1a1a2e; */
+            background-size: contain;
+            background-position: center;
+            background-image: url(../med2/Totoz-Study-Space/quiz.webp);
             color: #fff;
-        }
-
-        /* Quiz Container */
-        .quiz-container {
-            text-align: center;
-            max-width: 90%;
-            height: 100%;
-            background: #fff;
-            color: #333;
-            padding: 10px;
-            /* margin-top: 20px; */
-            /* margin: auto; */
-            /* margin: 15%; */
-            margin-top: 5rem;
-            margin-left: 5%;
-            margin-right: 5%;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Question Styling */
-        .question {
-            margin-bottom: 25px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #f9f9f9;
-        }
-
-        img {
-            width: 100%;
-            /* max-width: 400px; */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            text-align: left;
-            padding: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        label:hover {
-            background: #e0f7ff;
-        }
-
-        /* Submit Button */
-        button {
-            background: #0072ff;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-            display: block;
-            margin: 20px auto;
-        }
-
-        button:hover {
-            background: #005bb5;
-        }
-
-        /* Result Box */
-        .result-box {
-            background: white;
-            color: #333;
             padding: 20px;
-            margin: auto;
-            border-radius: 12px;
-            max-width: 400px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
         }
 
-        .percentage-container {
+        .quiz-container {
+            background: #16213e;
+            margin-top: 3%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            color: #00d4ff;
+            text-transform: uppercase;
+        }
+
+        .question {
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .options label {
+            display: block;
+            background: #0f3460;
+            padding: 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .options label:hover {
+            background: #00d4ff;
+            color: #16213e;
+        }
+
+        .btn {
+            background: #00d4ff;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 6px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .progress-container {
             margin-top: 20px;
+            display: none;
         }
 
         .circular-progress {
@@ -106,473 +85,316 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: conic-gradient(#c40094 0deg, rgba(255, 255, 255, 0.4) 0deg);
-            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: conic-gradient(#00d4ff 0deg, rgba(255, 255, 255, .1) 0deg);
+            box-shadow: 0 0 15px #00d4ff, 0 0 40px #00d4ff;
             margin: auto;
         }
 
-        .progress-value {
-            font-size: 22px;
-            font-weight: bold;
-            position: absolute;
-            color: #333;
-        }
-
-        .answer-box {
-            /* display: none; */
-            /* text-align: center; */
-            /* align-items: center; */
-            /* margin-left: 20%; */
-            /* margin-right: 20%; */
-            /* margin: 5rem; */
-            margin-left: 5%;
-            margin-right: 5%;
-            width: 90%;
-            color: #333;
+        .answers-container {
+            display: none;
             margin-top: 20px;
-            background: #f1f1f1;
-            padding: 8px;
+            background: #0f3460;
+            padding: 15px;
             border-radius: 10px;
-            text-align: left;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .ans {
-            color: #218838;
+        .correct {
+            color: #00ff88;
+            font-weight: bold;
         }
 
-        .expl {
-            color: #cc0000;
-        }
-
-        .question-Ans-Exp {
-            border: 2px solid #c40094;
-            padding: .3rem;
-            border-radius: 6px;
-            margin: .6rem;
-            margin-bottom: 2rem;
-        }
-
-        .question-Ans-Exp img {
-            width: 100%;
-        }
-
-        .answer-box p {
-            text-align: center;
-            font-size: 100%;
-        }
-
-
-
-        .buttons {
-            margin-top: 15px;
-        }
-
-        .buttons button {
-            margin: 5px;
-            padding: 10px 15px;
+        .explanation {
             font-size: 14px;
-            cursor: pointer;
-        }
-
-        .tryagain-btn {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .done-btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .tryagain-btn:hover {
-            background: #cc0000;
-        }
-
-        .done-btn:hover {
-            background: #218838;
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            color: #bbb;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
-
     <header class="header">
         <a href="../index.html" class="logo"> CBU SOM </a>
 
     
-        <h2> Totoz Collection ! </h2>
+        <h2> Lab Science </h2>
 
-        <a href="../06.Lab Science/lab-test1.html" class="nav"> Back </a>
+        <a href="lab-test1.html" class="nav"> Back </a>
 
     </header>
 
-    <div class="quiz-container" id="quiz-container">
-        <h1>Image Quiz</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q1.JPG" alt="Question 1">
-                <label><input type="radio" name="q1" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q1" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q1" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q1" value="D"> D) Option 4</label>
+    <div class="quiz-container">
+        <h2>2024 Test 1</h2>
+
+        <div class="question" id="q1">1. In the definition of Evidence-Based Medicine (EBM), the word "best" means:</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> Being honest</label>
+            <label><input type="radio" name="q1" value="b"> Stating something exactly</label>
+            <label><input type="radio" name="q1" value="c"> Necessity for critical appraisal</label>
+            <label><input type="radio" name="q1" value="d"> Having a sense of good judgment</label>
+            <label><input type="radio" name="q1" value="e"> Any of the above</label>
+        </div>
+
+        <div class="question" id="q2">2. Which question in Laboratory Medicine would address the risk of a condition in a patient?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> What is the diagnosis?</label>
+            <label><input type="radio" name="q2" value="b"> What is the patient's prognosis?</label>
+            <label><input type="radio" name="q2" value="c"> How is the patient doing?</label>
+            <label><input type="radio" name="q2" value="d"> Anything else wrong with the patient?</label>
+            <label><input type="radio" name="q2" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q3">3. Which one of the following is FALSE about Class III Biosafety cabinet?</div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> It is most suitable for work with biohazardous agents</label>
+            <label><input type="radio" name="q3" value="b"> The cabinet is not completely enclosed</label>
+            <label><input type="radio" name="q3" value="c"> The cabinet is HEPA filter-ventilated</label>
+            <label><input type="radio" name="q3" value="d"> The cabinet offers the highest degree of personal protection</label>
+            <label><input type="radio" name="q3" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q4">4. One of the following is NOT a tissue change due to parasitic infection?</div>
+        <div class="options">
+            <label><input type="radio" name="q4" value="a"> Fatty degeneration</label>
+            <label><input type="radio" name="q4" value="b"> Hyperplasia</label>
+            <label><input type="radio" name="q4" value="c"> Hypertrophy</label>
+            <label><input type="radio" name="q4" value="d"> Neoplasia</label>
+            <label><input type="radio" name="q4" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q5">5. Entomology is the study of:</div>
+        <div class="options">
+            <label><input type="radio" name="q5" value="a"> Ticks</label>
+            <label><input type="radio" name="q5" value="b"> Mites</label>
+            <label><input type="radio" name="q5" value="c"> Crabs</label>
+            <label><input type="radio" name="q5" value="d"> Insects</label>
+            <label><input type="radio" name="q5" value="e"> All of the above</label>
+        </div>
+
+        <div class="question" id="q6">6. The most commonly used anticoagulant in hematological examinations is:</div>
+        <div class="options">
+            <label><input type="radio" name="q6" value="a"> Warfarin</label>
+            <label><input type="radio" name="q6" value="b"> Heparin</label>
+            <label><input type="radio" name="q6" value="c"> Ethylene Diamine Tetra Acetic Acid (EDTA)</label>
+            <label><input type="radio" name="q6" value="d"> Trisodium citrate</label>
+            <label><input type="radio" name="q6" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q7">7. Blood cells that play an important role in parasitic infections are:</div>
+        <div class="options">
+            <label><input type="radio" name="q7" value="a"> Platelets</label>
+            <label><input type="radio" name="q7" value="b"> Eosinophils</label>
+            <label><input type="radio" name="q7" value="c"> Lymphocytes</label>
+            <label><input type="radio" name="q7" value="d"> Red blood cells</label>
+            <label><input type="radio" name="q7" value="e"> Any of the above</label>
+        </div>
+
+        <div class="question" id="q8">8. One of the following is FALSE about requesting laboratory tests for biochemical disorders in the resting state:</div>
+        <div class="options">
+            <label><input type="radio" name="q8" value="a"> Secretory organ function can be assessed</label>
+            <label><input type="radio" name="q8" value="b"> Excretory organ function can be assessed</label>
+            <label><input type="radio" name="q8" value="c"> Minor abnormality can be detected</label>
+            <label><input type="radio" name="q8" value="d"> Major abnormality can be detected</label>
+            <label><input type="radio" name="q8" value="e"> None of the above</label>
+        </div>
+
+        <div class="question" id="q9">9. The modern virus classification was developed by:</div>
+        <div class="options">
+            <label><input type="radio" name="q9" value="a"> Martinus Willem Beijerinck</label>
+            <label><input type="radio" name="q9" value="b"> David Baltimore</label>
+            <label><input type="radio" name="q9" value="c"> Goodpasture</label>
+            <label><input type="radio" name="q9" value="d"> Dmitri Ivanowsky</label>
+        </div>
+
+        <div class="question" id="q10">10. Which one of the following is the largest virus?</div>
+        <div class="options">
+            <label><input type="radio" name="q10" value="a"> Influenza virus</label>
+            <label><input type="radio" name="q10" value="b"> Tobacco mosaic virus</label>
+            <label><input type="radio" name="q10" value="c"> Poxvirus</label>
+            <label><input type="radio" name="q10" value="d"> Parvovirus</label>
+        </div>
+
+        <div class="question" id="q11">11. Which one of the following viruses produces "Negri bodies"?</div>
+        <div class="options">
+            <label><input type="radio" name="q11" value="a"> Herpes simplex virus</label>
+            <label><input type="radio" name="q11" value="b"> Adenovirus</label>
+            <label><input type="radio" name="q11" value="c"> Influenza virus</label>
+            <label><input type="radio" name="q11" value="d"> Rabies virus</label>
+        </div>
+
+        <div class="question" id="q12">12. The following is TRUE about Bacteria, except:</div>
+        <div class="options">
+            <label><input type="radio" name="q12" value="a"> They are single-celled</label>
+            <label><input type="radio" name="q12" value="b"> They have mitochondria</label>
+            <label><input type="radio" name="q12" value="c"> They reproduce sexually</label>
+            <label><input type="radio" name="q12" value="d"> They reproduce asexually</label>
+            <label><input type="radio" name="q12" value="e"> They are unicellular</label>
+        </div>
+
+        <div class="question" id="q13">13. The following bacteria do not produce endospores, except:</div>
+        <div class="options">
+            <label><input type="radio" name="q13" value="a"> Escherichia coli</label>
+            <label><input type="radio" name="q13" value="b"> Mycobacterium tuberculosis</label>
+            <label><input type="radio" name="q13" value="c"> Clostridium species</label>
+            <label><input type="radio" name="q13" value="d"> Vibrio cholerae</label>
+            <label><input type="radio" name="q13" value="e"> Treponema pallidum</label>
+        </div>
+
+        <div class="question" id="q14">14. The following is TRUE about bacterial oxygen requirements, except:</div>
+        <div class="options">
+            <label><input type="radio" name="q14" value="a"> Obligate aerobes require O₂ for growth & metabolism</label>
+            <label><input type="radio" name="q14" value="b"> Capnophilic bacteria grow in high concentrations of oxygen</label>
+            <label><input type="radio" name="q14" value="c"> Obligate anaerobes cannot grow in the presence of O₂</label>
+            <label><input type="radio" name="q14" value="d"> Facultative anaerobes grow in either the presence or absence of O₂</label>
+            <label><input type="radio" name="q14" value="e"> Microaerophiles grow in reduced oxygen concentration</label>
+        </div>
+
+        <div class="question" id="q15">15. During slide preparation for microscopic examinations:</div>
+        <div class="options">
+            <label><input type="radio" name="q15" value="a"> Fixation is the treatment of cells with a mild surfactant which dissolves the cell membrane</label>
+            <label><input type="radio" name="q15" value="b"> Auramine-rhodamine is a fluorescent dye that stains acid-fast organisms</label>
+            <label><input type="radio" name="q15" value="c"> The Gram stain is used to detect blood parasites</label>
+            <label><input type="radio" name="q15" value="d"> Potassium hydroxide is used as a contrast stain</label>
+            <label><input type="radio" name="q15" value="e"> India ink is used to differentiate Gram-positive bacteria from Gram-negative bacteria</label>
+        </div>
+
+        <div class="question" id="q16">16. With regards to microscopic methods:</div>
+        <div class="options">
+            <label><input type="radio" name="q16" value="a"> Fluorescent microscopy has a higher resolution than electron microscopy</label>
+            <label><input type="radio" name="q16" value="b"> All microscopes require staining of the specimen before visualization</label>
+            <label><input type="radio" name="q16" value="c"> Brightfield microscopy creates a 3D image</label>
+            <label><input type="radio" name="q16" value="d"> Darkfield microscopy causes the specimen to appear dark against an illuminated background</label>
+            <label><input type="radio" name="q16" value="e"> The phase-contrast microscope relies on the principle of light being dispersed according to specimen density</label>
+        </div>
+
+        <div class="question" id="q17">17. Which of the following statements on the parts of the microscope is correct?</div>
+        <div class="options">
+            <label><input type="radio" name="q17" value="a"> The condenser magnifies the specimen.</label>
+            <label><input type="radio" name="q17" value="b"> The ocular lenses on the light microscope typically have a magnification of 100x.</label>
+            <label><input type="radio" name="q17" value="c"> The magnification of a microscope is determined by the power of the ocular and objective lenses.</label>
+            <label><input type="radio" name="q17" value="d"> The phase contrast microscope uses a mercury lamp as a light source.</label>
+            <label><input type="radio" name="q17" value="e"> All of the above.</label>
+        </div>
+
+        <div class="question" id="q18">18. What type of immune cell is responsible for producing antibodies?</div>
+        <div class="options">
+            <label><input type="radio" name="q18" value="a"> T cell</label>
+            <label><input type="radio" name="q18" value="b"> B cell</label>
+            <label><input type="radio" name="q18" value="c"> Macrophage</label>
+            <label><input type="radio" name="q18" value="d"> Natural killer cell</label>
+        </div>
+
+        <div class="question" id="q19">19. Which type of immunity is acquired through vaccination?</div>
+        <div class="options">
+            <label><input type="radio" name="q19" value="a"> Innate immunity</label>
+            <label><input type="radio" name="q19" value="b"> Adaptive immunity</label>
+            <label><input type="radio" name="q19" value="c"> Passive immunity</label>
+            <label><input type="radio" name="q19" value="d"> Natural immunity</label>
+        </div>
+
+        <div class="question" id="q20">20. Which immune cell is responsible for cell-mediated immunity?</div>
+        <div class="options">
+            <label><input type="radio" name="q20" value="a"> B cell</label>
+            <label><input type="radio" name="q20" value="b"> T cell</label>
+            <label><input type="radio" name="q20" value="c"> Macrophage</label>
+            <label><input type="radio" name="q20" value="d"> Natural killer cell</label>
+        </div>
+
+
+
+
+
+        <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+
+        <div class="progress-container">
+            <h3>Your Score:</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
             </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q2.JPG" alt="Question 1">
-                <label><input type="radio" name="q2" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q2" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q2" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q2" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q3.JPG" alt="Question 1">
-                <label><input type="radio" name="q3" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q3" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q3" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q3" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q4.JPG" alt="Question 1">
-                <label><input type="radio" name="q4" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q4" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q4" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q4" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q5.JPG" alt="Question 1">
-                <label><input type="radio" name="q5" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q5" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q5" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q5" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q6.JPG" alt="Question 1">
-                <label><input type="radio" name="q6" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q6" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q6" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q6" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q7.JPG" alt="Question 1">
-                <label><input type="radio" name="q7" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q7" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q7" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q7" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q8.JPG" alt="Question 1">
-                <label><input type="radio" name="q8" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q8" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q8" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q8" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q9.JPG" alt="Question 1">
-                <label><input type="radio" name="q9" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q9" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q9" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q9" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q10.JPG" alt="Question 1">
-                <label><input type="radio" name="q10" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q10" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q10" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q10" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q11.JPG" alt="Question 1">
-                <label><input type="radio" name="q11" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q11" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q11" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q11" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q12.JPG" alt="Question 1">
-                <label><input type="radio" name="q12" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q12" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q12" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q12" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q13.JPG" alt="Question 1">
-                <label><input type="radio" name="q13" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q13" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q13" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q13" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q14.JPG" alt="Question 1">
-                <label><input type="radio" name="q14" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q14" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q14" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q14" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q15.JPG" alt="Question 1">
-                <label><input type="radio" name="q15" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q15" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q15" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q15" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q16.JPG" alt="Question 1">
-                <label><input type="radio" name="q16" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q16" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q16" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q16" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q17.JPG" alt="Question 1">
-                <label><input type="radio" name="q17" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q17" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q17" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q17" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q18.JPG" alt="Question 1">
-                <label><input type="radio" name="q18" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q18" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q18" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q18" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q19.JPG" alt="Question 1">
-                <label><input type="radio" name="q19" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q19" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q19" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q19" value="D"> D) Option 4</label>
-            </div>
-
-            <div class="question">
-                <img src="../08.lab-science-test1/2024-q20.JPG" alt="Question 1">
-                <label><input type="radio" name="q20" value="A"> A) Option 1</label>
-                <label><input type="radio" name="q20" value="B"> B) Option 2</label>
-                <label><input type="radio" name="q20" value="C"> C) Option 3</label>
-                <label><input type="radio" name="q20" value="D"> D) Option 4</label>
-            </div>
-
-            <button type="button" onclick="checkAnswers()">Submit</button>
-        </form>
-    </div>
-
-    <div class="answer-box" id="answer-box">
-        <h3>Correct Answers:</h3>
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q1.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
+            <p class="score-text"></p>
+            <button class="btn" onclick="showAnswers()">Show Answers</button>
+            <button class="btn" onclick="exitQuiz()">Exit Quiz</button>
+            <button class="btn" onclick="restartQuiz()">Try Again</button>
         </div>
 
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q2.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
+        <div class="answers-container" id="answers">
+            <h3>Correct Answers & Explanations</h3>
+            <p><span class="correct">Q1: Mitochondria</span> - The mitochondria generate energy in the form of ATP.</p>
+            <p><span class="correct">Q2: H2O</span> - Water is chemically composed of two hydrogen and one oxygen atom.</p>
         </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q3.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q20.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q4.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q5.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q6.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q7.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q8.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q9.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q10.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q11.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q12.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q13.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q14.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q15.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q16.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q17.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q18.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q19.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-
-        <div class="question-Ans-Exp">
-            <img src="../08.lab-science-test1/2024-q20.JPG" alt="Question 1">
-            <p>Answer: <strong>A) Option 1</strong></p>
-            <p>Explanation: <strong>A) Option 1</strong></p>
-        </div>
-        
-        
     </div>
 
     <script>
-    function checkAnswers() {
-        const answers = { q1: "A", q2: "C" };
-        let score = 0;
-        let totalQuestions = Object.keys(answers).length;
+        function submitQuiz() {
+            let score = 0;
+            let totalQuestions = 20;
 
-        for (let question in answers) {
-            let userAnswer = document.querySelector(`input[name="${question}"]:checked`);
-            if (userAnswer && userAnswer.value === answers[question]) {
-                score++;
-            }
-        }
+            let answers = {
+                q1: "b",
+                q2: "a",
+                q3: "a",
+                q4: "a",
+                q5: "a",
+                q6: "a",
+                q7: "a",
+                q8: "a",
+                q9: "a",
+                q10: "a",
+                q11: "a",
+                q12: "a",
+                q13: "a",
+                q14: "a",
+                q15: "a",
+                q16: "a",
+                q17: "a",
+                q18: "a",
+                q19: "a",
+                q20: "a",
+            };
 
-        let percentage = Math.round((score / totalQuestions) * 100);
-
-        document.getElementById("quiz-container").innerHTML = `
-            <div class="result-box">
-                <h2>Quiz Result</h2>
-                <div class="percentage-container">
-                    <div class="circular-progress">
-                        <span class="progress-value">0%</span>
-                    </div>
-                    <span class="score-text">Your Score 0 out of ${totalQuestions}</span>
-                </div>
-                <div class="buttons">
-                    <button class="tryagain-btn" onclick="restartQuiz()">Try Again</button>
-                        <button class="show-answers-btn" onclick="showAnswers()">Show Answers</button>
-                    <button class="done-btn" onclick="finishQuiz()">Done</button>
-                </div>
-            </div>
-        `;
-
-        let progressValue = 0;
-        let speed = 20;
-
-        const progressInterval = setInterval(() => {
-            if (progressValue >= percentage) {
-                clearInterval(progressInterval);
-                return;
+            for (let question in answers) {
+                let selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
             }
 
-            progressValue++;
-            document.querySelector('.progress-value').textContent = `${progressValue}%`;
-            document.querySelector('.circular-progress').style.background = `conic-gradient(
-                #c40094 ${progressValue * 3.6}deg, 
-                rgba(255, 255, 255, .4) ${progressValue * 3.6}deg
-            )`;
+            let percentage = (score / totalQuestions) * 100;
 
-            document.querySelector('.score-text').textContent = `Your Score ${score} out of ${totalQuestions}`;
-        }, speed);
-    }
-
-    function restartQuiz() { window.location.reload(); }
-    function finishQuiz() { window.location.href = 'lab-test1.html'; }
-    function showAnswers() {
-            document.getElementById("answer-box").style.display = "block";
+            document.querySelector(".progress-container").style.display = "block";
+            animateScore(percentage, score, totalQuestions);
         }
-</script>
 
+        function animateScore(percentage, score, totalQuestions) {
+            let progressValue = 0;
+            let speed = 20;
+
+            const progressInterval = setInterval(() => {
+                if (progressValue >= percentage) {
+                    clearInterval(progressInterval);
+                    return;
+                }
+
+                progressValue++;
+                document.querySelector('.progress-value').textContent = `${progressValue}%`;
+                document.querySelector('.circular-progress').style.background = `conic-gradient(
+                    #00d4ff ${progressValue * 3.6}deg, 
+                    rgba(255, 255, 255, .1) ${progressValue * 3.6}deg
+                )`;
+
+                document.querySelector('.score-text').textContent = `Your Score: ${score} out of ${totalQuestions}`;
+            }, speed);
+        }
+
+        function restartQuiz() { window.location.reload(); }
+        function exitQuiz() { window.location.href = 'lab-test1.html'; }
+        function showAnswers() {
+            document.getElementById("answers").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
