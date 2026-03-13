@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Document Viewer | ToToZ Collection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2b7a78;
+      --secondary: #afc4c4;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --muted: #64748b;
+      --card-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
+    html, body {
+      background: linear-gradient(180deg, #f5f7fb 0%, #eef6f6 100%);
+      color: #0f1720;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 1.1rem 0;
+      box-shadow: 0 6px 18px rgba(11,36,36,0.12);
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.35rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo i { font-size: 2.4rem; color: var(--accent); transform: translateY(-2px); }
+    .logo h1 { font-size: 1.45rem; font-weight: 700; color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, var(--accent), #2b7a78);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(43,122,120,0.16); }
+
+    main.container { padding-bottom: 2.5rem; }
+
+    .document-container {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 1.6rem;
+      border-left: 6px solid rgba(58,175,169,0.12);
+      display: none; /* initially hidden */
+    }
+
+    .document-header {
+      background: linear-gradient(90deg, rgba(43,122,120,0.06), rgba(58,175,169,0.04));
+      color: var(--dark);
+      padding: 1.3rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .document-header h2 { font-size: 1.25rem; color: var(--dark); margin: 0; }
+    .document-meta {
+      display: flex;
+      gap: 1.3rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .document-meta i { color: var(--accent); }
+
+    .pdf-viewer-container {
+      height: 72vh;
+      background: linear-gradient(180deg, rgba(10,24,24,0.01), rgba(10,24,24,0.00));
+      padding: 1rem;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 24px rgba(11,36,36,0.06);
+    }
+
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 1.2rem 0;
+      margin-top: 2.2rem;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+    }
+    .download-section {
+            text-align: center;
+            padding: 1.6rem;
+            background: linear-gradient(90deg,var(--secondary), rgba(175,196,196,0.12));
+            border-radius: 12px;
+            margin-top: 1.6rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:1rem;
+        }
+
+        .download-section h3 { margin:0; color:var(--dark); font-size:1.05rem; }
+        .download-section .cta { display:flex; gap:10px; align-items:center; justify-content:flex-end; }
+
+        .audio-card {
+            margin-top: 1.8rem;
+            border-radius: 14px;
+            background: linear-gradient(135deg,#ffffff 0%,#f6fbfb 60%);
+            box-shadow: 0 10px 28px rgba(18,38,63,0.06);
+            padding: 16px;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid rgba(43,122,120,0.06);
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .audio-card .audio-meta { display:flex; gap:14px; align-items:center; width:100%; padding:4px 6px; }
+        .audio-card .audio-icon {
+            background: linear-gradient(180deg,var(--accent), #2b7a78);
+            color:#fff; width:64px; height:64px; border-radius:12px;
+            display:flex; align-items:center; justify-content:center; font-size:26px;
+            box-shadow: 0 6px 18px rgba(43,122,120,0.12); flex-shrink:0;
+        }
+        .audio-card h3 { margin:0; color:var(--dark); font-size:1.05rem; font-weight:700; }
+        .audio-card .muted { margin-top:4px; color:var(--muted); font-size:0.95rem; }
+
+        .audio-player-wrap { width:100%; margin-top:12px; border-radius:10px; overflow:hidden; background:#fff; border:1px solid rgba(15,23,32,0.03); }
+        .audio-player-wrap iframe.audio-iframe { width:100%; height:96px; border:0; display:block; }
+
+        .audio-actions { width:100%; display:flex; gap:12px; justify-content:flex-end; margin-top:12px; }
+        .audio-actions .btn { padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-flex; gap:10px; align-items:center; }
+        .audio-actions .download-btn { background:linear-gradient(90deg,#10b981,#059669); color:#fff; box-shadow:0 6px 18px rgba(5,150,105,0.10); }
+        .audio-actions .open-btn { background:transparent; color:var(--dark); border:1px solid rgba(15,23,32,0.06); box-shadow:none; }
+
+        /* small tweaks and responsiveness */
+        @media (max-width: 920px) {
+            .document-meta { gap:1rem; font-size:0.9rem; }
+            .download-section { flex-direction:column; align-items:center; text-align:center; padding:1rem; gap:12px; }
+            .audio-actions { justify-content:center; }
+            .audio-player-wrap iframe.audio-iframe { height:84px; }
+        }
+
+        @media (max-width: 520px) {
+            .logo h1 { font-size:1.05rem; }
+            .container { width:95%; padding: 0.8rem 0; }
+            .pdf-viewer-container { height: 56vh; padding: 0.5rem; }
+        }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="logo">
+        <i class="fas fa-heartbeat"></i>
+        <h1>ToToZ Collection</h1>
+      </div>
+      <div>
+        <button onclick="history.back()" class="btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        </div>
+      <!-- <div>
+        <button onclick="window.location.href='../med2.html'" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
+      </div> -->
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Document 1 -->
+<!-- Drugs Used in Fertility and Reproduction -->
+        <div id="doc1" class="document-container">
+            <div class="document-header">
+                <h2>Introduction to Pathology</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Mr. Machiko</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1jakvXOUZbkmJ_1_qYJ0d5MIdZ10MjOuw/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1lRvEi8PjAfnEALquhyWKc-gb8A912iVl/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1jakvXOUZbkmJ_1_qYJ0d5MIdZ10MjOuw" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1lRvEi8PjAfnEALquhyWKc-gb8A912iVl" class="btn">Download File 2</a>
+            </div>
+        </div>
+
+        <div id="doc2" class="document-container">
+            <div class="document-header">
+                <h2>Cellular Adaptation, Injury & Death</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Mr. Machiko</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1HaVjieoT3vLfpAEo6_OE8_95fZk4unKU/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1tzvxif3jRfnaSILnsuZVvdGRXXEimApz/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1D1RzIFfUEwudDuAmfj0BHbNOEwPXRCFt/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1VZgQiTJPhpZibKc4xnOEw2bvo75oBabP/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1HaVjieoT3vLfpAEo6_OE8_95fZk4unKU" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1tzvxif3jRfnaSILnsuZVvdGRXXEimApz" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=1D1RzIFfUEwudDuAmfj0BHbNOEwPXRCFt" class="btn">Download File 3</a>
+                <a href="https://drive.google.com/uc?export=download&id=1VZgQiTJPhpZibKc4xnOEw2bvo75oBabP" class="btn">Download File 4</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc3" class="document-container">
+            <div class="document-header">
+                <h2>Epithelial Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1lF-89AzVwR0u3uJRwGKj2K19FGEFuC1S/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1fAzKypt_nLzyTXACHSsUsulT15L4OFnY/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1FFsZ9lsK5Prgc8sktlrKId9cX1BPQn8b/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1lF-89AzVwR0u3uJRwGKj2K19FGEFuC1S" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1fAzKypt_nLzyTXACHSsUsulT15L4OFnY" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=1FFsZ9lsK5Prgc8sktlrKId9cX1BPQn8b" class="btn">Download File 3</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc4" class="document-container">
+            <div class="document-header">
+                <h2>Connective Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1wyHBrBwXy_R7rdNVDdhvRhZI950R0wiL/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1rNSjzmprh6Zm19F4aVKHacBY0cAk6vju/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1rLN6UIZsIFJiZ0TX0TDJcIRi5rGU7kZJ/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1wyHBrBwXy_R7rdNVDdhvRhZI950R0wiL" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1rNSjzmprh6Zm19F4aVKHacBY0cAk6vju" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=1rLN6UIZsIFJiZ0TX0TDJcIRi5rGU7kZJ" class="btn">Download File 3</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc5" class="document-container">
+            <div class="document-header">
+                <h2>Cartilage Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1_ssFMjvb7g2AIkmUkEVyTHgxuc3HcyHm/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1rtr0c7KYJOFygLd0WYV5iUiBS8qQTnfz/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1xLEFzF_MuehIWt56EEiwqnCp4u1GPjQb/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1_ssFMjvb7g2AIkmUkEVyTHgxuc3HcyHm" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1rtr0c7KYJOFygLd0WYV5iUiBS8qQTnfz" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=1xLEFzF_MuehIWt56EEiwqnCp4u1GPjQb" class="btn">Download File 3</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc6" class="document-container">
+            <div class="document-header">
+                <h2>Bone Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1Tbd9KxePuaafAB7D3a9lfSgy1zkg9DZt/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1cJALzHlY-kNrbupjgdwIpzKWIqe9Tr50/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1sn0x8ClzSKesBfAkpKof0RJmR8bLBQMn/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1Tbd9KxePuaafAB7D3a9lfSgy1zkg9DZt" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1cJALzHlY-kNrbupjgdwIpzKWIqe9Tr50" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=1sn0x8ClzSKesBfAkpKof0RJmR8bLBQMn" class="btn">Download File 3</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc7" class="document-container">
+            <div class="document-header">
+                <h2>Adipose Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1QB36e0Ec1Sa5TOmEVRLCYmFnTaq4hlUD/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1QB36e0Ec1Sa5TOmEVRLCYmFnTaq4hlUD" class="btn">Download File 1</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc8" class="document-container">
+            <div class="document-header">
+                <h2>Nerve Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/12jYFW8jF1B1EMNEUWN0d4WmRf2uJvB6P/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=12jYFW8jF1B1EMNEUWN0d4WmRf2uJvB6P" class="btn">Download File 1</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc9" class="document-container">
+            <div class="document-header">
+                <h2>Muscle Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1Yh2kw8hOpbsbJcZm24HulR4e3Po2thM6/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1OfIRMhEjr8U8U1QgiQTBvFELdVrnelh7/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/14cfWpW_IVq_CImyziHDSMBl8v4pqO0-i/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1Yh2kw8hOpbsbJcZm24HulR4e3Po2thM6" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1OfIRMhEjr8U8U1QgiQTBvFELdVrnelh7" class="btn">Download File 2</a>
+                <a href="https://drive.google.com/uc?export=download&id=14cfWpW_IVq_CImyziHDSMBl8v4pqO0-i" class="btn">Download File 3</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc10" class="document-container">
+            <div class="document-header">
+                <h2>Lymphoid Tissue</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1vGKiNeKQ3V3oXja_IH8KcxZZ23Bgqw3C/preview"></iframe>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1EcWnYq_H1ra-ZKRD5dGg9hW15mz67NcS/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1vGKiNeKQ3V3oXja_IH8KcxZZ23Bgqw3C" class="btn">Download File 1</a>
+                <a href="https://drive.google.com/uc?export=download&id=1EcWnYq_H1ra-ZKRD5dGg9hW15mz67NcS" class="btn">Download File 2</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="doc11" class="document-container">
+            <div class="document-header">
+                <h2>Skin</h2>
+                <div class="document-meta">
+                    <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                    <span><i class="fas fa-user-md"></i> Dr. Evans</span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1C76pNVHpa1_w8lRmiiNyUk6MHxzhVjof/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <a href="https://drive.google.com/uc?export=download&id=1C76pNVHpa1_w8lRmiiNyUk6MHxzhVjof" class="btn">Download File 1</a>
+            </div>
+        </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ToToZ Collection. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Show only the selected document based on button click in index.html
+    const docToShow = localStorage.getItem("showPatho2");
+    if (docToShow) {
+      const section = document.getElementById("doc" + docToShow);
+      if (section) section.style.display = "block";
+    } else {
+      document.body.insertAdjacentHTML("beforeend", "<p style='text-align:center;margin:2rem;'>No document selected. Go back to index.html.</p>");
+    }
+  </script>
+</body>
+</html>
