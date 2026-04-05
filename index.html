@@ -3,13 +3,6 @@
 <head>
 
      <title> Totoz Collection </title>
-<!-- 
-
-Known Template 
-
-https://templatemo.com/tm-516-known
-
--->
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -25,120 +18,406 @@ https://templatemo.com/tm-516-known
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/templatemo-style.css">
 
-     <style>
-     .containerz {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 800px;
-      margin: 50px 0; /* Top and bottom margins */
-      text-align: center;
-    }
-    .course-card {
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     background: white;
-     padding: 20px;
-     border-radius: 8px;
-     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    img {
-     text-align: center;
-     /* margin-left: 8%; */
-      width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background-color: #6200ea;
-      color: white;
-    }
-    .begin {
-     color: antiquewhite;
-     font-weight: bold;
-    }
-    .button:hover {
-      background-color: #3700b3;
-    }
-    /* Modal Styles */
-    .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      max-width: 400px;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      display: none; /* Hidden by default */
-    }
-    .modal p {
-      margin: 0 0 20px;
-    }
-    .modal .close {
-     text-align: center;
-     margin-top: 2rem;
-      padding: 10px 20px;
-      background: #6200ea;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .modal .close:hover {
-      background: #3700b3;
-    }
-    /* Background Blur */
-    .blur {
-      filter: blur(5px);
-      pointer-events: none;
-    }
-    /* Vertical Scrollable Buttons */
-    .popup-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-height: 200px; /* Set a fixed height for scrolling */
-      overflow-y: auto; /* Enable vertical scrolling */
-      margin-top: 10px;
-    }
-    .popup-buttons button {
-      padding: 10px 15px;
-      background-color: #6200ea;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .popup-buttons button:hover {
-      background-color: #3700b3;
-    }
+<style>
+
+          :root {
+               --primary: #2b7a78;
+               --secondary: #afc4c4;
+               --accent: #3aafa9;
+               --dark: #17252a;
+               --light: #f8f9fa;
+          }
+
+          .start {
+               font-size: 2.35rem;
+               font-weight: 700;
+          }
+
+          .quotes {
+               color: #0f172a;
+          }
+
+          /* Dark Theme Base */
+          body {
+               /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); */
+               /* color: #e2e8f0; */
+               background-color: #212c31;
+            color: #333;
+            line-height: 1.6;
+          }
+
+          /* Enhanced Course Cards */
+          .containerz {
+               display: flex;
+               flex-direction: column;
+               gap: 20px;
+               width: 100%;
+               max-width: 800px;
+               margin: 50px 0;
+               text-align: center;
+          }
+
+          .course-card {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               background: linear-gradient(135deg, var(--dark), var(--primary), var(--dark));
+               padding: 28px 24px 24px 24px;
+               border-radius: 18px;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 1.5px 6px rgba(0, 0, 0, 0.2);
+               transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+               margin-bottom: 18px;
+               border: 1.5px solid #475569;
+               position: relative;
+               overflow: hidden;
+          }
+
+          .course-card::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               height: 4px;
+               background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+          }
+
+          .course-card:hover {
+               transform: translateY(-8px) scale(1.025);
+               box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2), 0 2px 8px rgba(99,102,241,0.15);
+               border-color: #4ee6d4;
+          }
+
+          .course-card img {
+               width: 160px;
+               height: 160px;
+               object-fit: cover;
+               border-radius: 50%;
+               margin-bottom: 18px;
+               border: 3px solid var(--accent);
+               box-shadow: 0 2px 12px rgba(99,102,241,0.2);
+               background: #1e293b;
+          }
+
+          .course-card h1 {
+               font-size: 2.35rem;
+               font-weight: 700;
+               background: linear-gradient(90deg, #e2e8f0 0%, #94a3b8 100%);
+               -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               margin-bottom: 10px;
+               letter-spacing: 0.5px;
+          }
+
+          .course-card .button {
+               padding: 10px 22px;
+               font-size: 15px;
+               margin: 8px 6px 0 6px;
+               border: none;
+               border-radius: 6px;
+               cursor: pointer;
+               background: linear-gradient(90deg, var(--dark), var(--primary), var(--dark));
+               color: #fff;
+               font-weight: 600;
+               box-shadow: 0 2px 8px rgba(99,102,241,0.2);
+               transition: all 0.18s;
+          }
+
+          .course-card .button:hover {
+               background: linear-gradient(90deg, var(--primary), var(--dark), var(--primary));
+               box-shadow: 0 4px 16px rgba(59,130,246,0.3);
+               transform: translateY(-2px);
+          }
+
+          /* Enhanced Modals */
+          .modal {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%) scale(1);
+               width: 90%;
+               max-width: 420px;
+               background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+               padding: 32px 28px 24px 28px;
+               border-radius: 18px;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0,0,0,0.3);
+               z-index: 1000;
+               display: none;
+               animation: modalPop 0.35s cubic-bezier(.4,2,.6,1);
+               border: 2px solid var(--primary);
+          }
+
+          @keyframes modalPop {
+               0% {
+                    opacity: 0;
+                    transform: translate(-50%, -60%) scale(0.85);
+               }
+               100% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+               }
+          }
+
+          .modal p {
+               margin: 0 0 18px;
+               color: #e2e8f0;
+               font-size: 1.08rem;
+               line-height: 1.6;
+               text-align: center;
+          }
+
+          .modal .close {
+               display: block;
+               width: 100%;
+               text-align: center;
+               margin-top: 1.5rem;
+               padding: 12px 0;
+               background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+               color: #fff;
+               border: none;
+               border-radius: 6px;
+               cursor: pointer;
+               font-size: 1.08rem;
+               font-weight: 600;
+               box-shadow: 0 2px 8px rgba(99,102,241,0.2);
+               transition: all 0.18s;
+          }
+
+          .modal .close:hover {
+               background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+               box-shadow: 0 4px 16px rgba(59,130,246,0.3);
+               transform: translateY(-2px);
+          }
+
+          .popup-buttons {
+               display: flex;
+               flex-direction: column;
+               gap: 10px;
+               max-height: 200px;
+               overflow-y: auto;
+               margin-top: 10px;
+          }
+
+          .popup-buttons button {
+               padding: 10px 15px;
+               background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+               color: white;
+               border: none;
+               border-radius: 6px;
+               cursor: pointer;
+               font-size: 1rem;
+               font-weight: 500;
+               transition: all 0.18s;
+          }
+
+          .popup-buttons button:hover {
+               background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+               box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+               transform: translateY(-2px);
+          }
+
+          .popup-buttons .begin {
+               color: #fff;
+               text-decoration: none;
+               font-weight: bold;
+               letter-spacing: 0.5px;
+          }
+
+          /* Enhanced Feature Sections */
+          .feature-thumb {
+               background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+               border-radius: 12px;
+               padding: 30px;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+               transition: transform 0.3s, box-shadow 0.3s;
+               border: 1px solid #475569;
+          }
+
+          .feature-thumb:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+          }
+
+          .hey1 span, .hey2 span, .hey3 span {
+               background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+               color: white;
+               padding: 8px 15px;
+               border-radius: 20px;
+               font-weight: bold;
+          }
+
+          /* Enhanced Navigation */
+          .navbar {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+
+               /* background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important; */
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+          }
+
+          .navbar-brand, .nav li a {
+               color: #e2e8f0 !important;
+          }
+
+          .nav li a:hover {
+               color: var(--primary) !important;
+          }
+
+          /* Enhanced Home Section */
+          #home {
+               background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          }
+
+          /* .home-slider .item {
+               background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%);
+          } */
+
+          /* Enhanced About Section */
+          .about-info {
+               background-color: var(--dark);
+               /* background: linear-gradient(135deg, #1e293b 0%, #334155 100%); */
+               border-radius: 12px;
+               padding: 30px;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+               border: 1px solid #475569;
+          }
+
+          /* Enhanced Team Section */
+          .team-thumb {
+               background-color: var(--dark);
+               /* background: linear-gradient(135deg, #1e293b 0%, #334155 100%); */
+               border-radius: 12px;
+               overflow: hidden;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+               border: 1px solid #475569;
+               transition: transform 0.3s;
+          }
+
+          .team-thumb:hover {
+               transform: translateY(-5px);
+          }
+
+          /* Enhanced Courses Section */
+          .courses-thumb {
+               background-color: var(--primary);
+               /* background: linear-gradient(135deg, #1e293b 0%, #334155 100%); */
+               border-radius: 12px;
+               overflow: hidden;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+               border: 1px solid #475569;
+               transition: transform 0.3s;
+          }
+
+          .courses-thumb:hover {
+               transform: translateY(-5px);
+          }
+
+          /* Enhanced Testimonial Section */
+          #testimonial {
+               background-color: var(--primary);
+               /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); */
+          }
+
+          .item {
+               background-color: var(--primary);
+               /* background: linear-gradient(135deg, #1e293b 0%, #334155 100%); */
+               border-radius: 12px;
+               padding: 20px;
+               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+               border: 1px solid #475569;
+          }
+          
+
+          /* Enhanced Contact Section */
+          #contact {
+               background-color: var(--dark);
+               /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); */
+          }
+
+          .form-control {
+               background-color: var(--primary);
+               /* background: #334155; */
+               border: 1px solid #475569;
+               color: #e2e8f0;
+          }
+
+          .form-control:focus {
+               background: #475569;
+               border-color: var(--primary);
+               color: #e2e8f0;
+               box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+          }
+
+          /* Enhanced Footer */
+          #footer {
+               background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+               border-top: 1px solid #475569;
+          }
+
+          /* Responsive Design */
+          @media (max-width: 600px) {
+               .course-card {
+                    padding: 18px 8px 18px 8px;
+               }
+               .course-card img {
+                    width: 80px;
+                    height: 80px;
+               }
+               .course-card h1 {
+                    font-size: 2.05rem;
+               }
+               .modal {
+                    padding: 18px 6px 16px 6px;
+                    max-width: 98vw;
+               }
+               .modal p {
+                    font-size: 0.98rem;
+               }
+               .about-info {
+                    padding: 18px 8px 16px 8px;
+               }
+               .about-info h2 {
+                    font-size: 1.2rem;
+               }
+               .about-info figure {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 12px 6px;
+               }
+               .about-info figure span {
+                    margin-right: 0;
+                    margin-bottom: 8px;
+               }
+          }
+
+          /* Scrollbar Styling */
+          ::-webkit-scrollbar {
+               width: 8px;
+          }
+
+          ::-webkit-scrollbar-track {
+               background: #1e293b;
+          }
+
+          ::-webkit-scrollbar-thumb {
+               background: linear-gradient(180deg, var(--primary) 0%, var(--dark) 100%);
+               border-radius: 10px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+               background: linear-gradient(180deg, var(--dark) 0%, var(--primary) 100%);
+          }
      </style>
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
      <!-- PRE LOADER -->
-     <section class="preloader">
+     <!-- <section class="preloader">
           <div class="spinner">
 
                <span class="spinner-rotate"></span>
                
           </div>
-     </section>
+     </section> -->
 
 
      <!-- MENU -->
@@ -160,15 +439,15 @@ https://templatemo.com/tm-516-known
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#top" class="smoothScroll">Home</a></li>
-                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="#about" class="smoothScroll">Program</a></li>
                          <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
                          <li><a href="#courses" class="smoothScroll">Courses</a></li>
                          <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
-                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                         <li><a href="#contact" class="smoothScroll">Assignment</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                         <li><a href="https://wa.me/+260965091047?text=Hello%2C%20I%20need%20help%21" target="_blank"><i class="fa fa-phone"></i> +260965091047 </a></li>
+                         <li><a href="https://wa.me/+260961252100?text=Hello%2C%20I%20need%20help%21" target="_blank"><i class="fa fa-phone"></i> +260961252100 </a></li>
                     </ul>
                </div>
 
@@ -197,7 +476,7 @@ https://templatemo.com/tm-516-known
                               <div class="caption">
                                    <div class="container">
                                         <div class="col-md-6 col-sm-12">
-                                             <h1>Start your journey with our practical courses</h1>
+                                             <h1 class="start">Start your journey with our practical courses</h1>
                                              <h3>Our online courses are built in partnership with technology leaders and are designed to meet Academic demands.</h3>
                                              <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a course</a>
                                         </div>
@@ -211,7 +490,7 @@ https://templatemo.com/tm-516-known
                                         <div class="col-md-6 col-sm-12">
                                              <h1>Efficient Learning Methods</h1>
                                              <h3> Learn multiple ways of going about all sorts of questions... and more <a rel="nofollow" href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                             <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>
+                                             <a href="#contact" class="section-btn btn btn-default smoothScroll">Take the Assignment</a>
                                         </div>
                                    </div>
                               </div>
@@ -229,16 +508,14 @@ https://templatemo.com/tm-516-known
                     <div class="col-md-4 col-sm-4">
                          <div class="feature-thumb hey1">
                               <span>01</span>
-                              <h3> MBChB/BDS/CM </h3>
-                              <p> The Totoz Collection is an online Learning tool that covers the following courses under  MBChB/BDS/CM in the School of Medicine </p>
+                              <h3> School of Medicine</h3>
+                              <p> The Totoz Collection is an online Learning tool that covers the following Programs under the School of Medicine </p>
                               <br> <ul>
-                                        <li type="circle"> MBS 200 - Human Anatomy </li>
-                                        <li type="circle"> MBS 210 - Human Physiology </li>
-                                        <li type="circle"> MBS 220 - Human Pathology  </li>
-                                        <li type="circle"> MBS 230 - Biochemistry and Therapetuics </li>
-                                        <li type="circle"> MBS 240 - Laboratory Science and Diagnostics  </li>
-                                        <li type="circle"> MCS 200 - Clinical Science </li>
-                                        <li type="circle"> MCS 210 - Public Health & Society And Medicine </li>
+                                        <li type="circle"> Medicine And Surgery </li>
+                                        <li type="circle"> Dental Surgery </li>
+                                        <li type="circle"> Biomedical Sciences </li>
+                                        <li type="circle"> Environmental Health </li>
+                                        <li type="circle"> Public Health </li>
                                    </ul>
                          </div>
                     </div>
@@ -246,7 +523,7 @@ https://templatemo.com/tm-516-known
                     <div class="col-md-4 col-sm-4">
                          <div class="feature-thumb hey2">
                               <span>02</span>
-                              <h3> Natural Sciences </h3>
+                              <h3> School Of Mathematics and Natural Sciences </h3>
                               <p> The Totoz Collection further extends its services to the follwing NS Courses  </p>
                               <br> <ul>
                                         <li type="circle"> MA 110 - Mathematics I </li>
@@ -278,9 +555,71 @@ https://templatemo.com/tm-516-known
           <div class="container">
                <div class="row">
 
+
+                    <div class="col-md-offset-1 col-md-4 col-sm-12">
+                         <div class="containerz col-md-offset-1 col-md-4 col-sm-12" id="main-container">
+                                   <!-- Course 1 -->
+                                    <div class="course-card">
+                                        <img src="images/math-6.jpg" alt="Anatomy Course">
+                                        <h1> Grade 12 & GCE </h1>
+                                        <button class="button" id="about-course-7">About Course</button>
+                                        <button class="button" id="start-course-7">Start Course</button>
+                                   </div>
+
+                                   <div class="course-card">
+                                        <img src="images/Biochem.png" alt="Anatomy Course">
+                                        <h1> Natural Sciences 1st Year </h1>
+                                        <button class="button" ><a style="color:white;" href="https://214toto.github.io/cbu-ns/">TøTõZ Library</a></button>
+                                        <button class="button" ><a style="color:white;" onclick="viewPassword(2)">TøTõZ Sölûtïøñß</a></button>
+                                   </div>
+
+                                   <!-- Course 2 -->
+                                   <div class="course-card">
+                                        <img src="images/sketch.jpg" alt="Biochemistry Course">
+                                        <h1> Medicine and Surgery 2nd Year </h1>
+                                        <button class="button"><a style="color: #ffffff;" href="free-med2.html"> Notes </a></button>
+                                        <button class="button"><a style="color: #ffffff;" onclick="viewPassword(1)"> Premium Students </a></button>
+                                   </div>
+
+                                   <!-- Course 2 -->
+                                   <div class="course-card">
+                                        <img src="images-1/public-health.jpg" alt="Biochemistry Course">
+                                        <h1> Public Health & Environmental Health 2nd Year </h1>
+                                        <button class="button" id="about-course-4">About Course</button>
+                                        <button class="button" id="start-course-4">Start Course</button>
+                                   </div>
+
+                                   <!-- Course 2 -->
+                                   <div class="course-card">
+                                        <img src="images/lab.jpg" alt="Biochemistry Course">
+                                        <h1> Biomedical Sciences 2nd Year </h1>
+                                        <button class="button" id="about-course-5">About Course</button>
+                                        <button class="button" id="start-course-5">Start Course</button>
+                                   </div>
+
+                                   <!-- Course 3 -->
+                                   <div class="course-card">
+                                        <img src="images/Doc.jpg" alt="Anatomy Course">
+                                        <h1> Medicine and Surgery 3rd Year </h1>
+                                        <button class="button"><a style="color: #ffffff;" href="free-med3.html"> Notes </a></button>
+                                        <button class="button"><a style="color: #ffffff;" onclick="viewPassword(3)"> Premium Students </a></button>
+                                   </div>
+
+                                   <!-- Course 3 -->
+                                   <div class="course-card">
+                                        <img src="images/biochem.jpg" alt="Anatomy Course">
+                                        <h1> Biomedical Sciences 3rd Year </h1>
+                                        <button class="button"><a style="color: #ffffff;" href="biomed-3rd.html"> Notes </a></button>
+                                        <button class="button"><a style="color: #ffffff;" onclick="viewPassword(6)"> Premium Students </a></button>
+                                   </div>
+                              </div>   
+
+
+                    </div>
+
                     <div class="col-md-6 col-sm-12">
                          <div class="about-info">
-                              <h2>Start your journey to a better life with online practical courses</h2>
+                              <h1 class="start" >Start your journey to a better life with online practical courses</h1>
 
                               <figure>
                                    <span><i class="fa fa-users"></i></span>
@@ -306,104 +645,9 @@ https://templatemo.com/tm-516-known
                                    </figcaption>
                               </figure>
 
-
-                              class="col-md-offset-1 col-md-4 col-sm-12
-                              <div class="containerz col-md-offset-1 col-md-4 col-sm-12" id="main-container">
-                                   <!-- Course 1 -->
-                                   <div class="course-card">
-                                        <img src="img/med.webp" alt="Biochemistry Course">
-                                        <h1> Medicine and Surgery 2nd Year </h1>
-                                        <button class="button" id="about-course-1">About Course</button>
-                                        <button class="button" id="start-course-1">Start Course</button>
-                                   </div>
-
-                                   <!-- Course 2 -->
-                                   <div class="course-card">
-                                        <img src="img/NS.webp" alt="Anatomy Course">
-                                        <h1> Natural Sciences 1st Year </h1>
-                                        <button class="button" id="about-course-2">About Course</button>
-                                        <button class="button" id="start-course-2">Start Course</button>
-                                   </div>
-
-                                   <!-- Course 3 -->
-                                   <div class="course-card">
-                                        <img src="med2/Totoz-Study-Space/quiz.jpg" alt="Anatomy Course">
-                                        <h1> Medicine and Surgery 3rd Year </h1>
-                                        <button class="button" id="about-course-3">About Course</button>
-                                        <button class="button" id="start-course-3">Start Course</button>
-                                   </div>
-                              </div>   
-
-
-                                                            <!-- Modals for Course 1 -->
-                              <div class="modal" id="about-modal-1">
-                                   <p>This Program is all about introducing you to the world of medicine. It wil equip you with the strengthend foundation you'll need to start your medicine Journey..... All The Best !! </p>
-                                   <button class="close" id="about-close-1">Close</button>
-                              </div>
-                              
-                              <div class="modal" id="start-modal-1">
-                                   <p>You are About to Enter Medicine And Surgery 2nd Year:</p>
-                                   <div class="popup-buttons">
-                                             <!-- <button>Term 1: Biomolecules</button> -->
-                                             <!-- <button>Term 2: Enzymes & Metabolism</button> -->
-                                             <button><a class="begin" href="med2/Totoz-Study-Space/password.html"> Begin Program </a></button>
-                                        </div>
-                                   <button class="close" id="start-close-1">Close</button>
-                              </div>
-                              
-                              <!-- Modals for Course 2 -->
-                              <div class="modal" id="about-modal-2">
-                                   <p>This Program focuses on testing your strengths and abilities so as to decide which program you will further venture into... So give it your all !! </p>
-                                   <button class="close" id="about-close-2">Close</button>
-                              </div>
-                              
-                              <div class="modal" id="start-modal-2">
-                                   <p>You are about to enter Natural Science 1st Year:</p>
-                                        <div class="popup-buttons">
-                                             <!-- <button>Term 1: Tissue & Staining</button> -->
-                                             <!-- <button>Term 2: Organ Systems</button> -->
-                                             <button><a class="begin" href="Non-qota/password.html"> Begin Program </a></button>
-                                        </div>
-                                   <button class="close" id="start-close-2">Close</button>
-                              </div>
-
-                              <!-- Modals for Course 3 -->
-                              <div class="modal" id="about-modal-3">
-                                   <p> At this level you have successfully crossed from 2nd year and you already know the basics of medicine. Here you will now be prepared to get into your clinicals the following year (4th year).. it will be tough, but i know you are tougher !!  </p>
-                                   <button class="close" id="about-close-3">Close</button>
-                              </div>
-                              
-                              <div class="modal" id="start-modal-3">
-                                   <p>You are About to Enter Medicine And Surgery 2nd Year:</p>
-                                        <div class="popup-buttons">
-                                             <!-- <button>Term 1: Tissue & Staining</button> -->
-                                             <!-- <button>Term 2: Organ Systems</button> -->
-                                             <button><a class="begin" href="Med3/password.html"> Begin Program </a></button>
-                                        </div>
-                                   <button class="close" id="start-close-3">Close</button>
-                              </div>
-                         
-
                          </div>
 
                     </div>
-
-                    <!-- <div class="col-md-offset-1 col-md-4 col-sm-12">
-                         <div class="entry-form">
-                              <form action="https://formsubmit.co/el/sodiyi" method="post">
-                                   <h2>Signup today</h2>
-                                   <img width="100%" height="100%" src="output (30).jpg" alt="">
-
-                                   <input type="text" name="name" class="form-control" placeholder="Full name" required="">
-
-                                   <input type="email" name="email" class="form-control" placeholder="Your email address" required="">
-
-                                   <input type="password" name="password" class="form-control" placeholder="Your password" required="">
-                                   
-                                   <button class="submit-btn form-control" id="form-submit"><a href="https://wa.me/+260965091047?text=Hello%2C%20I%20need%20help%21" target="_blank"></a> Send Me a Message </button>
-                              </form>
-                         </div>
-                    </div> -->
 
                </div>
           </div>
@@ -417,14 +661,14 @@ https://templatemo.com/tm-516-known
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
-                              <h2> Hey There !! <small>Meet the Doctor in the making </small></h2>
+                              <h1 class="start" > Hey There !! <small>Meet the Doctor in the making </small></h1>
                          </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="img/me2.jpg" class="img-responsive" alt="">
+                                   <img src="images/legend.jpg" class="img-responsive" alt="">
                               </div>
                               <div class="team-info">
                                    <h3> Toto Kapanga </h3>
@@ -441,7 +685,7 @@ https://templatemo.com/tm-516-known
                     <!-- <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                   <img src="images/cover.jpg" class="img-responsive" alt="">
                               </div>
                               <div class="team-info">
                                    <h3>Catherine</h3>
@@ -457,7 +701,7 @@ https://templatemo.com/tm-516-known
                     <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="images/author-image3.jpg" class="img-responsive" alt="">
+                                   <img src="images/cover.jpg" class="img-responsive" alt="">
                               </div>
                               <div class="team-info">
                                    <h3>Jessie Ca</h3>
@@ -474,7 +718,7 @@ https://templatemo.com/tm-516-known
                     <div class="col-md-3 col-sm-6">
                          <div class="team-thumb">
                               <div class="team-image">
-                                   <img src="images/author-image4.jpg" class="img-responsive" alt="">
+                                   <img src="images/cover.jpg" class="img-responsive" alt="">
                               </div>
                               <div class="team-info">
                                    <h3>Andrew Berti</h3>
@@ -509,7 +753,7 @@ https://templatemo.com/tm-516-known
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/groos.jpg" class="img-responsive" alt="">
+                                                       <img src="images/sinuses.png" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
@@ -530,7 +774,7 @@ https://templatemo.com/tm-516-known
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="img/cover.jpg" class="img-responsive" alt="">
+                                                       <img src="images/cover.jpg" class="img-responsive" alt="">
                                                        <span> "Anatomy is to medicine what the alphabet is to reading." — Nicholas Henri Jacob </span>
                                                   </div>
                                                   <div class="courses-price">
@@ -546,7 +790,7 @@ https://templatemo.com/tm-516-known
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/physiology.jpg" class="img-responsive" alt="">
+                                                       <img src="images/Physiology-art.jpg" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
@@ -561,7 +805,7 @@ https://templatemo.com/tm-516-known
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="img/cover.jpg" class="img-responsive" alt="">
+                                                       <img src="images/cover.jpg" class="img-responsive" alt="">
                                                        <span> "Physiology is the science of the normal function of living things, and without knowing the normal, we cannot comprehend the abnormal." — Ernest Starling </span>
                                                   </div>
                                                   <div class="courses-price">
@@ -578,7 +822,7 @@ https://templatemo.com/tm-516-known
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/output (5).jpg" class="img-responsive" alt="">
+                                                       <img src="images/renal.png" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
@@ -593,7 +837,7 @@ https://templatemo.com/tm-516-known
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="img/cover.jpg" class="img-responsive" alt="">
+                                                       <img src="images/cover.jpg" class="img-responsive" alt="">
                                                        <span> "Pathology is the roadmap of disease; without it, medicine would be navigating in the dark." — Sir William Osler </span>
                                                   </div>
                                                   <div class="courses-price free">
@@ -609,7 +853,7 @@ https://templatemo.com/tm-516-known
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="img/biochem.jpg" class="img-responsive" alt="">
+                                                       <img src="images/steroids.webp" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
@@ -629,7 +873,7 @@ https://templatemo.com/tm-516-known
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                                       <img src="images/cover.jpg" class="img-responsive" alt="">
                                                        <span> "Pharmacology is beneficent if applied with wisdom, but destructive if used without understanding." — Avicenna </span>
                                                   </div>
                                                   <div class="courses-price">
@@ -645,7 +889,7 @@ https://templatemo.com/tm-516-known
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="img/lab-science.jpg" class="img-responsive" alt="">
+                                                       <img src="images/chemotherapy.webp" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
@@ -664,7 +908,7 @@ https://templatemo.com/tm-516-known
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                                       <img src="images/cover.jpg" class="img-responsive" alt="">
                                                        <span> "Great discoveries in medicine often begin with a single drop of blood under the microscope." — Paul Ehrlich </span>
                                                   </div>
                                                   <div class="courses-price free">
@@ -696,13 +940,13 @@ https://templatemo.com/tm-516-known
                               <div class="col-md-4 col-sm-4">
                                    <div class="item">
                                         <div class="tst-image">
-                                             <img src="images/bob1.jpg" class="img-responsive" alt="">
+                                             <img src="images/cover.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="tst-author">
                                              <h4>Bob Musemeka</h4>
                                              <span> Professor </span>
                                         </div>
-                                        <p> The only place where Success comes before work is in the Dictionary !</p>
+                                        <p class="quotes"> The only place where Success comes before work is in the Dictionary !</p>
                                         <div class="tst-rating">
                                              <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
@@ -716,13 +960,13 @@ https://templatemo.com/tm-516-known
                               <div class="col-md-4 col-sm-4">
                                    <div class="item">
                                         <div class="tst-image">
-                                             <img src="images/mike1.jpg" class="img-responsive" alt="">
+                                             <img src="images/cover.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="tst-author">
                                              <h4>Mike Mwape</h4>
                                              <span> TGM </span>
                                         </div>
-                                        <p>Its not about how bad you want it. Its about how hard you are willing to work for it.</p>
+                                        <p class="quotes" >Its not about how bad you want it. Its about how hard you are willing to work for it.</p>
                                         <div class="tst-rating">
                                              <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
@@ -734,13 +978,13 @@ https://templatemo.com/tm-516-known
                               <div class="col-md-4 col-sm-4">
                                    <div class="item">
                                         <div class="tst-image">
-                                             <img src="images/mwanza1.jpg" class="img-responsive" alt="">
+                                             <img src="images/cover.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="tst-author">
                                              <h4>Charles Mwanza</h4>
                                              <span> Dr. Mwanza </span>
                                         </div>
-                                        <p> Don't watch the clock; Do what it does. Keep going.</p>
+                                        <p class="quotes" > Don't watch the clock; Do what it does. Keep going.</p>
                                         <div class="tst-rating">
                                              <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
@@ -753,13 +997,13 @@ https://templatemo.com/tm-516-known
                               <div class="col-md-4 col-sm-4">
                                    <div class="item">
                                         <div class="tst-image">
-                                             <img src="images/fwalanga1.jpg" class="img-responsive" alt="">
+                                             <img src="images/cover.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="tst-author">
                                              <h4>Prince Fwalanga</h4>
                                              <span>Fwalanga 1zm</span>
                                         </div>
-                                        <p>Success is the sum of small efforts, repeat day in and day out.</p>
+                                        <p class="quotes" >Success is the sum of small efforts, repeat day in and day out.</p>
                                         <div class="tst-rating">
                                              <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
@@ -772,13 +1016,13 @@ https://templatemo.com/tm-516-known
                               <div class="col-md-4 col-sm-4">
                                    <div class="item">
                                         <div class="tst-image">
-                                             <img src="img2/pablo1.jpg" class="img-responsive" alt="">
+                                             <img src="images/cover.jpg" class="img-responsive" alt="">
                                         </div>
                                         <div class="tst-author">
                                              <h4> Danny Kasambala </h4>
                                              <span> Super Doc - Pablo </span>
                                         </div>
-                                        <p>The difference between ordinary and extraordinary is that little extra.</p>
+                                        <p class="quotes" >The difference between ordinary and extraordinary is that little extra.</p>
                                         <div class="tst-rating">
                                              <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
@@ -800,30 +1044,34 @@ https://templatemo.com/tm-516-known
           <div class="container">
                <div class="row">
 
-                    <div class="col-md-6 col-sm-12">
-                         <form id="contact-form" role="form" action="" method="post">
-                              <div class="section-title">
-                                   <h2>Contact us <small>we love conversations. let us talk!</small></h2>
+                    <div class="col-md-8 col-sm-12">
+                         <div class="section-title">
+                              <h2> Quiz Time <small>listen or download the assignment materials</small></h2>
+                         </div>
+
+                         <div class="audio-panel" style="background:linear-gradient(135deg,var(--dark),#0e2226);border-radius:12px;padding:18px;color:#e6eef0;border:1px solid #274044;">
+                              <h3 style="margin-top:0;margin-bottom:8px;color:var(--accent)">Assignment: Amino Acids</h3>
+                              <p style="color:var(--secondary);margin-bottom:12px">Play the audio below for the assignment instructions. You can download the audio or the assignment PDF using the buttons on the right.</p>
+
+                              <div class="audio-controls" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                                   <audio id="assignmentAudio" controls preload="none" style="width:100%;max-width:640px;background:#071018;border-radius:8px;padding:6px;">
+                                        <source src="allthebest.mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                   </audio>
+
+                                   <div style="min-width:180px;display:flex;flex-direction:column;gap:8px;margin-left:auto;">
+                                        <a href="https://forms.gle/73SKfvbKW1bdKYFF7" download="Assignment-Audio.mp3" class="btn" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--light);border:1px solid rgba(255,255,255,0.06);">
+                                             <i class="fa fa-question-circle"></i> Begin Quiz
+                                        </a>
+                                        <!-- <a href="Amino acids (Njunju) Totoz Collection.pdf" download="Assignment.pdf" class="btn btn-default" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--light);border:1px solid rgba(255,255,255,0.06);">
+                                             <i class="fa fa-file-pdf-o"></i> Download PDF
+                                        </a> -->
+                                   </div>
                               </div>
 
-                              <div class="col-md-12 col-sm-12">
-                                   <input type="text" class="form-control" placeholder="Enter full name" name="name" required="">
-                    
-                                   <input type="email" class="form-control" placeholder="Enter email address" name="email" required="">
-
-                                   <textarea class="form-control" rows="6" placeholder="Tell us about your message" name="message" required=""></textarea>
+                              <div style="margin-top:12px;color:var(--secondary);font-size:0.95rem;">
+                                   <!-- <strong>Notes:</strong> The audio is ~5 mins. PDF includes questions and submission instructions. Files stored in /media — update paths if you keep them elsewhere. -->
                               </div>
-
-                              <div class="col-md-4 col-sm-12">
-                                   <input type="submit" class="form-control" name="send message" value="Send Message">
-                              </div>
-
-                         </form>
-                    </div>
-
-                    <div class="col-md-6 col-sm-12">
-                         <div class="contact-image">
-                              <img src="img/cover.jpg" class="img-responsive" alt="Smiling Two Girls">
                          </div>
                     </div>
 
@@ -837,7 +1085,7 @@ https://templatemo.com/tm-516-known
           <div class="container">
                <div class="row">
 
-                    <div class="col-md-4 col-sm-6">
+                    <div style="border-right: solid 3px #3aafa9; border-left: solid 3px #3aafa9;" class="col-md-4 col-sm-6">
                          <div class="footer-info">
                               <div class="section-title">
                                    <h2>Headquarter</h2>
@@ -860,7 +1108,7 @@ https://templatemo.com/tm-516-known
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div style="border-right: solid 3px #3aafa9;" class="col-md-4 col-sm-6">
                          <div class="footer-info">
                               <div class="section-title">
                                    <h2>Contact Info</h2>
@@ -882,7 +1130,7 @@ https://templatemo.com/tm-516-known
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div style="border-right: solid 3px #3aafa9;" class="col-md-4 col-sm-12">
                          <div class="footer-info newsletter-form">
                               <div class="section-title">
                                    <h2>Newsletter Signup</h2>
@@ -910,8 +1158,17 @@ https://templatemo.com/tm-516-known
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
-
+     
      <script>
+
+          document.addEventListener('click', function (e) {
+          if (e.target.closest('a[download]')) {
+               const file = e.target.closest('a[download]').getAttribute('download');
+               // small visal confirmation (non-blocking)
+               console.log('Downloading:', file);
+               }
+          });
+
           // Modal Toggle Logic for Course 1
           const aboutCourse1 = document.getElementById('about-course-1');
           const startCourse1 = document.getElementById('start-course-1');
@@ -995,6 +1252,123 @@ https://templatemo.com/tm-516-known
             startModal3.style.display = 'none';
             document.getElementById('main-container').classList.remove('blur');
           });
+
+          // Modal Toggle Logic for Course 7
+          const aboutCourse7 = document.getElementById('about-course-7');
+          const startCourse7 = document.getElementById('start-course-7');
+          const aboutModal7 = document.getElementById('about-modal-7');
+          const startModal7 = document.getElementById('start-modal-7');
+          const aboutClose7 = document.getElementById('about-close-7');
+          const startClose7 = document.getElementById('start-close-7');
+        
+          aboutCourse7.addEventListener('click', () => {
+            aboutModal7.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose7.addEventListener('click', () => {
+            aboutModal7.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse7.addEventListener('click', () => {
+            startModal7.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose7.addEventListener('click', () => {
+            startModal7.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+
+          // Modal Toggle Logic for Course 4
+          const aboutCourse4 = document.getElementById('about-course-4');
+          const startCourse4 = document.getElementById('start-course-4');
+          const aboutModal4 = document.getElementById('about-modal-4');
+          const startModal4 = document.getElementById('start-modal-4');
+          const aboutClose4 = document.getElementById('about-close-4');
+          const startClose4 = document.getElementById('start-close-4');
+        
+          aboutCourse4.addEventListener('click', () => {
+            aboutModal4.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose4.addEventListener('click', () => {
+            aboutModal4.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse4.addEventListener('click', () => {
+            startModal4.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose4.addEventListener('click', () => {
+            startModal4.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+
+          // Modal Toggle Logic for Course 3
+          const aboutCourse5 = document.getElementById('about-course-5');
+          const startCourse5 = document.getElementById('start-course-5');
+          const aboutModal5 = document.getElementById('about-modal-5');
+          const startModal5 = document.getElementById('start-modal-5');
+          const aboutClose5 = document.getElementById('about-close-5');
+          const startClose5 = document.getElementById('start-close-5');
+        
+          aboutCourse5.addEventListener('click', () => {
+            aboutModal5.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose5.addEventListener('click', () => {
+            aboutModal5.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse5.addEventListener('click', () => {
+            startModal5.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose5.addEventListener('click', () => {
+            startModal5.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+
+          // Modal Toggle Logic for Course 3
+          const aboutCourse6 = document.getElementById('about-course-6');
+          const startCourse6 = document.getElementById('start-course-6');
+          const aboutModal6 = document.getElementById('about-modal-6');
+          const startModal6 = document.getElementById('start-modal-6');
+          const aboutClose6 = document.getElementById('about-close-6');
+          const startClose6 = document.getElementById('start-close-6');
+        
+          aboutCourse6.addEventListener('click', () => {
+            aboutModal6.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          aboutClose6.addEventListener('click', () => {
+            aboutModal6.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+        
+          startCourse6.addEventListener('click', () => {
+            startModal6.style.display = 'block';
+            document.getElementById('main-container').classList.add('blur');
+          });
+        
+          startClose6.addEventListener('click', () => {
+            startModal6.style.display = 'none';
+            document.getElementById('main-container').classList.remove('blur');
+          });
+
+          function viewPassword(pdfNum) {
+          localStorage.setItem("showPassword", pdfNum);
+          window.location.href = "password.html";
+          }
         </script>
 </body>
 </html>
