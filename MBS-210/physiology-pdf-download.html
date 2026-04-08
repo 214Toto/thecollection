@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --primary: #2b7a78;
+      --secondary: #afc4c4;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --muted: #64748b;
+      --card-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    /* Floating person container */
+    .person {
+      position: relative;
+      width: 80px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Head */
+    .head {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    /* Body */
+    .body {
+      width: 12px;
+      height: 55px;
+      background: var(--accent);
+      margin: 6px auto 0;
+      border-radius: 10px;
+    }
+
+    /* Arms */
+    .arm {
+      position: absolute;
+      top: 52px;
+      width: 35px;
+      height: 8px;
+      background: var(--secondary);
+      border-radius: 10px;
+    }
+
+    .arm.left {
+      left: -5px;
+      transform: rotate(-20deg);
+    }
+
+    .arm.right {
+      right: -5px;
+      transform: rotate(20deg);
+    }
+
+    /* Legs */
+    .leg {
+      position: absolute;
+      top: 100px;
+      width: 10px;
+      height: 35px;
+      background: var(--secondary);
+      border-radius: 10px;
+    }
+
+    .leg.left {
+      left: 28px;
+      transform: rotate(5deg);
+    }
+
+    .leg.right {
+      right: 28px;
+      transform: rotate(-5deg);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.25rem;
+      width: 100%;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* make buttons share available space and have consistent size */
+    .buttons .btn {
+      flex: 1 1 140px;
+      min-width: 140px;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* keep existing generic .btn rules but slightly increase padding for visual balance */
+    .btn {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--light);
+      border: 1px solid var(--secondary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .pdf-viewer {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  border-radius: 12px;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="person">
+      <div class="head"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="body"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
+
+    <h1>Refresh to Download Document</h1>
+    <p>If the download does not start automatically, please refresh the page.</p>
+    <button class="btn btn-primary" onclick="openPDF()">  View Document </button>
+
+        <div id="pdfContainer" style="display:none; margin-top:20px;">
+        <iframe id="pdfFrame" class="pdf-viewer"></iframe>
+        </div>
+
+
+    <div class="buttons">
+      <button class="btn btn-primary" onclick="window.location.href='mailto:totokapanga@gmail.com'">
+        Contact ToTo
+      </button>
+
+      <button class="btn btn-outline" onclick="history.back()">
+        Go Back
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+  const docs = {
+    physio: "../physiology-notes/01. cbu - physiol - intro.pdf",
+    cellphysiology: "../physiology-notes/02. cbu - cellanditscomponents.pdf",
+    cellstissues: "../physiology-notes/03.cbu-cells-and-tissues.pdf",
+    membranetransport: "../physiology-notes/04. cbu -membrane_transport.pdf",
+    smoothmuscle: "../physiology-notes/CBU - smooth mus.pdf",
+    skeletalmuscle: "../physiology-notes/05. cbu- Muscular Tissue-.pdf",
+    synapses: "../physiology-notes/06. CBU-  Synapses.pdf",
+    nervetissue: "../physiology-notes/cbu-nerves.pdf",
+    actionpotentials: "../physiology-notes/07. cbu-biom- - action potential review.pdf",
+    bodyfluids: "../physiology-notes/09. cbu - Body Fluids.pdf",
+    diarrhoea: "../physiology-notes/10. cbu -Pathophysiology of Diarrhea- dr katek biomed.pdf",
+    tissuedisorders: "../physiology-notes/08. cbu-muscular_system_disorders.pdf",
+  };
+
+  function getDocFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("doc");
+  }
+
+  function openPDF() {
+    const selectedDoc = getDocFromURL();
+
+    if (docs[selectedDoc]) {
+      document.getElementById("pdfFrame").src = docs[selectedDoc];
+      document.getElementById("pdfContainer").style.display = "block";
+    } else {
+      alert("No document selected.");
+    }
+  }
+</script>
+
+
+</body>
+</html>

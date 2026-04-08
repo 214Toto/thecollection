@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Document Viewer | ToToZ Collection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2b7a78;
+      --secondary: #afc4c4;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --muted: #64748b;
+      --card-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
+    html, body {
+      background: linear-gradient(180deg, #f5f7fb 0%, #eef6f6 100%);
+      color: #0f1720;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 1.1rem 0;
+      box-shadow: 0 6px 18px rgba(11,36,36,0.12);
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.35rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo i { font-size: 2.4rem; color: var(--accent); transform: translateY(-2px); }
+    .logo h1 { font-size: 1.45rem; font-weight: 700; color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, var(--accent), #2b7a78);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(43,122,120,0.16); }
+
+    main.container { padding-bottom: 2.5rem; }
+
+    .document-container {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 1.6rem;
+      border-left: 6px solid rgba(58,175,169,0.12);
+      display: none; /* initially hidden */
+    }
+
+    .document-header {
+      background: linear-gradient(90deg, rgba(43,122,120,0.06), rgba(58,175,169,0.04));
+      color: var(--dark);
+      padding: 1.3rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .document-header h2 { font-size: 1.25rem; color: var(--dark); margin: 0; }
+    .document-meta {
+      display: flex;
+      gap: 1.3rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .document-meta i { color: var(--accent); }
+
+    .pdf-viewer-container {
+      height: 72vh;
+      background: linear-gradient(180deg, rgba(10,24,24,0.01), rgba(10,24,24,0.00));
+      padding: 1rem;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 8px 24px rgba(11,36,36,0.06);
+    }
+
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 1.2rem 0;
+      margin-top: 2.2rem;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+    }
+    .download-section {
+            text-align: center;
+            padding: 1.6rem;
+            background: linear-gradient(90deg,var(--secondary), rgba(175,196,196,0.12));
+            border-radius: 12px;
+            margin-top: 1.6rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:1rem;
+        }
+
+        .download-section h3 { margin:0; color:var(--dark); font-size:1.05rem; }
+        .download-section .cta { display:flex; gap:10px; align-items:center; justify-content:flex-end; }
+
+        .audio-card {
+            margin-top: 1.8rem;
+            border-radius: 14px;
+            background: linear-gradient(135deg,#ffffff 0%,#f6fbfb 60%);
+            box-shadow: 0 10px 28px rgba(18,38,63,0.06);
+            padding: 16px;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid rgba(43,122,120,0.06);
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .audio-card .audio-meta { display:flex; gap:14px; align-items:center; width:100%; padding:4px 6px; }
+        .audio-card .audio-icon {
+            background: linear-gradient(180deg,var(--accent), #2b7a78);
+            color:#fff; width:64px; height:64px; border-radius:12px;
+            display:flex; align-items:center; justify-content:center; font-size:26px;
+            box-shadow: 0 6px 18px rgba(43,122,120,0.12); flex-shrink:0;
+        }
+        .audio-card h3 { margin:0; color:var(--dark); font-size:1.05rem; font-weight:700; }
+        .audio-card .muted { margin-top:4px; color:var(--muted); font-size:0.95rem; }
+
+        .audio-player-wrap { width:100%; margin-top:12px; border-radius:10px; overflow:hidden; background:#fff; border:1px solid rgba(15,23,32,0.03); }
+        .audio-player-wrap iframe.audio-iframe { width:100%; height:96px; border:0; display:block; }
+
+        .audio-actions { width:100%; display:flex; gap:12px; justify-content:flex-end; margin-top:12px; }
+        .audio-actions .btn { padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; display:inline-flex; gap:10px; align-items:center; }
+        .audio-actions .download-btn { background:linear-gradient(90deg,#10b981,#059669); color:#fff; box-shadow:0 6px 18px rgba(5,150,105,0.10); }
+        .audio-actions .open-btn { background:transparent; color:var(--dark); border:1px solid rgba(15,23,32,0.06); box-shadow:none; }
+
+        /* small tweaks and responsiveness */
+        @media (max-width: 920px) {
+            .document-meta { gap:1rem; font-size:0.9rem; }
+            .download-section { flex-direction:column; align-items:center; text-align:center; padding:1rem; gap:12px; }
+            .audio-actions { justify-content:center; }
+            .audio-player-wrap iframe.audio-iframe { height:84px; }
+        }
+
+        @media (max-width: 520px) {
+            .logo h1 { font-size:1.05rem; }
+            .container { width:95%; padding: 0.8rem 0; }
+            .pdf-viewer-container { height: 56vh; padding: 0.5rem; }
+        }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <div class="logo">
+        <i class="fas fa-heartbeat"></i>
+        <h1>ToToZ Collection</h1>
+      </div>
+      <div>
+        <button onclick="history.back()" class="btn">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+        </div>
+      <!-- <div>
+        <button onclick="window.location.href='../med2.html'" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
+      </div> -->
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Document 1 -->
+<!-- Drugs Used in Fertility and Reproduction -->
+        <div id="doc1" class="document-container">
+            <div class="document-header">
+                <h2>Introduction to Physiology</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1fhRTFXxO5IpQEeaHo02aRiutYkbc7EDB/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('physio')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc2" class="document-container">
+            <div class="document-header">
+                <h2>Cells and its Components</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1HlsiEXcuw8nN6seljDKczk5iRpdQOQLt/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('cellphysiology')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc3" class="document-container">
+            <div class="document-header">
+                <h2>Cells and Tissues</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1qpiq9hZnlP8ZxZ1Llez-1XvkzTI1gTdj/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('cellstissues')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc4" class="document-container">
+            <div class="document-header">
+                <h2>Membrane Transport</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/15qyh4bdUgEdZnH1u4r8QApznNoJ9lVNJ/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('membranetransport')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc5" class="document-container">
+            <div class="document-header">
+                <h2>Smooth Muscle</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1MAeYK8tdLk3X83zWXakBDF48HyDcDsFX/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('smoothmuscle')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc6" class="document-container">
+            <div class="document-header">
+                <h2>Skeletal Muscle Tissue</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1m8Ygo1D62MeEj6h1sxqBqUt0hQ8niaG5/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('skeletalmuscle')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc7" class="document-container">
+            <div class="document-header">
+                <h2>Synapses</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1HxWJf3SkBJ_m0VsIMOW0pbcyIg5XTsA1/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('synapses')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc8" class="document-container">
+            <div class="document-header">
+                <h2>Action Potentials</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1l4FiN8Azqh6UeLy1o1KDr7vq-q-RfX59/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('actionpotentials')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc9" class="document-container">
+            <div class="document-header">
+                <h2>Nerve Tissue</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1Jd-fKGkh3UbXNFUCmmiAlfS2iS0LbFpR/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('nervetissue')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc10" class="document-container">
+            <div class="document-header">
+                <h2>Muscular Tissue Disorders</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1pvDbGxGOU6sIX0iInOJ0E1kac5TAZOco/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('tissuedisorders')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc11" class="document-container">
+            <div class="document-header">
+                <h2>Body Fluids</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/14quakscolkypc7yy5gd4TnbUZ0GPtr6v/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('bodyfluids')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+            </div>
+
+            <div id="doc12" class="document-container">
+            <div class="document-header">
+                <h2>Pathophysiology of Diarrhoea</h2>
+                <div class="document-meta">
+                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                <span><i class="fas fa-user-md"></i> Dr. K Balapala </span>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe class="pdf-viewer" src="https://drive.google.com/file/d/1QHdkGDjvQCSpKV7ypDE9BwnURVvySoTy/preview"></iframe>
+            </div>
+            <div class="download-section">
+                <h3>Download this document for offline reference</h3>
+                <a onclick="goToDoc('diarrhoea')" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+            </div>
+            <div class="audio-section" style="background: #e0e7ff; border-radius: 8px; margin-top: 2rem; padding: 2rem; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+                <h3 style="color: #17252a; margin-bottom: 1.2rem;">
+                    <i class="fas fa-headphones-alt" style="color: #3aafa9; margin-right: 0.5rem;"></i>
+                    Listen to the Audio Version
+                </h3>
+                <iframe src="" width="100%" height="80" allow="autoplay"></iframe>
+                <a href="#" class="btn" download>
+                    <i class="fas fa-download"></i> Download Audio
+                </a>
+            </div>
+        </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ToToZ Collection. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Show only the selected document based on button click in index.html
+    const docToShow = localStorage.getItem("showphysiology");
+    if (docToShow) {
+      const section = document.getElementById("doc" + docToShow);
+      if (section) section.style.display = "block";
+    } else {
+      document.body.insertAdjacentHTML("beforeend", "<p style='text-align:center;margin:2rem;'>No document selected. Go back to index.html.</p>");
+    }
+
+
+    function goToDoc(docName) {
+      // change 'download.html' to the exact filename of your second page
+      window.location.href = "physiology-pdf-download.html?doc=" + docName;
+    }
+  </script>
+</body>
+</html>

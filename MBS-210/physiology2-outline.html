@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physiology 2nd Year Course Outline</title>
+    <style>
+    :root {
+      --primary: #2b7a78;
+      --secondary: #afc4c4;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --muted: #64748b;
+      --card-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      --radius: 12px;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.3;
+        color: var(--dark);
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+
+    header {
+        background: linear-gradient(135deg, var(--primary), var(--dark));
+        color: white;
+        padding: .7rem 0;
+        width: 100%;
+        box-shadow: var(--card-shadow);
+        border-radius: var(--radius);
+    }
+
+    .logo h1 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: white;
+        border: none;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo i {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        color: var(--accent);
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: var(--accent);
+        color: white;
+        padding: .8rem 1.2rem;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: -10rem;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .btn:hover {
+        background-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: var(--card-shadow);
+    }
+
+    h1 {
+        color: var(--dark);
+        border-bottom: 3px solid var(--accent);
+        text-align: center;
+        padding-bottom: 1px;
+    }
+
+    .roadmap {
+        position: relative;
+        background-color: white;
+        border-radius: var(--radius);
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: var(--card-shadow);
+        padding-left: 40px;
+    }
+
+    .roadmap::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        width: 4px;
+        height: calc(100% - 60px);
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .topic {
+        position: relative;
+        margin: 25px 0;
+        cursor: pointer;
+        padding: 15px 15px 15px 30px;
+        border-radius: var(--radius);
+        background-color: lightgray;
+        transition: all 0.3s ease;
+    }
+
+    .topic::before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: -30px;
+        width: 30px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .topic:hover {
+        background-color: var(--secondary);
+        transform: translateX(4px);
+    }
+
+    .topic h2 {
+        color: var(--primary);
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .topic h2::after {
+        content: "+";
+        font-size: 1.5em;
+        color: var(--accent);
+    }
+
+    .topic.active h2::after {
+        content: "-";
+    }
+
+    .notes {
+        display: none;
+        padding: 15px;
+        background-color: var(--light);
+        border-radius: var(--radius);
+        margin-top: 10px;
+        border-left: 4px solid var(--primary);
+    }
+
+    .topic.active .notes {
+        display: block;
+    }
+
+    .drug-name {
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+    .mechanism {
+        font-style: italic;
+        color: var(--accent);
+    }
+
+    .side-effects {
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: var(--radius);
+        margin: 10px 0;
+    }
+
+    .key-point {
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: var(--radius);
+        margin: 10px 0;
+        border-left: 4px solid var(--accent);
+    }
+
+    /* Audio box */
+    audio {
+        margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        .roadmap {
+            padding-left: 20px;
+        }
+
+        .roadmap::before {
+            left: 10px;
+            width: 2px;
+        }
+
+        .topic {
+            padding-left: 18px;
+        }
+
+        .topic::before {
+            left: -18px;
+            width: 18px;
+            height: 2px;
+        }
+
+        header .container {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+        }
+
+        header .container > div:first-child {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo {
+            justify-content: center;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>ToToZ Collection</h1>
+            </div>
+            
+            <div>
+                <button onclick="window.location.href='med2.html'" class="btn" style="margin-right: 1rem;">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button onclick="window.location.href='index.html'" class="btn" style="margin-right: 1rem;"> <i class="fas fa-arrow-left"></i> Home
+                </button>
+        </div>
+    </header>
+    
+    <h1> Physiology Course Outline ! </h1>
+    
+    <div class="roadmap">
+        <h1> Term 1 </h1>
+        <div class="topic">
+            <h2> 1. Introduction to Physiology </h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span> </p>
+                <!-- <p><span class="mechanism">Insight :</span> Manyepa is the same as always, focuz on the drawings he makes in class and focus where he focuses, if he doesn't mention a topic in class there is  very low chance of it coming, again, i say low. notti ati there is no chance</p> -->
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Homeostasis
+                      <ul>
+                        <li>Types of homeoststic Responses</li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>2.Cell and its Component </h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span> </p>
+                <!-- <p><span class="mechanism">Insight</span> This Topic is taken by Mr. Machiko and its only one ppt. Very managable </p> -->
+                <p><strong>Sub-Topic:</strong></p>
+                <ul>
+                    <li>Cell Wall </li>
+                    <li>Nucleus</li>
+                    <li>Cell wall</li>
+                    <li>Cytoplasm</li>
+                    <li>Mitochondria</li>
+                    <li>Smooth and Rough ER</li>
+                    <li>Ribosomes</li>
+                    <li>Golgi Body</li>
+                    <li>Lysosome</li>
+                    <li>Vacuoles</li>
+                    <li>Cell Adhesion Molecules </li>
+                    <li>Cell Junctions </li>
+                </ul>
+                <div class="key-point">
+                  <strong>High Yield:</strong>
+                  <p>In this topic focus on the Cell Junctions mainly and the Cell Membrane. and a little on the cell adesion molecules. Do no waste to much time with the other organelles! </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>3. Cells and Tissues </h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span> </p>
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Anatomical terms</li>
+                    <li>Cell Division</li>
+                    <li>Heredity</li>
+                </ul>
+                <div class="key-point">
+                    <strong>high Yield:</strong>
+                    <p>Aaahhh this ppt is just for formalities, most likely no questions will be gotten from this guy </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>4. Memebrane Transport</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span> </p>
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Passive Memebrane transport
+                      <ul>
+                        <li>Osmosis</li>
+                        <li>Filtration</li>
+                        <li>Diffusion
+                          <ul>
+                            <li>Simple Diffusion </li>
+                            <li>Facilitated Diffusion</li>
+                          </ul>
+                        </li>
+                        <li>Dialysis</li>
+                      </ul>
+                    </li>
+                    <li>Active Memebrane Transport
+                      <ul>
+                        <li>Primary active Transport </li>
+                        <li>Secondary Active Transport</li> 
+                      </ul>
+                    </li>
+                    <li>Vescular Transport
+                      <ul>
+                        <li>Endocytosis</li>
+                        <li>Pinocytosis</li>
+                        <li>Phagocytosis</li>
+                      </ul>
+                    </li>
+                </ul>
+                <div class="key-point">
+                    <strong>Hint:</strong>This is one of the most high yeild Topics in physiology, make sure you understand it. And pay Special attention to the Na/K Pump 
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>5. Nerve Tissue</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span></p>
+                <p><strong>Sub-Topics:</strong></p>
+                <ul>
+                    <li>Introduction to the Nervous System</li>
+                    <li> Cells of the The Nervous System and their Classification
+                      <ul>
+                        <li>Neurons</li>
+                        <li>Nueroglial Cells</li>
+                      </ul>
+                    </li>
+                    <li>Nerve Impulse</li>
+                    <li>Memebrane Potentials</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>6. Action Potentials</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span> </p>
+                <p><strong>Sub-Topics:</strong></p>
+                <ul>
+                    <li>Resting Memebrane Potetial</li>
+                    <li>Phases of an Action Potential 
+                      <ul>
+                        <li>Deporalization</li>
+                        <li>Repolarization</li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>7. Synapses</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span></p>
+                <!-- <p><span class="drug-name">Ivabradine:</span> For patients with HR >70 on max BB dose</p> -->
+                <!-- <p><span class="drug-name">Hydralazine/ISDN:</span> Especially beneficial in African Americans</p> -->
+                <p><strong> Sub-Topics</strong></p>
+                <ul>
+                    <li>Components of a Synapse</li>
+                    <li> Types of neurotransmitters </li>
+                    <li>Fate of Neurotransmitters </li>
+                    <li>Properties of Synaptic Transmissions </li>
+                    <li> Inhibitions </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="topic">
+          <h2>8. Muscle tissue</h2>
+          <div class="notes">
+            <p><span class="drug-name">Term 1</span></p>
+            <!-- <p><span class="drug-name">Ivabradine:</span> For patients with HR >70 on max BB dose</p> -->
+            <!-- <p><span class="drug-name">Hydralazine/ISDN:</span> Especially beneficial in African Americans</p> -->
+            <p><strong> Sub-Topics</strong></p>
+            <ul>
+              <li>Function of Muscle Tissue</li>
+              <li>Properties of Muscles Tissue </li>
+              <li>Structural Components of the muscle Tissue </li>
+              <li>The Contraction Cycle </li>
+              <li>Muscle Metabolism</li>
+              <li>Applied Physiology</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="topic">
+          <h2>9. Muscular System Disorders</h2>
+          <div class="notes">
+            <p><span class="drug-name">Term 1</span></p>
+            <!-- <p><span class="drug-name">Ivabradine:</span> For patients with HR >70 on max BB dose</p> -->
+            <!-- <p><span class="drug-name">Hydralazine/ISDN:</span> Especially beneficial in African Americans</p> -->
+            <p><strong> Sub-Topics</strong></p>
+            <ul>
+              <li>Muscles Tone</li>
+              <li>Fibromyalgia </li>
+              <li>Hernias</li>
+              <li>Muscular Dystrohpy </li>
+              <li>Myasthenia Gravis </li>
+              <li>Tennis Elbow</li>
+              <li>Shin Splints</li>
+              <li>Rotator Cuff Diseases</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="topic">
+            <h2>10. Diarrhoea</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span></p>
+                <!-- <p><span class="drug-name">Ivabradine:</span> For patients with HR >70 on max BB dose</p> -->
+                <!-- <p><span class="drug-name">Hydralazine/ISDN:</span> Especially beneficial in African Americans</p> -->
+                <p><strong> Sub-Topics</strong></p>
+                <ul>
+                    <li>Pathophysiology Of Diarrhoea</li>
+                    <li>Types of Diarrhoea 
+                        <ul>
+                            <li>Osmotic Diarrhea</li>
+                            <li>Secretory Diarrhea</li>
+                            <li>Inflmmatory Diarrhea</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>11. Body Fluids</h2>
+            <div class="notes">
+                <p><span class="drug-name">Term 1</span></p>
+                <!-- <p><span class="drug-name">Ivabradine:</span> For patients with HR >70 on max BB dose</p> -->
+                <!-- <p><span class="drug-name">Hydralazine/ISDN:</span> Especially beneficial in African Americans</p> -->
+                <p><strong> Sub-Topics</strong></p>
+                <ul>
+                    <li>Water Balance</li>
+                    <li>Composition of Body Fluids</li>
+                    <li>Distribution of Body Fluids</li>
+                    <li>Methods of Measuring Body Fluids </li>
+                    <li>Osmolarity</li>
+                    <li>Osmolality</li>
+                    <li>Tonicity</li>
+                    <li>The Donan Effect</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+    </div>
+
+    <script>
+        // JavaScript to handle the click events
+        document.querySelectorAll('.topic h2').forEach(header => {
+            header.addEventListener('click', function() {
+                const topic = this.parentElement;
+                topic.classList.toggle('active');
+                
+                // Close other open topics (optional)
+                document.querySelectorAll('.topic').forEach(otherTopic => {
+                    if (otherTopic !== topic && otherTopic.classList.contains('active')) {
+                        otherTopic.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

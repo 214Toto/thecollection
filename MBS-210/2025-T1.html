@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Papers | ToToZ Collection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../nav.css">
+  <style>
+    :root {
+      --primary: #2b7a78;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f5f7fb, #eef6f6);
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 1.1rem 0;
+      box-shadow: 0 6px 18px rgba(11,36,36,0.12);
+    }
+
+    /* Improved heading styling */
+    header h1 {
+      font-size: 1.25rem;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 0.35px;
+      color: #ffffff;
+      text-transform: none;
+      display: inline-block;
+      line-height: 1;
+      text-shadow: 0 6px 18px rgba(11,36,36,0.12);
+    }
+
+    /* logo heading (keeps icon + title aligned) */
+    .logo h1 {
+      font-size: 1.25rem;
+      margin: 0 0 0 6px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin: 0 0 0.85rem 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    /* responsive tweaks for small screens */
+    @media (max-width: 520px) {
+      header h1, .logo h1 { font-size: 1rem; }
+      h2 { font-size: 1rem; }
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+    }
+
+    .question p {
+      font-weight: 600;
+    }
+
+    .options label {
+      display: block;
+      background: #f8fafc;
+      border: 1px solid #d9e2ec;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .options label:hover {
+      background: #e0f7f6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #f1faf9;
+      border-radius: var(--radius);
+      text-align: center;
+      display: none;
+    }
+
+    .score {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    /* --- Styles for answer feedback --- */
+    .answer-list { text-align: left; margin-top: 12px; }
+    .answer-item {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      margin: 6px 0;
+      border: 1px solid #e6eef3;
+      background: #ffffff;
+      color: var(--dark);
+      font-weight: 600;
+    }
+    .answer-correct {
+      background: #ecfdf5;       /* light green */
+      border-color: #bbf7d0;
+      color: #065f46;           /* dark green text */
+      box-shadow: 0 6px 18px rgba(16,185,129,0.06);
+    }
+    .answer-wrong {
+      background: #fff1f2;       /* light red */
+      border-color: #fca5a5;
+      color: #9f1239;           /* dark red text */
+      box-shadow: 0 6px 18px rgba(239,68,68,0.06);
+    }
+    .user-choice { outline: 2px dashed rgba(0,0,0,0.04); }
+
+    /* Essay Section */
+    textarea {
+      width: 80%;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0.75rem;
+      resize: vertical;
+      min-height: 50px;
+      font-size: 1rem;
+    }
+
+    .essay-answer {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    /* Explanation box shown under each question in feedback */
+    .explanation {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #ecfdf5;           /* subtle greenish background */
+      color: #065f46;                /* dark green text */
+      font-size: 0.95rem;
+      line-height: 1.4;
+      border: 1px solid #bbf7d0;
+    }
+
+    /* For incorrect explanation (when needed) */
+    .explanation.wrong {
+      background: #fff1f2;
+      color: #7f1d1d;
+      border-color: #fca5a5;
+    }
+
+    /* small label styling for feedback header */
+    .answer-block { margin-bottom: 12px; }
+    .answer-block strong { display:block; margin-bottom:8px; color:var(--primary); }
+    .question-feedback {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #d6e7eb;
+    }
+    .question-feedback .answer-list {
+      margin-top: 10px;
+    }
+
+    /* Essay card styles (compact, readable) */
+    #essay-section { padding-top: 0; }
+    #essay-section .card {
+      background: linear-gradient(180deg, #ffffff, #fbfeff);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      border: 1px solid rgba(43,122,120,0.06);
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+    }
+    #essay-section .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.02rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+    #essay-section .subquestion { margin-bottom: 12px; }
+    #essay-section .subquestion label {
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+      color:var(--dark);
+    }
+    #essay-section textarea {
+      width:100%;
+      min-height:90px;
+      border-radius:8px;
+      border:1px solid #d1dbe0;
+      padding:10px;
+      resize:vertical;
+      font-family:inherit;
+    }
+    #essay-section .answers {
+      display:none;
+      margin-top:14px;
+      background:#f1faf9;
+      border-radius:8px;
+      padding:12px;
+      border:1px solid #cfeee6;
+      color:var(--dark);
+    }
+    #essay-section .answers h3 { margin-top:0; }
+    #essay-section .card .btn { margin-top:8px; }
+    /* make answers visible area stand out when shown */
+    #essay-section .answers.visible { display:block; }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="logo">
+        <i class="fas fa-book-medical"></i>
+        <h1>2024 Exam | ToToZ Collection</h1>
+      </div>
+      <button id="backBtn" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
+    </div>
+  </header>
+
+<div class="container" id="mcq-section">
+  <h2>Multiple Choice Questions</h2>
+
+  <form id="quizForm">
+
+    <div class="question">
+      <p>1. Dietary fatty acids are precursors for sphingolipids. Of the following, which one is formed from sphingolipids?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> Lung surfactant</label>
+        <label><input type="radio" name="q1" value="b"> Myelin sheath</label>
+        <label><input type="radio" name="q1" value="c"> Bile</label>
+        <label><input type="radio" name="q1" value="d"> Arachidonic acid</label>
+        <label><input type="radio" name="q1" value="e"> Blood lipoproteins</label>
+      </div>
+      <div class="question-feedback" id="feedback-q1"></div>
+    </div>
+
+    <div class="question">
+      <p>2. Low-dose aspirin is used as a prevention of platelet aggregation and heart attacks. Low-dose aspirin is used to block the formation of which eicosanoid?</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> Prostaglandins</label>
+        <label><input type="radio" name="q2" value="b"> Thromboxanes</label>
+        <label><input type="radio" name="q2" value="c"> Leukotrienes</label>
+        <label><input type="radio" name="q2" value="d"> Lysoxins</label>
+        <label><input type="radio" name="q2" value="e"> Epoxides</label>
+      </div>
+      <div class="question-feedback" id="feedback-q2"></div>
+    </div>
+    
+
+    <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
+  </form>
+
+  <div class="result" id="resultBox">
+    <h3>Your Score:</h3>
+    <div class="score" id="score">0%</div>
+    <div id="answers"></div>
+  </div>
+</div>
+
+<!-- Short Essay Section (card style with sub-questions) -->
+<section id="essay-section" class="container" style="display:none;">
+  <h2 style="margin-bottom:1rem;color:var(--dark)">Short Essay Questions</h2>
+
+  <div class="card">
+    <h3>1. Describe the physiological responses that occur following an acute loss of blood volume.</h3>
+
+    <div class="subquestion">
+      <label>a) Immediate cardiovascular compensations</label>
+      <textarea id="ans1a" placeholder="Describe immediate changes (heart rate, vascular tone, etc.)"></textarea>
+    </div>
+
+    <div class="subquestion">
+      <label>b) Neurohormonal responses</label>
+      <textarea id="ans1b" placeholder="Describe catecholamines, ADH, RAAS, etc."></textarea>
+    </div>
+
+    <div class="subquestion">
+      <label>c) Longer-term hematologic / renal compensation</label>
+      <textarea id="ans1c" placeholder="Describe erythropoiesis, fluid retention, renal changes"></textarea>
+    </div>
+
+    <button class="btn" onclick="showAnswers('1')"><i class="fas fa-eye"></i> View Answers</button>
+
+    <div id="answers1" class="answers" aria-hidden="true">
+      <h3>Model Answers</h3>
+      <p><b>a)</b> Rapid sympathetic activation increases heart rate and contractility; peripheral vasoconstriction raises systemic vascular resistance to maintain perfusion.</p>
+      <p><b>b)</b> Release of catecholamines, ADH secretion and activation of RAAS promote vasoconstriction and fluid retention to support blood pressure.</p>
+      <p><b>c)</b> Kidneys increase erythropoietin to stimulate erythropoiesis; renal sodium/water retention and mobilization of interstitial fluid restore plasma volume over days to weeks.</p>
+    </div>
+
+  </div>
+
+  <!-- New short essay question (added) -->
+  <div class="card">
+    <h3>2. Explain the kidney's role in maintaining electrolyte and fluid balance.</h3>
+
+    <div class="subquestion">
+      <label>a) Describe how the proximal tubule handles sodium and water.</label>
+      <textarea id="ans2a" placeholder="Answer A — proximal tubule handling..."></textarea>
+    </div>
+
+    <div class="subquestion">
+      <label>b) Explain the role of aldosterone in distal nephron sodium handling.</label>
+      <textarea id="ans2b" placeholder="Answer B — aldosterone actions..."></textarea>
+    </div>
+
+    <div class="subquestion">
+      <label>c) Outline how the kidney adapts to changes in body hydration (antidiuretic hormone/ADH).</label>
+      <textarea id="ans2c" placeholder="Answer C — ADH and urine concentration..."></textarea>
+    </div>
+
+    <button class="btn" onclick="showAnswers('2')"><i class="fas fa-eye"></i> View Answers</button>
+
+    <div id="answers2" class="answers" aria-hidden="true">
+      <h3>Model Answers</h3>
+      <p><b>a)</b> The proximal tubule reabsorbs the bulk of filtered sodium and water via coupled transporters and passive water movement; most solute and isoosmotic fluid is reclaimed here.</p>
+      <p><b>b)</b> Aldosterone acts on distal tubule and collecting duct principal cells to increase expression of ENaC and Na+/K+ ATPase, enhancing sodium reabsorption and potassium secretion.</p>
+      <p><b>c)</b> ADH increases water permeability of the collecting duct by inserting aquaporin-2 channels, concentrating urine when the body is dehydrated and reducing free-water excretion.</p>
+    </div>
+  </div>
+ </section>
+
+<script>
+  // Short explanation text for each question (keyed by question id)
+  const answerExplanations = {
+    q1: "Sphingomyelin is a major component of the myelin sheath insulating nerve fibers.",
+    q2: "Aspirin irreversibly inhibits COX enzymes, primarily blocking Thromboxane A2 (TXA2) in platelets to prevent aggregation.",
+  };
+
+  // MCQ Functionality
+  const correctAnswers = { 
+    q1: "b", 
+    q2: "b", 
+  };
+ 
+  function submitQuiz() {
+     let score = 0;
+     const total = Object.keys(correctAnswers).length;
+ 
+     // Clear any previous inline feedback
+     document.querySelectorAll('.question-feedback').forEach(el => el.innerHTML = '');
+ 
+     for (let key in correctAnswers) {
+       const radios = Array.from(document.querySelectorAll(`input[name="${key}"]`));
+       const selected = radios.find(r => r.checked);
+       const correct = correctAnswers[key];
+ 
+       // Score calc
+       if (selected && selected.value === correct) score++;
+ 
+       const feedbackEl = document.getElementById(`feedback-${key}`);
+       if (!feedbackEl) continue;
+ 
+       let feedbackHTML = `<div class="answer-block"><strong>Question ${key.replace(/^q/, '')}</strong><div class="answer-list">`;
+ 
+       radios.forEach(r => {
+         let label = r.parentElement;
+         let text = label ? label.textContent.trim() : r.value;
+ 
+         let classes = ['answer-item'];
+         if (r.value === correct) classes.push('answer-correct');
+         if (r.checked && r.value !== correct) classes.push('answer-wrong', 'user-choice');
+         if (r.checked && r.value === correct) classes.push('user-choice');
+ 
+         feedbackHTML += `<div class="${classes.join(' ')}">${text}${r.checked ? ' ◀' : ''}</div>`;
+       });
+ 
+       feedbackHTML += `</div>`;
+ 
+       const correctRadio = radios.find(rr => rr.value === correct);
+       const correctText = correctRadio && correctRadio.parentElement ? correctRadio.parentElement.textContent.trim() : correct;
+       const explanationText = answerExplanations[key] || '';
+ 
+       if (selected) {
+         if (selected.value === correct) {
+           feedbackHTML += `<div class="explanation">✅ Correct — ${explanationText}</div>`;
+         } else {
+           feedbackHTML += `<div class="explanation wrong">❌ Incorrect. Correct answer: <strong>${correctText}</strong>. ${explanationText}</div>`;
+         }
+       } else {
+         feedbackHTML += `<div class="explanation wrong">No answer selected. Correct answer: <strong>${correctText}</strong>. ${explanationText}</div>`;
+       }
+ 
+       feedbackHTML += `</div>`;
+       feedbackEl.innerHTML = feedbackHTML;
+     }
+ 
+     const percentage = Math.round((score / total) * 100);
+     document.getElementById("score").innerText = "0%";
+     const resultBox = document.getElementById("resultBox");
+     resultBox.style.display = "block";
+     document.getElementById("answers").innerHTML = '';
+ 
+     let start = 0;
+     const timer = setInterval(() => {
+       if (start >= percentage) clearInterval(timer);
+       document.getElementById("score").innerText = start + "%";
+       start++;
+     }, 20);
+ 
+     document.querySelectorAll('#quizForm input').forEach(i => i.disabled = true);
+   }
+ 
+   // Essay Section
+   function showEssayAnswers() {
+     document.querySelectorAll(".essay-answer").forEach(a => a.style.display = "block");
+   }
+
+   // Show/hide model answers for an essay card
+   function showAnswers(id) {
+     const el = document.getElementById('answers' + id);
+     if (!el) return;
+     const isVisible = el.classList.toggle('visible');
+     el.setAttribute('aria-hidden', !isVisible);
+     if (isVisible) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+   }
+ 
+   // Mode switching (from first file)
+   const mode = localStorage.getItem("examMode"); // "mcq" or "essay"
+   if (mode === "essay") {
+     document.getElementById("mcq-section").style.display = "none";
+     document.getElementById("essay-section").style.display = "block";
+   }
+ 
+   // Navigate to the previous page if available, otherwise fall back to index.html
+   function goBack() {
+     if (history.length > 1) {
+       history.back();
+     } else {
+       window.location.href = "index.html";
+     }
+   }
+ 
+   // header back button hookup (same behaviour)
+   const backBtn = document.getElementById('backBtn');
+   if (backBtn) backBtn.addEventListener('click', (e) => { e.preventDefault(); goBack(); });
+ </script>
+
+</body>
+</html>
