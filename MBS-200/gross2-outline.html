@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2nd Year Course Outline</title>
+    <style>
+    :root {
+      --primary: #2b7a78;
+      --secondary: #afc4c4;
+      --accent: #3aafa9;
+      --dark: #17252a;
+      --light: #f8f9fa;
+      --muted: #64748b;
+      --card-shadow: 0 10px 30px rgba(18,38,63,0.06);
+      --radius: 12px;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.3;
+        color: var(--dark);
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+
+    header {
+        background: linear-gradient(135deg, var(--primary), var(--dark));
+        color: white;
+        padding: .7rem 0;
+        width: 100%;
+        box-shadow: var(--card-shadow);
+        border-radius: var(--radius);
+    }
+
+    .logo h1 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: white;
+        border: none;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo i {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        color: var(--accent);
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: var(--accent);
+        color: white;
+        padding: .8rem 1.2rem;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: -10rem;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .btn:hover {
+        background-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: var(--card-shadow);
+    }
+
+    h1 {
+        color: var(--dark);
+        border-bottom: 3px solid var(--accent);
+        text-align: center;
+        padding-bottom: 1px;
+    }
+
+    .roadmap {
+        position: relative;
+        background-color: white;
+        border-radius: var(--radius);
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: var(--card-shadow);
+        padding-left: 40px;
+    }
+
+    .roadmap::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 20px;
+        width: 4px;
+        height: calc(100% - 60px);
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .topic {
+        position: relative;
+        margin: 25px 0;
+        cursor: pointer;
+        padding: 15px 15px 15px 30px;
+        border-radius: var(--radius);
+        background-color: lightgray;
+        transition: all 0.3s ease;
+    }
+
+    .topic::before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: -30px;
+        width: 30px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .topic:hover {
+        background-color: var(--secondary);
+        transform: translateX(4px);
+    }
+
+    .topic h2 {
+        color: var(--primary);
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .topic h2::after {
+        content: "+";
+        font-size: 1.5em;
+        color: var(--accent);
+    }
+
+    .topic.active h2::after {
+        content: "-";
+    }
+
+    .notes {
+        display: none;
+        padding: 15px;
+        background-color: var(--light);
+        border-radius: var(--radius);
+        margin-top: 10px;
+        border-left: 4px solid var(--primary);
+    }
+
+    .topic.active .notes {
+        display: block;
+    }
+
+    .drug-name {
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+    .mechanism {
+        font-style: italic;
+        color: var(--accent);
+    }
+
+    .side-effects {
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: var(--radius);
+        margin: 10px 0;
+    }
+
+    .key-point {
+        background-color: var(--secondary);
+        padding: 10px;
+        border-radius: var(--radius);
+        margin: 10px 0;
+        border-left: 4px solid var(--accent);
+    }
+
+    /* Audio box */
+    audio {
+        margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        .roadmap {
+            padding-left: 20px;
+        }
+
+        .roadmap::before {
+            left: 10px;
+            width: 2px;
+        }
+
+        .topic {
+            padding-left: 18px;
+        }
+
+        .topic::before {
+            left: -18px;
+            width: 18px;
+            height: 2px;
+        }
+
+        header .container {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+        }
+
+        header .container > div:first-child {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo {
+            justify-content: center;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>ToToZ Collection</h1>
+            </div>
+            
+            <div>
+                <button onclick="window.location.href='med2.html'" class="btn" style="margin-right: 1rem;">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button onclick="window.location.href='index.html'" class="btn" style="margin-right: 1rem;"> <i class="fas fa-arrow-left"></i> Home
+                </button>
+        </div>
+    </header> 
+    
+    <h1> Pathology Course Outline ! </h1>
+    <div class="roadmap">
+        <h1>Term 1</h1>
+
+        <div class="topic">
+            <h2>1.0 INTRODUCTION TO PATHOLOGY</h2>
+            <div class="notes">
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Definitions of Pathology</li>
+                    <li>Branches of Pathology</li>
+                    <li>Types of disease and causes of disease</li>
+                    <li>Concept of disease and health</li>
+                    <li>Nomenclature of diseases</li>
+                    <li>Core Aspects of pathology</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>2.0 CELLULAR RESPONSES TO STRESS AND TOXIC INSULTS</h2>
+            <div class="notes">
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Cellular adaptations to stress</li>
+                    <li>Cell injury</li>
+                    <li>Morphology of cell and tissue injury</li>
+                    <li>Mechanism of cell injury</li>
+                    <li>Apoptosis & Necrosis</li>
+                    <li>Intracellular accumulations (proteins, carbohydrates, fats)</li>
+                    <li>Extracellular accumulations (calcification, amyloidosis, etc)</li>
+                    <li>Cellular aging</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>3.0 ACUTE AND CHRONIC INFLAMMATION</h2>
+            <div class="notes">
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Historical highlights</li>
+                    <li>Acute inflammation</li>
+                    <li>Morphologic patterns of acute inflammation</li>
+                    <li>Outcomes of acute inflammation</li>
+                    <li>Mediators of inflammation</li>
+                    <li>Chronic inflammation</li>
+                    <li>Morphologic patterns of chronic inflammation</li>
+                    <li>Systemic effects of inflammation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>4.0 TISSUE RENEWAL, REGENERATION AND REPAIR</h2>
+            <div class="notes">
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>The brief control of cell proliferation</li>
+                    <li>Repair by regeneration</li>
+                    <li>Repair by connective tissue</li>
+                    <li>Cutaneous wound healing</li>
+                    <li>Pathological aspects of repair</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>5.0 HAEMODYNAMIC DISORDERS, THROMBOEMBOLIC DISEASE AND SHOCK</h2>
+            <div class="notes">
+                <p><strong>Subtopics:</strong></p>
+                <ul>
+                    <li>Oedema</li>
+                    <li>Hyperaemia and congestion</li>
+                    <li>Haemorrhage</li>
+                    <li>Haemostasis and thrombosis</li>
+                    <li>Embolism</li>
+                    <li>Infarction</li>
+                    <li>Shock and types of shock</li>
+                </ul>
+            </div>
+        </div>  
+        
+        
+        
+        
+        
+    </div>
+
+    <script>
+        // JavaScript to handle the click events
+        document.querySelectorAll('.topic h2').forEach(header => {
+            header.addEventListener('click', function() {
+                const topic = this.parentElement;
+                topic.classList.toggle('active');
+                
+                // Close other open topics (optional)
+                document.querySelectorAll('.topic').forEach(otherTopic => {
+                    if (otherTopic !== topic && otherTopic.classList.contains('active')) {
+                        otherTopic.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
