@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToToZ Collection - Professional Medical Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
     <style>
         :root {
             --primary: #2b7a78;
@@ -13,6 +14,7 @@
             --dark: #17252a;
             --light: #f8f9fa;
         }
+        
         
         * {
             margin: 0;
@@ -438,85 +440,7 @@
             font-size: 1.15rem;
          }
         
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
+    
 
         /* Highlight active feature card */
         .feature-card.active {
@@ -719,6 +643,8 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
     </style>
 </head>
 <body>
@@ -833,61 +759,6 @@
                 <h3>Social Medicine (MCS 210)</h3>
                 <p>Understanding how social and economic factors impact health outcomes and medical practice.</p>
             </div>
-            <!-- <div class="feature-card active" id="feature-videos" data-tab="histology" tabindex="0">
-                <i class="fas fa-hospital"></i>
-                <h3> Histology (MBS-200) </h3>
-                <p>Study of drugs and treatment principles, including indications, mechanisms, dosages, and adverse effects.</p>
-            </div>
-
-            <div class="feature-card" id="feature-audio" data-tab="anatomy" tabindex="0">
-                <i class="fas fa-dna"></i>
-                <h3> Gross Anatomy (MBS-200)</h3>
-                <p> Explore the anatomy of the body from all the 3 sectors; Histology; Gross Anatomy; Embryology.</p>
-            </div>
-
-            <div class="feature-card" id="feature-embryology" data-tab="embryology" tabindex="0">
-                <i class="fas fa-notes-medical"></i>
-                <h3> Embryology (MBS-200) </h3>
-                <p> Explores the relationship between health, disease, culture, ethics, and the social determinants of health.</p>
-            </div>
-
-            <div class="feature-card" id="feature-audio" data-tab="biochem" tabindex="0">
-                <i class="fas fa-dna"></i>
-                <h3> Biochemistry (MBS-230)</h3>
-                <p>Biochemical processes of the human body, focusing on metabolism, enzymes, and molecular mechanisms of disease.</p>
-            </div> -->
-
-            <!-- <div class="feature-card" id="feature-pdfs" data-tab="lab-science" tabindex="0">
-                <i class="fas fa-vials"></i>
-                <h3> Laboratory Science (MBS-240) </h3>
-                <p>Principles of diagnostic laboratory techniques, specimen analysis, and interpretation of clinical results.</p>
-            </div>
-
-            <div class="feature-card" id="feature-cases" data-tab="pathology" tabindex="0">
-                <i class="fas fa-question-circle"></i>
-                <h3> Pathology (MBS-220)</h3>
-                <p>Study of disease mechanisms, causes, and structural and functional changes in tissues and organs.</p>
-            </div> -->
-
-            <!-- <div class="feature-card" id="feature-quizzes" data-tab="physiology" tabindex="0">
-                <i class="fas fa-notes-medical"></i>
-                <h3>Physiology (MBS-210)</h3>
-                <p>Understanding normal body functions and regulatory mechanisms at cellular, organ, and system levels.</p>
-            </div> -->
-
-            
-
-            <!-- <div class="feature-card" id="feature-webinars" data-tab="clinical" tabindex="0">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <h3> Clinical Science (MCS-200)</h3>
-                <p>Application of medical knowledge to patient care, including diagnosis, examination, and clinical reasoning.</p>
-            </div> -->
-
-            <!-- <div class="feature-card" id="feature-webinars" data-tab="public-health" tabindex="0">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <h3> Public Health </h3>
-                <p>Collection of previous examination questions for revision, practice, and exam-oriented preparation.</p>
-            </div> -->
 
             <div class="feature-card" id="feature-webinars" data-tab="past-papers" tabindex="0">
                 <i class="fas fa-chalkboard-teacher"></i>
@@ -909,9 +780,6 @@
             <div id="searchResultsCount" class="search-results-count" style="display: none;"></div>
             
             <div class="resource-tabs">
-                <!-- <button class="tab-btn active" data-tab="math"> Mathematics (MA 110) </button>
-                <button class="tab-btn active" data-tab="physics"> Physics (PH 110) </button>
-                <button class="tab-btn active" data-tab="chemistry">Chemistry (CH 110)</button> -->
                 <button class="tab-btn" data-tab="lab-science">Laboratory Science</button>
                 <button class="tab-btn" data-tab="biochem">Biochemistry</button>
                 <button class="tab-btn active" data-tab="histology">histology</button>
@@ -943,7 +811,7 @@
                             <h3>Introduction To Histology </h3>
                             <p>Updated evidence-based guidelines for common medical conditions.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewhistologyVideo(1)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewhistology(1)" class="pdf-download">
@@ -993,7 +861,7 @@
                             <h3> Epithelial Tissue </h3>
                             <p>Updated evidence-based guidelines for common medical conditions.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewhistologyVideo(3)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewhistology(3)" class="pdf-download">
@@ -1496,384 +1364,718 @@
                 
                 <div class="resource-grid">
                     <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/plasma-proteins.PNG" alt="Clinical Guidelines">
+                    <div class="resource-img">
+                        <img src="images-3/principles.jpg" alt="Laboratory Science">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Principles and practice of laboratory science </h3>
+                        <p>Foundational protocols, safety standards, and essential laboratory practices.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(1)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(1)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Plasma Proteins </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a onclick="viewBiochemVideo2(1)" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(1)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/enzymes.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/Parasitology.jfif" alt="Parasitology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to Parasitology </h3>
+                        <p>Overview of medically important parasites and host-parasite interactions.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(2)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(2)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Enzymes </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a onclick="viewBiochemVideo2(2)" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(2)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/amino.png" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/Gram-Staining.png" alt="Bacteriology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to Bacteriology </h3>
+                        <p>Introduction to bacterial structure, classification, and clinical significance.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(3)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(3)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Amino Acids </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a onclick="viewBiochemVideo2(3)" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(3)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/peptides.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/heamatology.webp" alt="Haematology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to Haematology </h3>
+                        <p>Basic study of blood components, formation, and related disorders.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(4)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(4)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Peptides & Proteins </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(4)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="images-1/hemoglobin.jpeg" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/" alt="Microscopy">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Microscope/microscopy and the cell </h3>
+                        <p>Mastering microscopic techniques and cellular visualization.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(5)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(5)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Hemoglobin </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(5)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/amino-metabolism.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/chelistry.webp" alt="Clinical Chemistry">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to clinical chemistry </h3>
+                        <p>Fundamental chemical analysis of bodily fluids for diagnostic purposes.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(6)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(6)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Amino Acid Metabolism  </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/" alt="Immunology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to Immunology </h3>
+                        <p>Basics of the immune system, defense mechanisms, and responses.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(7)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(7)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/lipids.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/VIRUS.webp" alt="Virology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Introduction to Virology </h3>
+                        <p>Study of viral structures, replication, and medically relevant viruses.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(8)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(8)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Lipids </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(6)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 1</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/lipid-metabolism.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/TB.webp" alt="Pulmonary TB">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Laboratory Diagnosis of Pulmonary TB </h3>
+                        <p>Diagnostic methods for detecting Mycobacterium tuberculosis in clinical samples.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(9)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(9)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Lipids Metabolism </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/carbohydrate-1.jpg" alt="Clinical Guidelines">
-                        </div>
-                        <div class="resource-info">
-                            <h3>Carbohydrates </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(8)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/carbohydrate.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/heamatology-INTERPRETATION.webp" alt="Haematology Interpretation">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Haematologic examinations and their interpretation </h3>
+                        <p>Analyzing and interpreting complete blood counts and blood films.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(10)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(10)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3>Carbohydrate Metabolism</h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/nucleic-acids.png" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/TB.webp" alt="Pulmonary Infections">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Lab diagnosis of Pulmonary microbial infections other than TB </h3>
+                        <p>Identifying non-tuberculous bacterial, fungal, and viral lung pathogens.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(11)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(11)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Nucleic Acids </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a onclick="viewBiochem2(10)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/central-dogma.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/cardiac-function-tests.webp" alt="Cardiac Function">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Cardiac Function Test </h3>
+                        <p>Clinical markers and assays for evaluating heart health and myocardial damage.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(12)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(12)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3>Central Dogma Theory: Replication, Transcription and Translation </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 1</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/vitamins.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/Immunodiagnostics.webp" alt="Immunodiagnostics">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Immunodiagnostics </h3>
+                        <p>Application of antigen-antibody reactions for disease diagnosis.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(13)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(13)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Micronutrients: Vitamins and Minerals  </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 2</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
-                    
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/nutrition.PNG" alt="Clinical Guidelines">
-                        </div>
-                        <div class="resource-info">
-                            <h3> Nutrition and Health </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="facr fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 2</span>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="resource-card">
-                        <div class="resource-img">
-                            <img src="img/bioenergetics.PNG" alt="Clinical Guidelines">
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/pulmonary-function.webp" alt="Pulmonary Function">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Pulmonary Function Test </h3>
+                        <p>Physiological assessment of lung volumes, capacities, and gas exchange.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(14)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(14)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
                         </div>
-                        <div class="resource-info">
-                            <h3> Bioenergetics </h3>
-                            <p>Updated evidence-based guidelines for common medical conditions.</p>
-                            <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-video"></i> Checkout Video
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
-                                </a>
-                                <a href="not-yet-ready.html" class="pdf-download">
-                                    <i class="fas fa-question-circle"></i> Try The Quiz
-                                </a>
-                            </div>
-                            <div class="resource-meta">
-                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
-                                <span><i class="fas fa-user-md"></i> Term 2</span>
-                            </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 2</span>
                         </div>
                     </div>
+                </div>
 
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/pcr.webp" alt="PCR">
+                    </div>
+                    <div class="resource-info">
+                        <h3> PCR </h3>
+                        <p>Principles and applications of Polymerase Chain Reaction in diagnostics.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(15)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(15)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/renal-function.jfif" alt="Renal Function">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Renal Function Test </h3>
+                        <p>Labical evaluation of glomerular filtration and tubular function.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(16)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(16)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/blood-infection.webp" alt="Blood Infections">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Blood Infections </h3>
+                        <p>Laboratory diagnosis of septicaemia, bacteremia, and systemic infections.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(17)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(17)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/urine-examination.webp" alt="Urine Examinations">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Urine Examinations </h3>
+                        <p>Physical, chemical, and microscopic analysis of urine (Urinalysis).</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(18)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(18)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/stool-bacteria.webp" alt="Stool Microbiology">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Stool examination for bacterial and viral infections </h3>
+                        <p>Diagnosis of gastrointestinal pathogens through culture and assays.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(19)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(19)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/stool-parasites.webp" alt="Stool Parasites">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Stool examination for intestinal parasitic infections </h3>
+                        <p>Identification of helminths and protozoa in stool specimens.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(20)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(20)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/liver-function.jfif" alt="Liver Function">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Liver Function Tests and abdominal fluid examinations </h3>
+                        <p>Assessing hepatic enzymes, bilirubin, and analysis of ascitic fluids.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(21)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(21)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="images-3/" alt="Saliva Examination">
+                    </div>
+                    <div class="resource-info">
+                        <h3> Laboratory Examination of Saliva </h3>
+                        <p>Clinical diagnostic utility of saliva for various systemic conditions.</p>
+                        <div class="buttonz">
+                            <a onclick="viewLabVideo2(22)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                            <a onclick="viewLab2(22)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                            <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                        </div>
+                        <div class="resource-meta">
+                            <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                            <span><i class="fas fa-user-md"></i> Term 3</span>
+                        </div>
+                    </div>
+                </div>
                 
                 </div>
             </div>
+
+            <div class="tab-content" id="therapeutics">
+                <!-- <a href="https://drive.google.com/drive/folders/1NIB0oOfXY-7XPtWQ6C32GFBr52yPdx_1?usp=drive_link" class="pdf-recommended">
+                    <i class="fas fa-book"></i> Biochemistry Reccommended Books
+                </a> -->
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-1/terminology.jpg" alt="Common Terminologies">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Common Terminologies </h3>
+                            <p>Essential vocabulary and foundational concepts in medical pharmacology.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(1)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(1)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-1/pharmacokinetics.avif" alt="PK and PD">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Introduction to PK & PD </h3>
+                            <p>Understanding what the body does to the drug and what the drug does to the body.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(2)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(2)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="img/membrane-transport.webp" alt="Membrane Transport">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Membrane Transport </h3>
+                            <p>Mechanisms of drug movement across biological barriers and lipid bilayers.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(3)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(3)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/biotransformation.PNG" alt="Bioavailability">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Bioavailability </h3>
+                            <p>Measuring the rate and extent of active drug absorption into systemic circulation.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(4)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(4)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/distribution.PNG" alt="Drug Distribution">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Drug Distribution </h3>
+                            <p>Reversible transfer of drugs between the blood and various tissues of the body.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(5)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(5)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/excretion.PNG" alt="Drug excretion">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Drug Excretion </h3>
+                            <p>Analysis of renal and non-renal pathways for eliminating drugs from the system.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(6)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(6)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/metabolism.PNG" alt="Drug Metabolism">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Drug Metabolism </h3>
+                            <p>Biotransformation processes and the role of Cytochrome P450 enzymes.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(7)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(7)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/routes.PNG" alt="Routes of administration">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Routes of Administration </h3>
+                            <p>Enteral, parenteral, and topical delivery methods and their clinical implications.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(8)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(8)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-1/absorption.jpg" alt="Therapeutic Drug Monitoring">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Therapeutic Drug Monitoring </h3>
+                            <p>Clinical practice of measuring drug levels to maintain a therapeutic window.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(9)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(9)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/MoA.PNG" alt="Mechanism of Drug action">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Mechanism of Drug Action </h3>
+                            <p>Exploring receptor interactions, signal transduction, and molecular targets.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(10)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(10)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/neural-hormonal.jpg" alt="Neuro-humoral Transmission">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Neuro-Humoral Transmission </h3>
+                            <p>Synaptic signaling and neurotransmitter release within the Autonomic Nervous System.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(11)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(11)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/autonomic.jpg" alt="Autonomic Pharmacology">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Autonomic Pharmacology </h3>
+                            <p>Study of drugs that mimic or modify the functions of the ANS.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(12)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(12)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/ANS regulation.jpg" alt="ANS Regulation">
+                        </div>
+                        <div class="resource-info">
+                            <h3> ANS Regulation </h3>
+                            <p>How the ANS maintains homeostasis across various organ systems.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(13)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(13)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/agonists.jpg" alt="Muscarinic Agonists">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Muscarinic Agonists </h3>
+                            <p>Parasympathomimetic drugs and their effects on muscarinic receptors.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(14)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(14)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-img">
+                            <img src="images-3/antagonists.jpg" alt="Muscarinic Antagonist">
+                        </div>
+                        <div class="resource-info">
+                            <h3> Muscarinic Antagonists </h3>
+                            <p>Pharmacology of anticholinergic agents and their clinical applications.</p>
+                            <div class="buttonz">
+                                <a onclick="viewTherapVideo2(15)" class="pdf-download"><i class="fas fa-video"></i> Checkout Video</a>
+                                <a onclick="viewTherap2(15)" class="pdf-download"><i class="fas fa-map-signs"></i> Document</a>
+                                <a href="not-yet-ready.html" class="pdf-download"><i class="fas fa-question-circle"></i> Try The Quiz</a>
+                            </div>
+                            <div class="resource-meta">
+                                <span><i class="far fa-file-pdf"></i> CBU - SOM</span>
+                                <span><i class="fas fa-user-md"></i> Term 1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> 
 
             <div class="tab-content" id="biochem">
                 <a href="https://drive.google.com/drive/folders/1NIB0oOfXY-7XPtWQ6C32GFBr52yPdx_1?usp=drive_link" class="pdf-recommended">
@@ -2557,7 +2759,7 @@
                             <h3>Introduction to Pathology</h3>
                             <p>Fundamental concepts of pathology including disease mechanisms, causes of disease and basic terminology.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewPathoVideo2(1)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewPatho2(1)" class="pdf-download">
@@ -2582,7 +2784,7 @@
                             <h3>Cellular Adaptation, Injury & Death</h3>
                             <p>Study of cellular responses to stress including adaptation, reversible injury, irreversible injury and cell death.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewPathoVideo2(2)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewPatho2(2)" class="pdf-download">
@@ -2607,7 +2809,7 @@
                             <h3>Acute and Chronic Inflammation</h3>
                             <p>Mechanisms, mediators and cellular events involved in acute and chronic inflammatory responses.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewPathoVideo2(3)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewPatho2(3)" class="pdf-download">
@@ -2632,10 +2834,10 @@
                             <h3>Tissue Renewal, Regeneration and Repair</h3>
                             <p>Processes involved in healing including regeneration, fibrosis, scar formation and tissue remodeling.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewPathoVideo2(3)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
-                                <a onclick="viewPatho2(4)" class="pdf-download">
+                                <a onclick="viewPatho2(3)" class="pdf-download">
                                     <i class="fas fa-map-signs"></i> Document
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -2657,10 +2859,10 @@
                             <h3>Haemodynamic Disorders, Thromboembolic Disease and Shock</h3>
                             <p>Understanding edema, thrombosis, embolism, infarction and the pathophysiology of shock.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a onclick="viewPathoVideo2(4)" class="pdf-download">
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
-                                <a  onclick="viewPatho2(5)"  class="pdf-download">
+                                <a  onclick="viewPatho2(4)"  class="pdf-download">
                                     <i class="fas fa-map-signs"></i> Document
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -2799,7 +3001,10 @@
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewphysiology(5)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
+                                    <i class="fas fa-map-signs"></i> Class Notes
+                                </a>
+                                <a href="MBS-210/smooth-muscle-notes.html" class="pdf-download">
+                                    <i class="fas fa-map-signs"></i> ToToZ Notes
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
                                     <i class="fas fa-question-circle"></i> Try The Quiz
@@ -2949,7 +3154,10 @@
                                     <i class="fas fa-video"></i> Checkout Video
                                 </a>
                                 <a onclick="viewphysiology(11)" class="pdf-download">
-                                    <i class="fas fa-map-signs"></i> Document
+                                    <i class="fas fa-map-signs"></i> Class Notes
+                                </a>
+                                <a href="MBS-210/body-fluid-notes.html" class="pdf-download">
+                                    <i class="fas fa-map-signs"></i> ToToZ Note
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
                                     <i class="fas fa-question-circle"></i> Try The Quiz
@@ -3011,7 +3219,7 @@
                                 <span><i class="fas fa-user-md"></i> By Dr. Smith</span>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 
@@ -4247,10 +4455,10 @@
                             <img src="images/Pharmacy3.jpg" alt="Clinical Guidelines">
                         </div>
                         <div class="resource-info">
-                            <h3>histology </h3>
-                            <p>The one with 62 slides.</p>
+                            <h3>Anatomy </h3>
+                            <p>Past papers are not very usefull in terms of questions.... but basically just gaining the confidence and having a glimpse of how the questions are phrased.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a href="MBS-200/anatomy-test-1.html" class="pdf-download">
                                     <i class="fas fa-video"></i> Test 1 
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -4276,9 +4484,9 @@
                         </div>
                         <div class="resource-info">
                             <h3> Biochemistry </h3>
-                            <p> The one with 53 slides.</p>
+                            <p> Past Papers are the heart and soul of this course, if you just go through past papers without studying the notes you are assured you will get a ka 50%, but in order for the answers to make sense you still have to go through the ppts</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a href="MBS-230-B/test-1.html" class="pdf-download">
                                     <i class="fas fa-video"></i> Test 1 
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -4362,7 +4570,7 @@
                             <h3>Physiology</h3>
                             <p>The one with 160 slides.</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a href="MBS-210/physio-test-1.html" class="pdf-download">
                                     <i class="fas fa-video"></i> Test 1 
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -4388,9 +4596,9 @@
                         </div>
                         <div class="resource-info">
                             <h3> Lab Science </h3>
-                            <p>The one with 160 slides.</p>
+                            <p>Lab Science past papers .</p>
                             <div class="buttonz">
-                                <a href="not-yet-ready.html" class="pdf-download">
+                                <a href="MBS-240/test-1.html" class="pdf-download">
                                     <i class="fas fa-video"></i> Test 1 
                                 </a>
                                 <a href="not-yet-ready.html" class="pdf-download">
@@ -4646,52 +4854,10 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ToToZ Collection</h3>
-                    <p>Advancing medical education through innovative digital learning resources for healthcare professionals worldwide.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Video Library</a></li>
-                        <li><a href="#">Audio Resources</a></li>
-                        <li><a href="#">Research Papers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Specialties</h3>
-                    <ul>
-                        <li><a href="#">Cardiology</a></li>
-                        <li><a href="#">Neurology</a></li>
-                        <li><a href="#">Surgery</a></li>
-                        <li><a href="#">Pediatrics</a></li>
-                        <li><a href="#">Radiology</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Drive, Boston, MA</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@ToToZ Collection.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 ToToZ Collection. All Rights Reserved. | Designed for Healthcare Professionals</p>
-            </div>
-        </div>
+    <footer class="footer">
+        <button id="backBtn" onclick="goBack()">⬅ Back</button>
+        <h1>ToToZ Collection</h1>
+        <button id="forwardBtn" onclick="goForward()">Forward ➡</button>
     </footer>
 
     <script>
@@ -5028,6 +5194,11 @@ featureCards.forEach(card => {
         window.location.href = "histology-2nd-year/histology-pdf.html";
         }
 
+        function viewhistologyVideo(pdfNum) {
+        localStorage.setItem("showhistologyVideo", pdfNum);
+        window.location.href = "histology-2nd-year/histology2-video.html";
+        }
+
         function viewphysiology(pdfNum) {
         localStorage.setItem("showphysiology", pdfNum);
         window.location.href = "MBS-210/physiology-pdf.html";
@@ -5048,9 +5219,19 @@ featureCards.forEach(card => {
         window.location.href = "MBS-220/pathology-pdf.html";
         }
 
+        function viewPathoVideo2(pdfNum) {
+        localStorage.setItem("showPathoVideo2", pdfNum);
+        window.location.href = "MBS-220/patholog-video.html";
+        }
+
         function viewEmbryology(pdfNum) {
         localStorage.setItem("showEmbryology", pdfNum);
         window.location.href = "MBS-200/embryology-pdf.html";
+        }
+
+        function viewLab2(pdfNum) {
+        localStorage.setItem("showLab2", pdfNum);
+        window.location.href = "MBS-240/labscience2-PDF.html";
         }
 
         function viewgrossanatomy(pdfNum) {
@@ -5058,10 +5239,34 @@ featureCards.forEach(card => {
         window.location.href = "MBS-200/gross-anatomy-pdf.html";
         }
 
+        function viewTherap2(pdfNum) {
+        localStorage.setItem("showTherap2", pdfNum);
+        window.location.href = "MBS-230-T/therapeutics-pdf.html";
+        }
+
         function viewPhysioVideo(pdfNum) {
         localStorage.setItem("showPhysioVideo", pdfNum);
         window.location.href = "MBS-210/physiology-video.html";
         }
+
+        function goBack() {
+      window.history.back();
+    }
+
+    function goForward() {
+      window.history.forward();
+    }
+
+    function updateButtons() {
+      // Disable back if no history
+      document.getElementById("backBtn").disabled = (history.length <= 1);
+    }
+
+    window.onload = updateButtons;
+
     </script>
+
+<script src="nav.js"></script>
+
 </body>
 </html>
